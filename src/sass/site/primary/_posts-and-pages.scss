@@ -1,0 +1,50 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	hyphens 	: auto;
+	margin 		: 1.5em 0 0;
+	word-wrap 	: break-word;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.site-content {
+	overflow 	: auto;
+	width 		: 100%;
+
+	@include centerMax();
+
+	margin-bottom: $size__default-bot-marg;
+}
+
+.content-area {
+	display 	: flex;
+	overflow 	: auto;
+	padding 	: 1em;
+	width 		: 100%;
+}
+
+[role="main"] {
+	@media only screen and (min-width: $bp__tablet) {
+		.content-sidebar & {
+			margin 	: 0 2.5% 0 0;
+			width 	: 70%;
+		}
+
+		.sidebar-content & {
+			margin 	: 0 0 0 2.5%;
+			width 	: 70%;
+		}
+	}
+}

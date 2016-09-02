@@ -1,0 +1,71 @@
+/**
+ * Menu item effect styling.
+ */
+.text-coin {
+	perspective 	: 800px;
+	position 		: relative;
+	vertical-align 	: top;
+
+	.coin {
+		display 		: block;
+		position 		: relative;
+		text-decoration : none;
+		transform-style : preserve-3d;
+		transition 		: $trans__default;
+
+		@media only screen and (min-width: $bp__laptop) {
+			height 		: $font__size-coin;
+			width 		: $font__size-coin;
+		}
+
+		> div {
+			height 	: 100%;
+			position: absolute;
+			width 	: 100%;
+		}
+	}
+
+	@media only screen and (min-width: $bp__laptop) {
+
+		&:hover {
+
+			.coin {
+				transform: rotate3d( 0, 1, 0, -180deg );
+			}
+
+			.front > svg {
+				opacity: 0;
+			}
+
+			.back > .text {
+				opacity: 1;
+			}
+		}
+	}
+
+	.front {
+		z-index: 2;
+
+		@media only screen and (min-width: $bp__laptop) {
+			svg {
+				opacity 	: 1;
+				transition 	: $trans__default;
+			}
+		}
+	}
+
+	.back {
+		@media only screen and (min-width: $bp__laptop) {
+			transform: rotate3d( 0, 1, 0, 180deg);
+		}
+
+		.text {
+			margin 		: 0 auto;
+			transition 	: $trans__default;
+
+			@media only screen and (min-width: $bp__laptop) {
+				opacity 	: 0;
+			}
+		}
+	}
+}

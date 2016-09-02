@@ -1,0 +1,348 @@
+.main-navigation {
+	clear			: both;
+	display			: block;
+	width			: 100%;
+
+	.menu-item { // Every menu items
+		position: relative;
+
+		&:hover,
+		&.focus {
+
+			> ul { // Menu list directly under each menu item.
+
+			}
+
+			> a { // Menu item link directly under each menu item.
+
+				@media only screen and (min-width: $bp__menu-button + 1) {
+					background-color: $color__bg-menu-item;
+					color 			: $color__text-menu-hover;
+				}
+			}
+
+		}
+
+		> a { // Only the menu item links irectly beneath each menu item, not the ones below that.
+
+		}
+
+		&.menu-item-has-children { // Every menu item with children.
+
+		}
+	}
+
+	.menu-item-link { // Every menu item link
+		color 			: $color__text-menu-mobile;
+		display			: block;
+		padding 		: 0.5em 1em;
+		text-decoration	: none;
+		white-space 	: nowrap;
+
+		@media only screen and (min-width: $bp__sidemenu + 1) {
+			color: $color__text-menu;
+		}
+
+		@media only screen and (min-width: $bp__menu-button + 1) {
+			background-color: $color__bg-menu-item;
+			color 			: $color__text-menu-hover;
+		}
+
+		&:focus {
+			outline-color: $color__outline-menu-link;
+		}
+	}
+
+
+
+	.nav-menu { // top menu list
+
+		&[aria-expanded="false"] {
+			@media only screen and (max-width: $bp__laptop) {
+				display: none;
+			}
+		}
+
+		&[aria-expanded="true"] {
+			display : block;
+			padding : 0;
+
+			.menu-main-menu-container {
+				@media only screen and (min-width: $bp__tablet) and (max-width: $bp__laptop) {
+					transform: translateX(0);
+				}
+
+			}
+		}
+	}
+
+	.wrap-submenu { // Every submenu wrap
+
+		&.closed {
+			display: none;
+		}
+
+		@media only screen and (max-width: $bp__menu-button) {
+			border-top: 3px solid $color__border-submenu-hint;
+		}
+
+		&.depth-1 {
+
+		}
+
+		&.depth-2 {
+
+		}
+		&.depth-3 {
+
+		}
+	}
+
+	.sub-menu {
+		@media only screen and (min-width: $bp__menu-button + 1) {
+			box-shadow	: 0 3px 3px rgba(0, 0, 0, 0.2);
+			left 		: 0;
+			opacity 	: 0;
+			position	: absolute;
+			transition 	: visibility 0s ease 0.5s, opacity 0.5s ease;
+			visibility 	: hidden;
+			z-index		: 99999;
+		} // breakpoint
+	}
+
+	.sub-menu-0 { // second-level menu, first submenu
+		background-color: $color__bg-menu-item-mobile;
+		display			: inherit;
+	}
+
+	.sub-menu-1 { // third-level menu, second submenu
+		@media only screen and (min-width: $bp__sidemenu + 1) {
+			left: 100%;
+			top	: 0;
+		}
+	}
+
+	.sub-menu-2 { // fourth-level menu, third submenu
+
+	}
+
+
+
+	.menu-item-level-0 { // first-level menu item, root
+		@media only screen and (min-width: $bp__sidemenu + 1) {
+			&:hover {
+				.wrap-submenu.depth-0 {
+					 display: block;
+				}
+
+				.sub-menu-0 {
+					opacity 	: 1;
+					visibility 	: visible;
+				}
+			}
+		}
+	}
+
+	.menu-item-level-1 { // second-level menu item, first submenu
+		display 	: block;
+		text-align 	: left;
+
+		&:last-child { // Last child of the 2nd-level submenu and below.
+
+			@media only screen and (max-width: $bp__sidemenu) {
+				padding-bottom: 0;
+			}
+		}
+
+		@media only screen and (min-width: $bp__sidemenu + 1) {
+			&:hover {
+				.wrap-submenu.depth-1 {
+					 display: block;
+				}
+
+				.sub-menu-1 {
+					left 		: 100%;
+					opacity 	: 1;
+					top 		: 0;
+					visibility 	: visible;
+				}
+			}
+		}
+	}
+
+	.menu-item-level-2 { // third-level menu item, second submenu
+
+	}
+
+	.menu-item-level-3 { // fourth-level menu item, third submenu
+
+	}
+
+
+
+	.menu-item-link-level-0 { // first-level menu item link, root
+
+	}
+
+	.menu-item-link-level-1 { // second-level menu item link, first submenu
+		@media only screen and (max-width: $bp__sidemenu) {
+			padding: 0.5em 2em;
+		}
+
+		@media only screen and (min-width: $bp__sidemenu + 1) {
+			color 		: $color__text-submenu;
+			padding 	: 0.5em 1em;
+			white-space : nowrap;
+		}
+	}
+
+	.menu-item-link-level-2 { // third-level menu item link, second submenu
+		@media only screen and (max-width: $bp__sidemenu) {
+			border-left : none;
+			padding 	: 0.5em 3em;
+		}
+	}
+
+	.menu-item-link-level-3 { // fourth-level menu item link, third submenu
+
+	}
+
+
+	.show-hide {
+		cursor 		: pointer;
+		height 		: 2em;
+		position 	: absolute;
+		right 		: 0;
+		top 		: 0.5em;
+		width 		: 2em;
+
+		@media only screen and (min-width: $bp__menu-button + 1) {
+			display: none;
+		}
+	}
+
+	ul { // Every menu list
+		@include listreset();
+		text-align 	: left;
+
+		@media only screen and (min-width: $bp__menu-button + 1) {
+			@include center();
+		}
+
+		 > li { // Only the menu items directly under each menu list, not ones below that.
+		 	@media only screen and (max-width: $bp__menu-button) {
+				position: relative;
+			}
+
+		 	 > a { // Only the menu item links directly under each menu item, not ones below that.
+				padding: 1.5em;
+			}
+		}
+	} // first-level ul
+
+	.current_page_item,
+	.current-menu-item,
+	.current-menu-parent,
+	.current_page_ancestor {
+
+		@media only screen and (min-width: $bp__sidemenu + 1) {
+			background-color: $color__bg-menu-current;
+		}
+
+		> a { // menu item link directly under the above current class menu items and below.
+			color: $color__text-menu-current;
+		}
+
+		&:hover,
+		&.focus {
+
+			> a {
+				color: $color__text-menu-current-hover;
+			}
+		}
+	}
+
+	/* &.toggled {
+
+		.nav-menu {
+			@include menutoggle();
+			padding: 0;
+		}
+
+		.menu-main-menu-container {
+			@media only screen and (min-width: $bp__tablet) and (max-width: $bp__laptop) {
+				transform: translateX(0);
+			}
+
+		}
+	} */
+
+	/* Small menu */
+	.menu-toggle {
+		@include menutoggle();
+		background		: $color__bg-menu-button-mobile;
+		color 			: $color__text-menu-button-mobile;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background: $color__bg-menu-button-mobile;
+		}
+
+		@media only screen and (min-width: $bp__tablet) and (max-width: $bp__laptop) {
+			background-color: $color__bg-menu-button;
+			color 			: $color__text-menu-button;
+			position 		: absolute;
+			right 			: 0;
+			width 			: 200px;
+			z-index 		: 99;
+		}
+
+		@media only screen and (min-width: $bp__menu-button + 1) {
+			display 		: none;
+		}
+	}
+
+	.children {
+		display: none;
+
+		@media only screen and (min-width: $bp__menu-button + 1) {
+			display 	: inline-block;
+			height 		: 0.75em;
+			margin-left : 0.25em;
+			width 		: 0.75em;
+		}
+	}
+
+
+} // .main-navigation
+
+// Center Menu
+.menu-main-menu-container {
+	margin		: 0 auto;
+
+	/**
+	 * Tablet menu - slide in from left - on top or pushing content
+	 */
+	@media only screen and (min-width: $bp__tablet) and (max-width: $bp__laptop) {
+		background-color: $dark;
+		bottom 			: 0;
+		height 			: 100%;
+		left 			: 0;
+		overflow 		: auto;
+		position 		: fixed;
+		top 			: 0;
+		transform 		: translateX( -$size__menu_width);
+		transition 		: transform 0.4s ease;
+		width 			: $size__menu_width;
+		z-index 		: 9999;
+
+		.admin-bar & {
+			padding-top: $size__wp-admin-bar-1;
+
+			@media only screen and (min-width: $bp__admin-bar-1) {
+				padding-top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+}
