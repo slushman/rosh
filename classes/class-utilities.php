@@ -726,12 +726,12 @@ class Rosh_Utilities {
 
 		define( 'WP_GITHUB_FORCE_UPDATE', TRUE );
 
-		$config['slug'] 				= '';
-		$config['proper_folder_name'] 	= '';
-		$config['api_url'] 				= '';
-		$config['raw_url'] 				= '';
-		$config['github_url'] 			= '';
-		$config['zip_url'] 				= '';
+		$config['slug'] 				= get_theme_root( 'rosh' );
+		$config['proper_folder_name'] 	= 'rosh';
+		$config['api_url'] 				= 'https://api.github.com/repos/slushman/Rosh';
+		$config['raw_url'] 				= 'https://raw.github.com/slushman/Rosh/master';
+		$config['github_url'] 			= 'https://github.com/slushman/Rosh';
+		$config['zip_url'] 				= 'https://github.com/slushman/rosh/archive/master.zip';
 		$config['sslverify'] 			= TRUE;
 		$config['requires'] 			= '3.5';
 		$config['tested'] 				= '4.6';
@@ -752,7 +752,7 @@ class Rosh_Utilities {
 			'access_token' => '',
 		);*/
 
-		new WP_GitHub_Updater( $config );
+		new Rosh_Updater( $config );
 
 	} // update()
 

@@ -8,24 +8,24 @@
  */
 
 /**
- * Custom template tags for this theme.
+ * Include all functions files manually.
  */
-require get_stylesheet_directory() . '/inc/template-tags.php';
+$functions = array( 'template-tags', 'imagekit', 'themekit' );
 
-/**
- * Load The image function library
- */
-require get_stylesheet_directory() . '/inc/imagekit.php';
+foreach ( $functions as $function ) {
 
-/**
- * Load Slushman Themekit
- */
-require get_stylesheet_directory() . '/inc/themekit.php';
+	require get_stylesheet_directory() . '/functions/' . $function . '.php';
+
+}
+
+
 
 /**
  * Load Main Menu Walker
  */
-require get_stylesheet_directory() . '/inc/main-menu-walker.php';
+require get_stylesheet_directory() . '/classes/main-menu-walker.php';
+
+
 
 /**
  * Autoloader function
