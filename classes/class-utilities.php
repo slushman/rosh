@@ -720,42 +720,6 @@ class Rosh_Utilities {
 
 	} // unlink_private_pages()
 
-	public function update() {
-
-		if ( ! is_admin() ) { return; }
-
-		define( 'WP_GITHUB_FORCE_UPDATE', TRUE );
-
-		$config['slug'] 				= get_theme_root( 'rosh' );
-		$config['proper_folder_name'] 	= 'rosh';
-		$config['api_url'] 				= 'https://api.github.com/repos/slushman/Rosh';
-		$config['raw_url'] 				= 'https://raw.github.com/slushman/Rosh/master';
-		$config['github_url'] 			= 'https://github.com/slushman/Rosh';
-		$config['zip_url'] 				= 'https://github.com/slushman/rosh/archive/master.zip';
-		$config['sslverify'] 			= TRUE;
-		$config['requires'] 			= '3.5';
-		$config['tested'] 				= '4.6';
-		$config['readme'] 				= 'README.md';
-		$config['access_token'] 		= '';
-
-		/*$config = array(
-			'slug' => plugin_basename( __FILE__ ),
-			'proper_folder_name' => 'github-updater',
-			'api_url' => 'https://api.github.com/repos/jkudish/WordPress-GitHub-Plugin-Updater',
-			'raw_url' => 'https://raw.github.com/jkudish/WordPress-GitHub-Plugin-Updater/master',
-			'github_url' => 'https://github.com/jkudish/WordPress-GitHub-Plugin-Updater',
-			'zip_url' => 'https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/archive/master.zip',
-			'sslverify' => true,
-			'requires' => '3.0',
-			'tested' => '3.3',
-			'readme' => 'README.md',
-			'access_token' => '',
-		);*/
-
-		new Rosh_Updater( $config );
-
-	} // update()
-
 	/**
 	 * Register widget areas.
 	 *

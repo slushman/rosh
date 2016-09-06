@@ -242,7 +242,6 @@ class Rosh_Controller {
 
 		$theme_utils = new Rosh_Utilities( $this->get_theme_name(), $this->get_version() );
 
-		$this->loader->action( 'init', 								$theme_utils, 'update', 1 );
 		$this->loader->action( 'after_setup_theme', 				$theme_utils, 'setup' );
 		$this->loader->action( 'after_setup_theme', 				$theme_utils, 'register_menus' );
 		$this->loader->action( 'after_setup_theme', 				$theme_utils, 'content_width', 0 );

@@ -26,6 +26,8 @@ class Rosh_Menukit {
 	 */
 	public function add_depth_to_menu_item_classes( $classes, $item, $args, $depth ) {
 
+		if ( empty( $classes ) ) { return $classes; }
+
 		$classes[] = 'menu-item-level-' . $depth;
 
 		return $classes;
@@ -46,6 +48,8 @@ class Rosh_Menukit {
 	 * @return 		array 							The modified menu item link attributes.
 	 */
 	public function add_depth_to_menu_item_links( $atts, $item, $args, $depth ) {
+
+		if ( empty( $item->classes ) ) { return $atts; }
 
 		$atts['class'] = '';
 		$atts['class'] .= 'menu-item-link ';
@@ -286,7 +290,7 @@ class Rosh_Menukit {
 			$output .= '<span class="children">' . rosh_get_svg( 'caret-right' ) . '</span>';
 
 		}
-		
+
 		$output .= '<span class="show-hide flex-center">+</span>';
 
 		return $output;
