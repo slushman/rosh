@@ -23,10 +23,10 @@ do_action( 'rosh_html_before' );
 		 */
 		do_action( 'rosh_head_top' );
 
-		?><meta charset="<?php bloginfo( 'charset' ); ?>">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="profile" href="http://gmpg.org/xfn/11">
-		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"><?php
+		/**
+		 * The rosh_head_content action hook
+		 */
+		do_action( 'rosh_head_content' );
 
 		wp_head();
 
@@ -36,7 +36,6 @@ do_action( 'rosh_html_before' );
 		do_action( 'rosh_head_bottom' );
 
 	?></head>
-
 	<body <?php body_class(); ?>><?php
 
 		/**

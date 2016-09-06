@@ -189,6 +189,8 @@ class Rosh_Controller {
 
 		$theme_hooks = new Rosh_Themehooks( $this->get_theme_name(), $this->get_version() );
 
+		$this->loader->action( 'rosh_head_content', 			$theme_hooks, 'head_content', 10 );
+
 		$this->loader->action( 'rosh_header_top', 			$theme_hooks, 'header_wrap_start', 10 );
 		$this->loader->action( 'rosh_header_top', 			$theme_hooks, 'site_branding_begin', 15 );
 

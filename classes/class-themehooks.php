@@ -233,6 +233,21 @@ class Rosh_Themehooks {
 	} // four_04_tag_cloud()
 
 	/**
+	 * Adds default meta tags in the head.
+	 *
+	 * @hooked 		rosh_head_content 			10
+	 * @return 		mixed 						The default meta tags markup.
+	 */
+	public function head_content() {
+
+		?><meta charset="<?php bloginfo( 'charset' ); ?>">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"><?php
+
+	} // head_content()
+
+	/**
 	 * The header wrap markup
 	 *
 	 * @hooked  	rosh_header_bottom 		90

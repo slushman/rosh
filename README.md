@@ -8,13 +8,13 @@
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A custom WordPress theme framework, original derived from _s, or underscores by Automattic, designed and coded by slushman.
+A custom WordPress theme framework, originally derived from _s, or underscores by Automattic, designed and coded by slushman.
 
 
 
 ## Description
 
-A custom WordPress theme framework, original derived from _s, or underscores by Automattic, designed and coded by slushman.
+A custom WordPress theme framework, originally derived from _s, or underscores by Automattic, designed and coded by slushman.
 
 
 
@@ -28,9 +28,13 @@ A custom WordPress theme framework, original derived from _s, or underscores by 
 
 ## Frequently Asked Questions
 
-### Does this theme support any plugins
+### Does this theme support any plugins?
 
 Rosh includes support from Infinite Scroll in Jetpack.
+
+### So, is this an _s theme then?
+
+No. Rosh started out as a fork of _s, but was converted to a framework to make it simpler to update previously-built projects. You will need to create and activate a child theme to use Rosh.
 
 
 
