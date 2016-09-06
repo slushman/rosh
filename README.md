@@ -4,7 +4,7 @@
 * Tags: featured-images, translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
 * Requires at least: 4.0
 * Tested up to: 4.6
-* Stable tag: 1.0.1
+* Stable tag: 1.0.2
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,11 @@ No. Rosh started out as a fork of _s, but was converted to a framework to make i
 
 
 ## Changelog
+
+### 1.0.2
+* Moves default meta tags to function.
+* Adds rosh_head_content action hook.
+* Testing Rosh updating.
 
 ### 1.0.1
 * Adds new form fields.
