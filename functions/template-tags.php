@@ -8,9 +8,9 @@
  */
 
 if ( ! function_exists( 'rosh_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- */
+	/**
+	 * Prints HTML with meta information for the current post-date/time and author.
+	 */
 	function rosh_posted_on() {
 
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -43,9 +43,9 @@ endif;
 
 
 if ( ! function_exists( 'rosh_entry_footer' ) ) :
-/**
- * Prints HTML with meta information for the categories, tags and comments.
- */
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
 	function rosh_entry_footer() {
 
 		// Hide category and tag text for pages.
@@ -119,12 +119,3 @@ function rosh_categorized_blog() {
 	}
 
 } // rosh_categorized_blog()
-
-/**
- * Prints whatever in a nice, readable format
- */
-function showme( $input ) {
-
-	echo '<pre>'; print_r( $input ); echo '</pre>';
-
-} // showme()

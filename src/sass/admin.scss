@@ -25,7 +25,7 @@
 	width 				: 150px;
 
 	&.bordered {
-		border: 4px dashed #b4b9be;
+		border: 4px dashed $ltmed;
 	}
 }
 
@@ -36,16 +36,16 @@
 }
 
 .field-error {
-	background-color: #dc3232;
-	color 			: #fff;
+	background-color: $errorred;
+	color 			: $light;
 	font-weight 	: 700;
 	padding 		: 0.5em;
 }
 
 .date-field-icon,
 .time-field-icon {
-	background-color: #f7f7f7;
-	border 			: 1px solid #ddd;
+	background-color: $ltgray;
+	border 			: 1px solid $ltmed;
 	border-radius 	: 3px 0 0 3px;
 	height 			: 23px;
 	margin-right 	: -6px;

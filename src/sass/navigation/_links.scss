@@ -105,52 +105,6 @@ a {
 		color: $color__link;
 	}
 
-
-	// $svgs: 'pdf' '#FF0000' 'pdf',
-	// 		'nope' 'nope' 'nope';
-	//
-	// @each $file in $svgs {
-	// 	&[href$=".#{nth($file, 1)}"] {
-	//
-	// 		&:hover:after {
-	// 			content: url( "assets/svgs/#{nth($file, 3)}-hover.svg" );
-	// 		}
-	//
-	// 		&:after {
-	// 			content 		: url( "assets/svgs/#{nth($file, 3)}.svg" );
-	// 			display 		: inline-block;
-	// 			height 			: 1em;
-	// 			margin-left 	: 0.25em;
-	// 			width 			: 1em;
-	// 		}
-	// 	}
-	// }
-
-
-
-	// $svgbgs: 'pdf' '#FF0000' 'pdf',
-	// 		'nope' 'nope' 'nope';
-	//
-	// @each $file in $svgbgs {
-	// 	&[href$=".#{nth($file, 1)}"] {
-	//
-	// 		&:hover:after {
-	// 			background-image: url( "assets/svgs/#{nth($file, 3)}-hover.svg" );
-	// 		}
-	//
-	// 		&:after {
-	// 			background-image: url( "assets/svgs/#{nth($file, 3)}.svg" );
-	// 			background-size : 1em;
-	// 			content 		: " ";
-	// 			display 		: inline-block;
-	// 			height 			: 1em;
-	// 			margin-left 	: 0.25em;
-	// 			width 			: 1em;
-	// 		}
-	// 	}
-	// }
-
-
 }
 
 .menu {

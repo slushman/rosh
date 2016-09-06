@@ -1,3 +1,6 @@
+/**
+ * The primary menu styling.
+ */
 .main-navigation {
 	clear			: both;
 	display			: block;
@@ -16,8 +19,8 @@
 			> a { // Menu item link directly under each menu item.
 
 				@media only screen and (min-width: $bp__menu-button + 1) {
-					background-color: $color__bg-menu-item;
-					color 			: $color__text-menu-hover;
+					background-color: $med;
+					color 			: $darkdark;
 				}
 			}
 
@@ -33,23 +36,23 @@
 	}
 
 	.menu-item-link { // Every menu item link
-		color 			: $color__text-menu-mobile;
+		color 			: $dark;
 		display			: block;
 		padding 		: 0.5em 1em;
 		text-decoration	: none;
 		white-space 	: nowrap;
 
 		@media only screen and (min-width: $bp__sidemenu + 1) {
-			color: $color__text-menu;
+			color: $dark;
 		}
 
 		@media only screen and (min-width: $bp__menu-button + 1) {
-			background-color: $color__bg-menu-item;
-			color 			: $color__text-menu-hover;
+			background-color: $med;
+			color 			: $darkdark;
 		}
 
 		&:focus {
-			outline-color: $color__outline-menu-link;
+			outline-color: $med;
 		}
 	}
 
@@ -83,7 +86,7 @@
 		}
 
 		@media only screen and (max-width: $bp__menu-button) {
-			border-top: 3px solid $color__border-submenu-hint;
+			border-top: 3px solid $med;
 		}
 
 		&.depth-1 {
@@ -111,7 +114,7 @@
 	}
 
 	.sub-menu-0 { // second-level menu, first submenu
-		background-color: $color__bg-menu-item-mobile;
+		background-color: $med;
 		display			: inherit;
 	}
 
@@ -190,7 +193,7 @@
 		}
 
 		@media only screen and (min-width: $bp__sidemenu + 1) {
-			color 		: $color__text-submenu;
+			color 		: $dark;
 			padding 	: 0.5em 1em;
 			white-space : nowrap;
 		}
@@ -246,18 +249,18 @@
 	.current_page_ancestor {
 
 		@media only screen and (min-width: $bp__sidemenu + 1) {
-			background-color: $color__bg-menu-current;
+			background-color: $darkmed;
 		}
 
 		> a { // menu item link directly under the above current class menu items and below.
-			color: $color__text-menu-current;
+			color: $dark;
 		}
 
 		&:hover,
 		&.focus {
 
 			> a {
-				color: $color__text-menu-current-hover;
+				color: $med;
 			}
 		}
 	}
@@ -280,18 +283,18 @@
 	/* Small menu */
 	.menu-toggle {
 		@include menutoggle();
-		background		: $color__bg-menu-button-mobile;
-		color 			: $color__text-menu-button-mobile;
+		background		: $med;
+		color 			: $light;
 
 		&:hover,
 		&:focus,
 		&:active {
-			background: $color__bg-menu-button-mobile;
+			background: $med;
 		}
 
 		@media only screen and (min-width: $bp__tablet) and (max-width: $bp__laptop) {
-			background-color: $color__bg-menu-button;
-			color 			: $color__text-menu-button;
+			background-color: $med;
+			color 			: $light;
 			position 		: absolute;
 			right 			: 0;
 			width 			: 200px;

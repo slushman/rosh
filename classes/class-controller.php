@@ -189,7 +189,7 @@ class Rosh_Controller {
 
 		$theme_hooks = new Rosh_Themehooks( $this->get_theme_name(), $this->get_version() );
 
-		$this->loader->action( 'rosh_head_content', 			$theme_hooks, 'head_content', 10 );
+		$this->loader->action( 'rosh_head_content', 		$theme_hooks, 'head_content', 10 );
 
 		$this->loader->action( 'rosh_header_top', 			$theme_hooks, 'header_wrap_start', 10 );
 		$this->loader->action( 'rosh_header_top', 			$theme_hooks, 'site_branding_begin', 15 );
@@ -209,21 +209,21 @@ class Rosh_Controller {
 		$this->loader->action( 'rosh_while_before', 		$theme_hooks, 'title_single_post' );
 		$this->loader->action( 'rosh_while_before', 		$theme_hooks, 'title_search', 10 );
 
-		$this->loader->action( 'rosh_while_after', 			$theme_hooks, 'posts_nav' );
-
 		$this->loader->action( 'rosh_content_top', 			$theme_hooks, 'breadcrumbs' );
 
+		$this->loader->action( 'entry_header_content', 		$theme_hooks, 'title_entry', 10 );
+		$this->loader->action( 'entry_header_content', 		$theme_hooks, 'title_page', 10 );
+		$this->loader->action( 'entry_header_content', 		$theme_hooks, 'posted_on', 20 );
+
 		$this->loader->action( 'rosh_entry_after', 			$theme_hooks, 'comments', 10 );
+
+		$this->loader->action( 'rosh_while_after', 			$theme_hooks, 'posts_nav' );
 
 		$this->loader->action( 'rosh_404_content', 			$theme_hooks, 'add_search', 10 );
 		$this->loader->action( 'rosh_404_content', 			$theme_hooks, 'four_04_posts_widget', 15 );
 		$this->loader->action( 'rosh_404_content', 			$theme_hooks, 'four_04_categories', 20 );
 		$this->loader->action( 'rosh_404_content', 			$theme_hooks, 'four_04_archives', 25 );
 		$this->loader->action( 'rosh_404_content', 			$theme_hooks, 'four_04_tag_cloud', 30 );
-
-		$this->loader->action( 'entry_header_content', 		$theme_hooks, 'title_entry', 10 );
-		$this->loader->action( 'entry_header_content', 		$theme_hooks, 'title_page', 10 );
-		$this->loader->action( 'entry_header_content', 		$theme_hooks, 'posted_on', 20 );
 
 		$this->loader->action( 'rosh_footer_top', 			$theme_hooks, 'footer_wrap_begin' );
 

@@ -1,3 +1,15 @@
+$color__background-button	: $med;
+$color__bg-button-hover 	: lighten( $color__background-button, 10% );
+$color__bg-button-focus 	: darken( $color__background-button, 10% );
+
+$color__text-button 		: rgba(0, 0, 0, .8);
+$color__text-button-hover 	: $light;
+$color__text-button-focus 	: $light;
+
+$color__border-button		: $med $med $med;
+$color__border-button-hover	: $med $med $darkmed;
+$color__border-button-focus	: $darkmed $med $med;
+
 button,
 [type="button"],
 [role="button"],
@@ -7,12 +19,12 @@ button,
 	border 				: 1px solid;
 	border-color 		: $color__border-button;
 	border-radius		: 3px;
-	box-shadow 			: inset 0 1px 0 $color__shadow-button-inner, inset 0 15px 17px $color__shadow-button-inner, inset 0 -5px 12px $color__shadow-button-inner-2;
+	box-shadow 			: inset 0 1px 0 $medshadow, inset 0 15px 17px $medshadow, inset 0 -5px 12px $medshadow;
 	color 				: $color__text-button;
 	@include font-size(0.75);
 	line-height 		: 1;
 	padding 			: .6em 1em .4em;
-	text-shadow 		: 0 1px 0 $color__shadow-button-text;
+	text-shadow 		: 0 1px 0 $darkshadow;
 
 	&:hover {
 		background-color 	: $color__bg-button-hover;

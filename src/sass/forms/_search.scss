@@ -1,5 +1,5 @@
 .hidden-search-top {
-	background-color: $color__bg-search-container;
+	background-color: $med;
 	display 		: block;
 	height 			: $size__hidden-search;
 	margin-top 		: -$size__hidden-search;
@@ -28,9 +28,9 @@
 	}
 
 	.search-field {
-		background-color: $color__bg-search-field;
+		background-color: $light;
 		border-radius 	: 0;
-		color 			: $color__text-search-field;
+		color 			: $dark;
 		float 			: left;
 		font-size 		: 20px;
 		height 			: 38px;
@@ -47,7 +47,7 @@
 		transition 		: $trans__default;
 
 		&:hover {
-			background-color: $color__bg-search-btn-hover;
+			background-color: $med;
 		}
 
 		.dashicons-search {
