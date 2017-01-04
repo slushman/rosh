@@ -1,12 +1,14 @@
 <?php
+
 /**
  * Rosh Customizer
  *
  * Contains methods for customizing the theme customization screen.
  *
- * @link 		https://codex.wordpress.org/Theme_Customization_API
- * @since 		1.0.0
- * @package  	Rosh
+ * @link 			https://codex.wordpress.org/Theme_Customization_API
+ * @since 			1.0.0
+ * @package 		Rosh
+ * @subpackage 		Rosh/classes
  */
 class Rosh_Customizer {
 
@@ -14,6 +16,19 @@ class Rosh_Customizer {
 	 * Constructor
 	 */
 	public function __construct() {}
+
+	/**
+	 * Registers all the WordPress hooks and filters for this class.
+	 */
+	public function hooks() {
+
+		add_action( 'customize_register', 	array( $this, 'register_panels' ) );
+		add_action( 'customize_register', 	array( $this, 'register_sections' ) );
+		add_action( 'customize_register', 	array( $this, 'register_fields' ) );
+		add_action( 'wp_head', 				array( $this, 'header_output' ) );
+		add_action( 'customize_register', 	array( $this, 'load_customize_controls' ), 0 );
+
+	} // hooks()
 
 	/**
 	 * Registers custom panels for the Customizer
@@ -54,7 +69,31 @@ class Rosh_Customizer {
 	 */
 	public function register_sections( $wp_customize ) {
 
-		// Register sections here
+		// Tablet Menu Section
+		$wp_customize->add_section( 'tablet_menu',
+			array(
+				'active_callback' 	=> '',
+				'capability'  		=> 'edit_theme_options',
+				'description'  		=> esc_html__( '', 'rosh' ),
+				'panel' 			=> 'nav_menus',
+				'priority'  		=> 10,
+				'theme_supports'  	=> '',
+				'title'  			=> esc_html__( 'Tablet Menu Style', 'rosh' ),
+			)
+		);
+		
+		// Images Section
+		$wp_customize->add_section( 'images',
+			array(
+				'active_callback' 	=> '',
+				'capability'  		=> 'edit_theme_options',
+				'description'  		=> esc_html__( '', 'rosh' ),
+				'panel' 			=> '',
+				'priority'  		=> 10,
+				'theme_supports'  	=> '',
+				'title'  			=> esc_html__( 'Images', 'rosh' ),
+			)
+		);
 
 	} // register_sections()
 
@@ -85,26 +124,94 @@ class Rosh_Customizer {
 
 		// Site Identity Section Fields
 
-		// Google Tag Manager Field
+		// Google Tag Manager ID Field
 		$wp_customize->add_setting(
-			'tag_manager',
+			'tag_manager_id',
 			array(
+				'capability' 		=> 'edit_theme_options',
 				'default'  			=> '',
-				'transport' 		=> 'postMessage'
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport' 		=> 'postMessage',
+				'type' 				=> 'theme_mod'
 			)
 		);
 		$wp_customize->add_control(
-			'tag_manager',
+			'tag_manager_id',
 			array(
-				'description' 		=> esc_html__( 'Paste in the Google Tag Manager code here. Do not include the comment tags!', 'rosh' ),
-				'label' 			=> esc_html__( 'Google Tag Manager', 'rosh' ),
-				'priority' 			=> 90,
-				'section' 			=> 'title_tagline',
-				'settings' 			=> 'tag_manager',
-				'type' 				=> 'textarea'
+				'active_callback' 	=> '',
+				'description' 		=> esc_html__( 'Enter the Google Tag Manager container ID.', 'worknet' ),
+				'label'  			=> esc_html__( 'Google Tag Manager ID', 'worknet' ),
+				'priority' 			=> 10,
+				'section'  			=> 'title_tagline',
+				'settings' 			=> 'tag_manager_id',
+				'type' 				=> 'text'
 			)
 		);
-		$wp_customize->get_setting( 'tag_manager' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'tag_manager_id' )->transport = 'postMessage';
+
+
+		// Tablet Menu Field
+		$wp_customize->add_setting(
+			'tablet_menu',
+			array(
+				'capability' 		=> 'edit_theme_options',
+				'default'  			=> '',
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport' 		=> 'postMessage',
+				'type' 				=> 'theme_mod'
+			)
+		);
+		$wp_customize->add_control(
+			'tablet_menu',
+			array(
+				'active_callback' 	=> '',
+				'choices' 			=> array(
+					'tablet-slide-ontop-from-left' 		=> esc_html__( 'Slide On Top from Left', 'rosh' ),
+					'tablet-slide-ontop-from-right' 	=> esc_html__( 'Slide On Top from Right', 'rosh' ),
+					'tablet-slide-ontop-from-top' 		=> esc_html__( 'Slide On Top from Top', 'rosh' ),
+					'tablet-slide-ontop-from-bottom' 	=> esc_html__( 'Slide On Top from Bottom', 'rosh' ),
+					'tablet-push-from-left' 			=> esc_html__( 'Push In from Left', 'rosh' ),
+					'tablet-push-from-right' 			=> esc_html__( 'Push In from Right', 'rosh' ),
+				),
+				'description' 		=> esc_html__( 'Select how the tablet menu appears.', 'rosh' ),
+				'label'  			=> esc_html__( 'Tablet Menu', 'rosh' ),
+				'priority' 			=> 10,
+				'section'  			=> 'tablet_menu',
+				'settings' 			=> 'tablet_menu',
+				'type' 				=> 'select'
+			)
+		);
+		$wp_customize->get_setting( 'tablet_menu' )->transport = 'postMessage';
+		
+		
+		
+		// Images Fields
+		
+		// Default Featured Image Field
+		$wp_customize->add_setting(
+			'default_featured_image' ,
+			array(
+				'capability' 			=> 'edit_theme_options',
+				'default'  				=> '',
+				'sanitize_callback' 	=> 'esc_url_raw',
+				'transport' 			=> 'postMessage',
+				'type' 					=> 'theme_mod'
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Media_Control(
+				$wp_customize,
+				'default_featured_image',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '', 'rosh' ),
+					'label' 			=> esc_html__( 'Default Featured Image', 'rosh' ),
+					'priority' 			=> 10,
+					'section' 			=> 'images',
+					'settings' 			=> 'default_featured_image'
+				)
+			)
+		);
 
 
 
@@ -133,20 +240,19 @@ class Rosh_Customizer {
 
 		$return = '';
 		$mod 	= get_theme_mod( $mod_name );
+		
+		if ( empty( $mod ) ) { return; }
 
-		if ( ! empty( $mod ) ) {
+		$return = sprintf('%s { %s:%s; }',
+			$selector,
+			$style,
+			$prefix . $mod . $postfix
+		);
 
-			$return = sprintf('%s { %s:%s; }',
-				$selector,
-				$style,
-				$prefix . $mod . $postfix
-			);
+		if ( $echo ) {
 
-			if ( $echo ) {
-
-				echo $return;
-
-			}
+			echo $return;
+			return;
 
 		}
 
@@ -172,7 +278,6 @@ class Rosh_Customizer {
 			//
 			// background-image example:
 			// $this->generate_css( '.class', 'background-image', 'background_image_example', 'url(', ')' );
-
 
 		?></style><!-- Customizer CSS --><?php
 
@@ -524,7 +629,7 @@ class Rosh_Customizer {
 
 		foreach ( $files as $file ) {
 
-			require_once( trailingslashit( get_stylesheet_directory() ) . 'inc/customizer/' . $file );
+			require_once( trailingslashit( get_stylesheet_directory() ) . 'classes/customizer/' . $file );
 
 		}
 
@@ -682,3 +787,15 @@ class Rosh_Customizer {
 	} // states_list_unitedstates()
 
 } // class
+
+/**
+ * Sanitizes the input for the Google Analytics code field.
+ * 
+ * @param 		mixed 		$input 		The field input.
+ * @return 		mixed 					The sanitized input.
+ */
+function rosh_sanitize_analytics_code( $input ) {
+	
+	return stripslashes( wp_filter_post_kses( $input ) );
+	
+} // rosh_sanitize_analytics_code()

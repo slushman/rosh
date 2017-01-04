@@ -1,9 +1,11 @@
 /* Text meant only for screen readers */
 .screen-reader-text {
+	clip 		: rect(1px 1px 1px 1px);
 	clip 		: rect(1px, 1px, 1px, 1px);
 	height 		: 1px;
 	overflow 	: hidden;
 	position 	: absolute !important;
+	white-space : nowrap;
 	width 		: 1px;
 
 	&:focus {
@@ -27,7 +29,7 @@
 }
 
 /* Do not show the outline on the skip link target. */
-#content[tabindex="-1"]:focus {
+[tabindex="-1"]:focus {
 	outline: 0;
 }
 

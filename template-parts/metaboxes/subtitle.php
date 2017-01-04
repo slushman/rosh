@@ -5,7 +5,7 @@
  * @package 		Rosh
  */
 
-wp_nonce_field( $this->theme_name, 'nonce_rosh_subtitle' );
+wp_nonce_field( PARENT_THEME_SLUG, 'nonce_rosh_subtitle' );
 
 $atts['id'] 			= 'subtitle';
 $atts['name'] 			= 'subtitle';
@@ -16,11 +16,11 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'text', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/text.php' );
 unset( $atts );
-
-?></p>
+unset( $props );
+unset( $field );

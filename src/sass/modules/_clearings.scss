@@ -1,23 +1,22 @@
 .clear:before,
-.clear:after,
-.entry-content:before,
-.entry-content:after,
-.comment-content:before,
-.comment-content:after,
-header[role="banner"]:before,
-header[role="banner"]:after,
-.site-content:before,
-.site-content:after,
-[role="contentinfo"]:before,
-[role="contentinfo"]:after {
-	@extend %clearfix;
+.clear:after {
+	@include clearfix();
 }
 
-.clear:after,
-.entry-content:after,
-.comment-content:after,
-header[role="banner"]:after,
-.site-content:after,
-[role="contentinfo"]:after {
-	@extend %clearfix-after;
+.clear:after {
+	@include clearfix-after();
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left:after,
+.float-right:after {
+	@include clearfix();
+	@include clearfix-after();
 }

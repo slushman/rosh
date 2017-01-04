@@ -1,5 +1,11 @@
 /**
  * Menu item effect styling.
+ *
+ * Parent gets the text-coin class.
+ * A wrapper class gets the coin class.
+ * There need to be two grandchildren: coin-front and coin-back.
+ * The SVG on the front needs the coin-icon class.
+ * The text on the back side needs to be in a span with the coin-text class.
  */
 .text-coin {
 	perspective 	: 800px;
@@ -13,19 +19,14 @@
 		transform-style : preserve-3d;
 		transition 		: $trans__default;
 
-		@media only screen and (min-width: $bp__laptop) {
+		@include laptop-up {
 			height 		: $font__size-coin;
 			width 		: $font__size-coin;
 		}
 
-		> div {
-			height 	: 100%;
-			position: absolute;
-			width 	: 100%;
-		}
 	}
 
-	@media only screen and (min-width: $bp__laptop) {
+	@include laptop-up {
 
 		&:hover {
 
@@ -33,39 +34,49 @@
 				transform: rotate3d( 0, 1, 0, -180deg );
 			}
 
-			.front > svg {
+			.coin-icon {
 				opacity: 0;
 			}
 
-			.back > .text {
+			.coin-text {
 				opacity: 1;
 			}
 		}
 	}
 
-	.front {
-		z-index: 2;
+}
 
-		@media only screen and (min-width: $bp__laptop) {
-			svg {
-				opacity 	: 1;
-				transition 	: $trans__default;
-			}
+.coin-front,
+.coin-back {
+	height 	: 100%;
+	position: absolute;
+	width 	: 100%;
+}
+
+.coin-front {
+	z-index: 2;
+
+	@include laptop-up {
+		.coin-icon {
+			opacity 	: 1;
+			transition 	: $trans__default;
 		}
 	}
+}
 
-	.back {
-		@media only screen and (min-width: $bp__laptop) {
-			transform: rotate3d( 0, 1, 0, 180deg);
-		}
+.coin-back {
 
-		.text {
-			margin 		: 0 auto;
-			transition 	: $trans__default;
+	@include laptop-up {
+		transform: rotate3d( 0, 1, 0, 180deg);
+	}
 
-			@media only screen and (min-width: $bp__laptop) {
-				opacity 	: 0;
-			}
-		}
+}
+
+.coin-text {
+	margin 		: 0 auto;
+	transition 	: $trans__default;
+
+	@include laptop-up {
+		opacity 	: 0;
 	}
 }

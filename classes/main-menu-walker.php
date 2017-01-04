@@ -2,6 +2,10 @@
 
 /**
  * Custom walker for adding a wrapper around submenus in the main menu
+ *
+ * @since 			1.0.0
+ * @package 		Rosh
+ * @subpackage 		Rosh/classes
  */
 class Rosh_Walker extends Walker_Nav_Menu {
 
@@ -16,8 +20,12 @@ class Rosh_Walker extends Walker_Nav_Menu {
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 
-		$indent = str_repeat( "\t", $depth );
-		$output .= "\n$indent<div class=\"wrap-submenu depth-$depth closed\"><ul class=\"sub-menu sub-menu-$depth\">\n";
+		$indent 		= str_repeat( "\t", $depth );
+		$offsetlevel 	= $depth + 1; // offset for top-level menu depth.
+
+		//$output 		.= "\n$indent<div class=\"wrap-submenu $args->menu_id-wrap-submenu $args->menu_id-wrap-submenu-$depth closed\"><ul class=\"$args->menu_id-items $args->menu_id-items-$offsetlevel\">\n";
+
+		$output 		.= "\n$indent<ul class=\"$args->menu_id-items $args->menu_id-items-$offsetlevel $args->menu_id-items-closed\">\n";
 
 	} // start_lvl()
 
@@ -33,7 +41,10 @@ class Rosh_Walker extends Walker_Nav_Menu {
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
 
 		$indent = str_repeat( "\t", $depth);
-		$output .= "$indent</ul></div>\n";
+
+		//$output .= "$indent</ul></div>\n";
+
+		$output .= "$indent</ul>\n";
 
 	} // end_lvl()
 

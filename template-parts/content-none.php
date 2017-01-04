@@ -9,12 +9,18 @@
 
 ?><section class="no-results not-found"><?php
 
+	/**
+	 * The rosh_entry_top action hook.
+	 */
 	do_action( 'rosh_entry_top' );
 
 	?><header class="page-header contentnone">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'rosh' ); ?></h1>
 	</header><!-- .page-header --><?php
 
+	/**
+	 * The rosh_entry_content_before action hook.
+	 */
 	do_action( 'rosh_entry_content_before' );
 
 	?><div class="page-content"><?php
@@ -51,8 +57,14 @@
 
 	?></div><!-- .page-content --><?php
 
+	/**
+	 * The rosh_entry_content_after action hook.
+	 */
 	do_action( 'rosh_entry_content_after' );
 
+	/**
+	 * The rosh_entry_bottom action hook.
+	 */
 	do_action( 'rosh_entry_bottom' );
 
 ?></section><!-- .no-results -->

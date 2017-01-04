@@ -3,8 +3,9 @@
  * Jetpack Compatibility File.
  *
  * @link https://jetpack.com/
- *
- * @package  	Rosh
+ * @since 			1.0.0
+ * @package 		Rosh
+ * @subpackage 		Rosh/classes
  */
 class Rosh_Automattic {
 
@@ -12,6 +13,16 @@ class Rosh_Automattic {
 	 * Constructor
 	 */
 	public function __construct() {} // __construct()
+
+	/**
+	 * Registers all the WordPress hooks and filters for this class.
+	 */
+	public function hooks () {
+
+		add_action( 'after_setup_theme', array( $this, 'jetpack_setup' ) );
+		add_action( 'after_setup_theme', array( $this, 'wpcom_setup' ) );
+
+	} // hooks()
 
 	/**
 	 * Jetpack setup function.

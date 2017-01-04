@@ -69,6 +69,7 @@ class Rosh_Conditions {
 			case 'page' 		: $return = $this->check_page( $condition, $post_obj ); break;
 			case 'post_type'	: $return = $this->check_post_type( $condition, $post_obj ); break;
 			case 'status'		: $return = $this->check_status( $condition, $post_obj ); break;
+			case 'support' 		: $return = current_theme_supports( $condition ); break;
 			case 'template'		: $return = $this->check_template( $condition, $post_obj ); break;
 			default 			: $return = FALSE;
 

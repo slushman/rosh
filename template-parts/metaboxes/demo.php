@@ -5,13 +5,17 @@
  * @package 		Rosh
  */
 
-wp_nonce_field( $this->theme_name, 'nonce_rosh_demo' );
+wp_nonce_field( PARENT_THEME_SLUG, 'nonce_rosh_demo' );
 
 
 
-$atts['description'] 	= __( 'This is a checkbox.', 'rosh' );
-$atts['id'] 			= 'field-checkbox';
-$atts['name'] 			= 'field-checkbox';
+//echo '<pre>'; print_r( $this->meta ); echo '</pre>';
+
+
+
+$atts['id'] 	= 'field-checkbox';
+$atts['name'] 	= 'field-checkbox';
+$props['label'] = __( 'This is a checkbox.', 'rosh' );
 
 /**
  * This check is different from other fields. Only change the value for a checkbox
@@ -27,21 +31,21 @@ if ( array_key_exists( $atts['id'], $this->meta ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'checkbox', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/checkbox.php' );
 unset( $atts );
+unset( $props );
+unset( $field );
 
-?></p><?php
 
 
-
-$atts['description'] 	= __( 'This is a color field.', 'rosh' );
 $atts['id'] 			= 'field-color';
-$atts['label'] 			= __( 'Color', 'rosh' );
 $atts['name'] 			= 'field-color';
+$props['description'] 	= __( 'This is a color field.', 'rosh' );
+$props['label'] 		= __( 'Color', 'rosh' );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -49,21 +53,21 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'color', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/color.php' );
 unset( $atts );
+unset( $props );
+unset( $field );
 
-?></p><?php
 
 
-
-$atts['description'] 	= __( 'This is a date field.', 'rosh' );
 $atts['id'] 			= 'field-date';
-$atts['label'] 			= __( 'Date', 'rosh' );
 $atts['name'] 			= 'field-date';
+$props['description'] 	= __( 'This is a date field.', 'rosh' );
+$props['label'] 		= __( 'Date', 'rosh' );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -71,20 +75,20 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'date', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/date.php' );
 unset( $atts );
+unset( $props );
+unset( $field );
 
-?></p><?php
 
 
-
-$atts['description'] 	= __( 'This is an editor field.', 'rosh' );
 $atts['id'] 			= 'field-editor';
-$atts['settings'] 		= array( 'class' => '', );
+$props['description'] 	= __( 'This is an editor field.', 'rosh' );
+$props['settings'] 		= array( 'class' => '', );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -92,21 +96,43 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'editor', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/editor.php' );
 unset( $atts );
+unset( $props );
+unset( $field );
 
-?></p><?php
 
 
-
-$atts['description'] 	= __( 'This is a file uploading field.', 'rosh' );
 $atts['id'] 			= 'field-file';
-$atts['label'] 			= __( 'File Upload', 'rosh' );
 $atts['name'] 			= 'field-file';
+$props['description'] 	= __( 'This is a file uploading field.', 'rosh' );
+$props['label'] 		= __( 'File Upload', 'rosh' );
+
+if ( ! empty( $this->meta[$atts['id']][0] ) ) {
+
+	$atts['value'] = $this->meta[$atts['id']][0];
+
+}
+
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'file-upload', $atts, $props );
+$field->display_field();
+
+unset( $atts );
+unset( $props );
+unset( $field );
+
+
+
+$atts['id'] 			= 'field-form';
+$atts['name'] 			= 'field-form';
+$props['description'] 	= __( 'This is a form selection field.', 'rosh' );
+$props['label'] 		= __( 'Forms', 'rosh' );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -116,19 +142,21 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
 
-?><p><?php
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'select-formidable-form', $atts, $props );
+$field->display_field();
 
-include( get_stylesheet_directory() . '/template-parts/fields/file-upload.php' );
 unset( $atts );
+unset( $props );
+unset( $field );
 
-?></p><?php
 
 
-
-$atts['description'] 	= __( 'This is a image uploading field.', 'rosh' );
 $atts['id'] 			= 'field-image';
-$atts['label'] 			= __( 'Image Upload', 'rosh' );
 $atts['name'] 			= 'field-image';
+$props['description'] 	= __( 'This is a image uploading field.', 'rosh' );
+$props['label'] 		= __( 'Image Upload', 'rosh' );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -136,67 +164,23 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'image-upload', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/image-upload.php' );
 unset( $atts );
-
-?></p><?php
-
-
-
-$atts['description'] 	= __( 'This is a menu selection field.', 'rosh' );
-$atts['id'] 			= 'field-menu';
-$atts['label'] 			= __( 'Menus', 'rosh' );
-$atts['name'] 			= 'field-menu';
-
-if ( ! empty( $this->meta[$atts['id']][0] ) ) {
-
-	$atts['value'] = $this->meta[$atts['id']][0];
-
-}
-
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
-
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/select-menu.php' );
-unset( $atts );
-
-?></p><?php
+unset( $props );
+unset( $field );
 
 
 
-$atts['description'] 	= __( 'This is a page selection field.', 'rosh' );
-$atts['id'] 			= 'field-page';
-$atts['label'] 			= __( 'Pages', 'rosh' );
-$atts['name'] 			= 'field-page';
-
-if ( ! empty( $this->meta[$atts['id']][0] ) ) {
-
-	$atts['value'] = $this->meta[$atts['id']][0];
-
-}
-
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
-
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/select-page.php' );
-unset( $atts );
-
-?></p><?php
-
-
-
-$atts['description'] 	= __( 'This is a set of radios.', 'rosh' );
 $atts['id'] 			= 'field-radios';
 $atts['name'] 			= 'field-radios';
-$atts['selections'][] 	= array( 'label' => __( 'One', 'rosh' ), 'value' => 'one' );
-$atts['selections'][] 	= array( 'label' => __( 'Two', 'rosh' ), 'value' => 'two' );
-$atts['selections'][] 	= array( 'label' => __( 'Three', 'rosh' ), 'value' => 'three' );
+$props['description'] 	= __( 'This is a set of radios.', 'rosh' );
+$props['selections'][] 	= array( 'label' => __( 'One', 'rosh' ), 'value' => 'one' );
+$props['selections'][] 	= array( 'label' => __( 'Two', 'rosh' ), 'value' => 'two' );
+$props['selections'][] 	= array( 'label' => __( 'Three', 'rosh' ), 'value' => 'three' );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -204,26 +188,92 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'radio', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/radios.php' );
 unset( $atts );
+unset( $props );
+unset( $field );
+
+
+
+$atts['id'] 			= 'field-menu';
+$atts['name'] 			= 'field-menu';
+$props['description'] 	= __( 'This is a menu selection field.', 'rosh' );
+$props['label'] 		= __( 'Menus', 'rosh' );
+
+if ( ! empty( $this->meta[$atts['id']][0] ) ) {
+
+	$atts['value'] = $this->meta[$atts['id']][0];
+
+}
+
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'select-menu', $atts, $props );
+$field->display_field();
+
+unset( $atts );
+unset( $props );
+unset( $field );
+
+
+
+$atts['id'] 			= 'field-page';
+$atts['name'] 			= 'field-page';
+$props['description'] 	= __( 'This is a page selection field.', 'rosh' );
+$props['label'] 		= __( 'Pages', 'rosh' );
+
+if ( ! empty( $this->meta[$atts['id']][0] ) ) {
+
+	$atts['value'] = $this->meta[$atts['id']][0];
+
+}
+
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'select-page', $atts, $props );
+$field->display_field();
+
+unset( $atts );
+unset( $props );
+unset( $field );
 
 ?></p><?php
 
 
 
-$atts['aria'] 			= __( 'Select an option.', 'rosh' );
-$atts['blank'] 			= __( '- Select -', 'rosh' );
-$atts['description'] 	= __( 'This is a select field.', 'rosh' );
+$atts['id'] 			= 'field-slider';
+$atts['name'] 			= 'field-slider';
+$props['description'] 	= __( 'This is a slider selection field.', 'rosh' );
+$props['label'] 		= __( 'Sliders', 'rosh' );
+
+if ( ! empty( $this->meta[$atts['id']][0] ) ) {
+
+	$atts['value'] = $this->meta[$atts['id']][0];
+
+}
+
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'select-slider', $atts, $props );
+$field->display_field();
+
+unset( $atts );
+unset( $props );
+unset( $field );
+
+
+
 $atts['id'] 			= 'field-select';
-$atts['label'] 			= __( 'Select', 'rosh' );
 $atts['name'] 			= 'field-select';
-$atts['selections'][] 	= array( 'label' => __( 'One', 'rosh' ), 'value' => 'one' );
-$atts['selections'][] 	= array( 'label' => __( 'Two', 'rosh' ), 'value' => 'two' );
-$atts['selections'][] 	= array( 'label' => __( 'Three', 'rosh' ), 'value' => 'three' );
+$props['description'] 	= __( 'This is a select field.', 'rosh' );
+$props['label'] 		= __( 'Select', 'rosh' );
+$props['selections'][] 	= array( 'label' => __( 'One', 'rosh' ), 'value' => 'one' );
+$props['selections'][] 	= array( 'label' => __( 'Two', 'rosh' ), 'value' => 'two' );
+$props['selections'][] 	= array( 'label' => __( 'Three', 'rosh' ), 'value' => 'three' );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -231,21 +281,21 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'select', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/select.php' );
 unset( $atts );
+unset( $props );
+unset( $field );
 
-?></p><?php
 
 
-
-$atts['description'] 	= __( 'This is a taxonomy selection field.', 'rosh' );
 $atts['id'] 			= 'field-tax';
-$atts['label'] 			= __( 'Taxonomies', 'rosh' );
 $atts['name'] 			= 'field-tax';
+$props['description'] 	= __( 'This is a taxonomy selection field.', 'rosh' );
+$props['label'] 		= __( 'Taxonomies', 'rosh' );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -253,21 +303,21 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'select-taxonomy', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/select-taxonomy.php' );
 unset( $atts );
+unset( $props );
+unset( $field );
 
-?></p><?php
 
 
-
-$atts['description'] 	= __( 'This is a text field.', 'rosh' );
 $atts['id'] 			= 'field-text';
-$atts['label'] 			= __( 'Text', 'rosh' );
 $atts['name'] 			= 'field-text';
+$props['description'] 	= __( 'This is a text field.', 'rosh' );
+$props['label'] 		= __( 'Text', 'rosh' );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -275,21 +325,21 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'text', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/text.php' );
 unset( $atts );
+unset( $props );
+unset( $field );
 
-?></p><?php
 
 
-
-$atts['description'] 	= __( 'This is a textarea field.', 'rosh' );
 $atts['id'] 			= 'field-textarea';
-$atts['label'] 			= __( 'Textarea', 'rosh' );
 $atts['name'] 			= 'field-textarea';
+$props['description'] 	= __( 'This is a textarea field.', 'rosh' );
+$props['label'] 		= __( 'Textarea', 'rosh' );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -297,21 +347,21 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'textarea', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/textarea.php' );
 unset( $atts );
+unset( $props );
+unset( $field );
 
-?></p><?php
 
 
-
-$atts['description'] 	= __( 'This is a time field.', 'rosh' );
 $atts['id'] 			= 'field-time';
-$atts['label'] 			= __( 'Time', 'rosh' );
 $atts['name'] 			= 'field-time';
+$props['description'] 	= __( 'This is a time field.', 'rosh' );
+$props['label'] 		= __( 'Time', 'rosh' );
 
 if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
@@ -319,11 +369,11 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 }
 
-$atts = apply_filters( 'rosh-field-' . $atts['id'], $atts );
+$atts 	= apply_filters( 'rosh-field-atts-' . $atts['id'], $atts, $props );
+$props 	= apply_filters( 'rosh-field-props-' . $atts['id'], $props, $atts );
+$field 	= new Rosh_Field( 'time', $atts, $props );
+$field->display_field();
 
-?><p><?php
-
-include( get_stylesheet_directory() . '/template-parts/fields/time.php' );
 unset( $atts );
-
-?></p><?php
+unset( $props );
+unset( $field );

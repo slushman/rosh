@@ -13,9 +13,9 @@
 
 	$( function() {
 
-		$( '[pick="time"]' ).timepicker({ timeFormat: "h:mm tt"});
+		$( '[data-pick="time"]' ).timepicker({ timeFormat: "h:mm tt"});
 		$( '.time-field-icon' ).on( 'click', function(){
-			$( '[pick="time"]' ).timepicker( 'show' );
+			$( '[data-pick="time"]' ).timepicker( 'show' );
 		});
 
 	});

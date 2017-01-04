@@ -3,9 +3,9 @@
 /**
  * Sanitize anything
  *
- * @since 		1.0.0
- *
- * @package 	Rosh
+ * @since 			1.0.0
+ * @package 		Rosh
+ * @subpackage 		Rosh/classes
  */
 
 class Rosh_Sanitize {

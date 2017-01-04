@@ -7,7 +7,7 @@
  * @package Rosh
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) { return; }
+if ( ! is_active_sidebar( 'sidebar' ) ) { return; }
 
 /**
  * The rosh_sidebars_before action hook
@@ -21,7 +21,7 @@ do_action( 'rosh_sidebars_before' );
 	 */
 	do_action( 'rosh_sidebar_top' );
 
-	dynamic_sidebar( 'sidebar-1' );
+	dynamic_sidebar( 'sidebar' );
 
 	/**
 	 * The rosh_sidebar_bottom action hook

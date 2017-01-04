@@ -1,13 +1,27 @@
 /**
  * Adds/removes file or image to selected field.
  */
-( function(){
+( function( $ ){
 
-	var fields = document.querySelectorAll( '.file-upload-field' );
-	if ( ! fields ) { return; }
+	/**
+	 * Find ecah file uploader field parent element.
+	 */
+	var repeaters = document.querySelectorAll( '.repeaters' );
+	var fileFields = document.querySelectorAll( '.file-upload-field' );
 
-	var len = fields.length;
-	if ( 0 >= len ) { return; }
+	/**
+	 * Returns the event target.
+	 *
+	 * @param 		object 		event 		The event.
+	 * @return 		object 		target 		The event target.
+	 */
+	function getEventTarget( event ) {
+
+		event = event || window.event;
+
+		return event.target || event.srcElement;
+
+	} // getEventTarget()
 
 	/**
 	 * Opens the Media Library window.
@@ -16,18 +30,18 @@
 	 *
 	 * @todo 		Figure out how to get rid of jQuery "on" dependency here.
 	 *
-	 * @param 		object 		e 			The event object
+	 * @param 		object 		event 			The event.
 	 */
-	function openMediaLibraryChooser( e ) {
+	function openMediaLibraryChooser( event, target ) {
 
-		e.preventDefault();
+		event.preventDefault();
 
 		var fileFrame, json, parent, field, remove, upload;
 
-		upload = this;
-		parent = this.parentNode;
-		field = parent.querySelector( '[data-id="url-file"]' );
-		remove = parent.querySelector( '#remove-file' );
+		upload = target;
+		parent = upload.parentNode;
+		field = parent.querySelector( '[data-pick="url-file"]' );
+		remove = parent.querySelector( 'a.remove-file' );
 
 		if ( undefined !== fileFrame ) {
 
@@ -59,42 +73,79 @@
 
 		fileFrame.open();
 
-	}
+	} // openMediaLibraryChooser()
+
+	/**
+	 * Processes the event and call the correct
+	 * action based on the event target.
+	 *
+	 * @param 		object 		event 		The event.
+	 */
+	function processEvent( event ) {
+
+		var target = getEventTarget( event );
+
+		event.stopPropagation();
+		event.cancelBubble = true;
+
+		if ( target.matches( '.upload-file' ) ) {
+
+			openMediaLibraryChooser( event, target );
+
+		}
+
+		if ( target.matches( '.remove-file' ) ) {
+
+			removeFileFromField( event, target );
+
+		}
+
+	} // processEvent()
 
 	/**
 	 * Removes the field value. Toggles the links.
 	 *
-	 * @param 		object 		e 			The event object
+	 * @param 		object 		event 		The event.
 	 */
-	function removeFileFromField( e ) {
+	function removeFileFromField( event, target ) {
 
-		e.preventDefault();
+		event.preventDefault();
 
 		var parent, field, upload, remove;
 
-		remove = this;
-		parent = this.parentNode;
-		field = parent.querySelector( '[data-id="url-file"]' );
+		remove = target;
+		parent = remove.parentNode;
+		field = parent.querySelector( '[data-pick="url-file"]' );
 		upload = parent.querySelector( '#upload-file' );
 
 		field.value = '';
 		remove.classList.add( 'hide' );
 		upload.classList.remove( 'hide' );
 
-	}
+	} // removeFileFromField()
 
-	for( var i = 0; i < len; i++ ) {
+	/**
+	 * Checks if the nodes are empty and if not, sets event
+	 * listeners on each node.
+	 *
+	 * @param 		object 		nodes 		A list of nodes.
+	 */
+	function setEvents( nodes ) {
 
-		var upload, remove;
+		if ( ! nodes || 0 >= nodes.length ) { return; }
 
-		upload = fields[i].querySelector( '#upload-file' );
-		remove = fields[i].querySelector( '#remove-file' );
+		for ( var n = 0; n < nodes.length; n++ ) {
 
-		if ( ! upload && ! remove ) { continue; }
+			nodes[n].addEventListener( 'click', processEvent );
 
-		upload.addEventListener( 'click', openMediaLibraryChooser, false );
-		remove.addEventListener( 'click', removeFileFromField, false );
+		}
 
-	}
+	} // setEvents()
 
-})();
+	/**
+	 * Set the events for each file uploader found.
+	 */
+	setEvents( repeaters );
+	setEvents( fileFields );
+
+})( jQuery );

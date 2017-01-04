@@ -11,34 +11,34 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) { return NULL; }
  */
 class Select_Taxonomy_Custom_Control extends WP_Customize_Control {
 
-     private $options = false;
+	 private $options = false;
 
-     public function __construct( $manager, $id, $args = array(), $options = array() ) {
+	 public function __construct( $manager, $id, $args = array(), $options = array() ) {
 
-         $this->options = $options;
+		 $this->options = $options;
 
-         parent::__construct( $manager, $id, $args );
+		 parent::__construct( $manager, $id, $args );
 
-     } // __construct()
+	 } // __construct()
 
-     /**
-      * Render the control's content.
-      *
-      * Allows the content to be overriden without having to rewrite the wrapper.
-      *
-      * @return  void
-      */
-     public function render_content() {
+	 /**
+	  * Render the control's content.
+	  *
+	  * Allows the content to be overriden without having to rewrite the wrapper.
+	  *
+	  * @return  void
+	  */
+	 public function render_content() {
 
 		$this->defaults['hide_empty'] 		= 0;
 		$this->defaults['id'] 				= $this->id;
 		$this->defaults['orderby'] 			= 'name';
 		$this->defaults['selected'] 		= $this->value();
-		$this->defaults['show_option_none'] = __( 'None' );
+		$this->defaults['show_option_none'] = __( 'None', 'rosh' );
 
- 		$cats = wp_parse_args( $this->options, $this->defaults );
+		 $cats = wp_parse_args( $this->options, $this->defaults );
 
- 		?><label>
+		 ?><label>
 			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span><?php
 
 				wp_dropdown_categories( $cats );

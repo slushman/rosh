@@ -9,8 +9,14 @@
 
 get_header();
 
-?><section id="primary" class="content-area">
-	<main id="main" role="main"><?php
+?><div id="primary" class="content-area content-sidebar"><?php
+
+	/**
+	 * The rosh_main_before action hook.
+	 */
+	do_action( 'rosh_main_before' );
+
+	?><main id="main" role="main"><?php
 
 	if ( have_posts() ) :
 
@@ -73,8 +79,13 @@ get_header();
 
 	?></main><!-- #main --><?php
 
-	get_sidebar();
+	/**
+	 * The rosh_main_after action hook.
+	 *
+	 * @hooked 		sidebar 		10
+	 */
+	do_action( 'rosh_main_after' );
 
-?></section><!-- #primary --><?php
+?></div><!-- #primary --><?php
 
 get_footer();

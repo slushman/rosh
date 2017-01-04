@@ -16,14 +16,6 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
 
-#: 404.php:16
-msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
-
-#: 404.php:18
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
-msgstr ""
-
 #: comments.php:34
 msgctxt "comments title"
 msgid "One thought on &ldquo;%2$s&rdquo;"
@@ -45,4 +37,19 @@ msgstr ""
 
 #: comments.php:79
 msgid "Comments are closed."
+msgstr ""
+
+#: searchform.php:17, searchform.php:30
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:26
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:44
+msgctxt "submit button"
+msgid "Search"
 msgstr ""

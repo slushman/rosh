@@ -1,0 +1,32 @@
+.wrap-authorbox {
+	padding: 1em;
+}
+
+.authorbox-avatar {
+	float 			: left;
+	margin-bottom 	: 1em;
+	margin-right 	: 1em;
+}
+
+.authorbox-name {
+	margin-bottom 	: 1em;
+	width 			: 100%;
+}
+
+.authorbox-bio {
+	margin-bottom: 1em;
+}
+
+.authorbox-postslink {
+
+}
+
+.authorbox-socials {
+	@include resetlist();
+
+	display : flex;
+}
+
+.authorbox-social {
+	margin 	: 0 2.5%;
+}

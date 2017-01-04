@@ -1,6 +1,6 @@
 body,
 button,
-[role="button"]
+[role="button"],
 input,
 select,
 textarea {
@@ -8,4 +8,8 @@ textarea {
 	font-family: $font__main;
 	@include font-size(1);
 	line-height: $font__line-height-body;
+
+	// .openSans-loaded & {
+	// 	font-family: $font__main-open-sans;
+	// }
 }

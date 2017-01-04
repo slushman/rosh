@@ -5,8 +5,8 @@
  *
  * In command line, cd into the project directory and run the following two commands:
  * npm init
- * sudo npm install --save-dev gulp gulp-util gulp-load-plugins browser-sync fs path event-stream
- * sudo npm install --save-dev gulp-sourcemaps gulp-autoprefixer gulp-filter gulp-merge-media-queries gulp-cssnano gulp-sass gulp-concat gulp-uglify gulp-notify gulp-imagemin gulp-rename gulp-wp-pot gulp-sort
+ * sudo npm install --save-dev gulp gulp-util gulp-load-plugins browser-sync fs path event-stream gulp-plumber critical
+ * sudo npm install --save-dev gulp-sourcemaps gulp-autoprefixer gulp-filter gulp-merge-media-queries gulp-cssnano gulp-sass gulp-concat gulp-uglify gulp-notify gulp-imagemin gulp-rename gulp-wp-pot gulp-sort gulp-parker gulp-svgmin gulp-size
  *
  * Implements:
  * 		1. Live reloads browser with BrowserSync.
@@ -34,6 +34,9 @@ var project = {
 		'translator': 'Chris Wilcoxson <chrisw@dccmarketing.com>',
 		'lastTranslator': 'DCC Marketing <web@dccmarketing.com>',
 		'path': './assets/languages',
+	},
+	'parker': {
+		title: 'Parker Test Results'
 	}
 };
 
@@ -44,7 +47,32 @@ var watch = {
 		'source': './src/js/**/*.js',
 	},
 	'styles': './src/sass/**/*.scss',
+	'svgs': {
+		'path': './src/svgs/',
+		'source': './src/svgs/**/*.svg',
+	}
 }
+
+var criticalSets = {
+	inline: false,
+	base: '',
+	src: '',
+	css: '',
+	dimensions: [{
+		width: 320,
+		height: 480
+	},{
+		width: 768,
+		height: 1024
+	},{
+		width: 1280,
+		height: 1024
+	}],
+	dest: 'assets/critical',
+	minify: true,
+	extract: false,
+	ignore: ['font-face']
+};
 
 /**
  * Browsers you care about for autoprefixing.
@@ -73,12 +101,16 @@ var reload 			= browserSync.reload; // For manual browser reload.
 var fs 				= require( 'fs' );
 var path 			= require( 'path' );
 var es 				= require( 'event-stream' );
+var critical 		= require( 'critical' );
+
+var onError = function(err) { console.log(err); }
 
 /**
  * Creates style files and put them in the root folder.
  */
 gulp.task( 'styles', function () {
 	gulp.src( watch.styles )
+		.pipe( plugins.plumber({ errorHandler: onError }) )
 		.pipe( plugins.sourcemaps.init() )
 		.pipe( plugins.sass( {
 			errLogToConsole: true,
@@ -86,7 +118,6 @@ gulp.task( 'styles', function () {
 			outputStyle: 'compact',
 			precision: 10
 		} ) )
-		.on('error', console.error.bind(console))
 		.pipe( plugins.autoprefixer( AUTOPREFIXER_BROWSERS ) )
 		.pipe( plugins.sourcemaps.write ( './', { includeContent: false } ) )
 		.pipe( plugins.filter( '**/*.css' ) ) // Filtering stream to only css files
@@ -96,7 +127,28 @@ gulp.task( 'styles', function () {
 
 		.pipe( plugins.filter( '**/*.css' ) ) // Filtering stream to only css files
 		.pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
-		.pipe( plugins.notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) );
+		.pipe( plugins.parker({
+			file: false,
+			title: 'Parker Results',
+			metrics: [
+				'TotalStylesheetSize',
+				'MediaQueries',
+				'SelectorsPerRule',
+				'IdentifiersPerSelector',
+				'SpecificityPerSelector',
+				'TopSelectorSpecificity',
+				'TopSelectorSpecificitySelector',
+				'TotalUniqueColours',
+				'UniqueColours'
+			]
+		}) )
+		.pipe( plugins.notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) )
+});
+
+gulp.task( 'critical', function() {
+
+	critical.generate( criticalSets );
+
 });
 
 /**
@@ -120,9 +172,12 @@ gulp.task( 'scripts', function() {
 	var tasks = folders.map( function( folder ) {
 
 		return gulp.src( path.join( watch.scripts.path, folder, '/*.js' ) )
+			.pipe( plugins.plumber({ errorHandler: onError }) )
+			.pipe( plugins.sourcemaps.init() )
 			.pipe( plugins.concat( folder + '.js' ) )
 			.pipe( plugins.uglify() )
 			.pipe( plugins.rename( folder + '.min.js' ) )
+			.pipe( plugins.sourcemaps.write( 'maps' ) )
 			.pipe( gulp.dest( './assets/js' ) );
 	});
 
@@ -150,6 +205,7 @@ gulp.task( 'browser-sync', function() {
  */
 gulp.task( 'images', function() {
 	gulp.src( './assets/images/*.{png,jpg,gif,svg}' )
+		.pipe( plugins.plumber({ errorHandler: onError }) )
 		.pipe( plugins.imagemin({
 			progressive: true,
 			optimizationLevel: 3, // 0-7 low-high
@@ -161,10 +217,27 @@ gulp.task( 'images', function() {
 });
 
 /**
+ * Creates a minified javascript file for each folder in the source directory.
+ */
+gulp.task( 'svgs', function() {
+	var folders = getFolders( watch.svgs.path );
+
+	var tasks = folders.map( function( folder ) {
+
+		return gulp.src( path.join( watch.svgs.path, folder, '/*.svg' ) )
+			.pipe( plugins.plumber({ errorHandler: onError }) )
+			.pipe( plugins.svgmin() )
+			.pipe( gulp.dest( './assets/svgs/' + folder + '/' ) )
+			.pipe( plugins.notify( { message: 'TASK: "svgs" Completed! 💯', onLast: true } ) );
+	});
+});
+
+/**
  * WP POT Translation File Generator.
  */
 gulp.task( 'translate', function () {
 	return gulp.src( watch.php )
+		.pipe( plugins.plumber({ errorHandler: onError }) )
 		.pipe( plugins.sort() )
 		.pipe( plugins.wpPot( project.i18n ))
 		.pipe( gulp.dest( project.i18n.path ) )
@@ -174,7 +247,7 @@ gulp.task( 'translate', function () {
 /**
 * Watches for file changes and runs specific tasks.
 */
-gulp.task( 'default', ['translate', 'images', 'browser-sync', 'styles', 'scripts'], function () {
+gulp.task( 'default', ['styles', 'scripts', 'images', 'svgs', 'translate', 'browser-sync'], function () {
 	gulp.watch( watch.php, reload ); // Reload on PHP file changes.
 	gulp.watch( watch.styles, ['styles', reload] ); // Reload on SCSS file changes.
 	gulp.watch( watch.scripts.source, [ 'scripts', reload ] ); // Reload on publicJS file changes.

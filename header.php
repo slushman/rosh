@@ -52,7 +52,7 @@ do_action( 'rosh_html_before' );
 		 */
 		do_action( 'rosh_header_before' );
 
-		?><header role="banner"><?php
+		?><header class="site-header" role="banner"><?php
 
 			/**
 			 * The rosh_header_top action hook
@@ -65,7 +65,7 @@ do_action( 'rosh_html_before' );
 			/**
 			 * The header_content action hook
 			 *
-			 * @hooked 		site_title 			10
+			 * @hooked 		title_site 			10
 			 * @hooked 		site_description 	15
 			 */
 			do_action( 'rosh_header_content' );

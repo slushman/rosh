@@ -1,13 +1,27 @@
 /**
  * Adds/removes file or image to selected field.
  */
-( function(){
+( function() {
 
-	var fields = document.querySelectorAll( '.image-upload-field' );
-	if ( ! fields ) { return; }
+	/**
+	 * Find each image uploader parent element.
+	 */
+	var repeaters = document.querySelectorAll( '.repeaters' );
+	var imageFields = document.querySelectorAll( '.image-upload-field' );
 
-	var len = fields.length;
-	if ( 0 >= len ) { return; }
+	/**
+	 * Returns the event target.
+	 *
+	 * @param 		object 		event 		The event.
+	 * @return 		object 		target 		The event target.
+	 */
+	function getEventTarget( event ) {
+
+		event = event || window.event;
+
+		return event.target || event.srcElement;
+
+	} // getEventTarget()
 
 	/**
 	 * Opens the Media Library window.
@@ -16,18 +30,18 @@
 	 *
 	 * @todo 		Figure out how to get rid of jQuery "on" dependency here.
 	 *
-	 * @param 		object 		e 			The event object
+	 * @param 		object 		event 			The event object
 	 */
-	function openMediaLibraryChooser( e ) {
+	function openMediaLibraryChooser( event, target ) {
 
-		e.preventDefault();
+		event.preventDefault();
 
 		var fileFrame, json, parent, field, remove, upload, preview;
 
-		upload = this;
-		parent = this.parentNode;
-		field = parent.querySelector( '[type="hidden"]' );
-		remove = parent.querySelector( '#remove-img' );
+		upload = target;
+		parent = upload.parentNode;
+		field = parent.querySelector( '[data-pick="image-id"]' );
+		remove = parent.querySelector( '.remove-img' );
 		preview = parent.querySelector( '.image-upload-preview' );
 
 		if ( undefined !== fileFrame ) {
@@ -54,7 +68,7 @@
 
 			field.value = json.id;
 			preview.style.backgroundImage = 'url( ' + json.sizes.thumbnail.url + ' )';
-			preview.classList.remove( 'bordered' );
+			preview.classList.remove( 'bordered-img-preview' );
 			upload.classList.add( 'hide' );
 			remove.classList.remove( 'hide' );
 
@@ -62,45 +76,82 @@
 
 		fileFrame.open();
 
-	}
+	} // openMediaLibraryChooser()
+
+	/**
+	 * Processes the event and call the correct
+	 * action based on the event target.
+	 *
+	 * @param 		object 		event 		The event.
+	 */
+	function processEvent( event ) {
+
+		var target = getEventTarget( event );
+
+		event.stopPropagation();
+		event.cancelBubble = true;
+
+		if ( target.matches( '.upload-img' ) ) {
+
+			openMediaLibraryChooser( event, target );
+
+		}
+
+		if ( target.matches( '.remove-img' ) ) {
+
+			removeImageFromField( event, target );
+
+		}
+
+	} // processEvent()
 
 	/**
 	 * Removes the field value. Toggles the links.
 	 *
-	 * @param 		object 		e 			The event object
+	 * @param 		object 		event 			The event object
 	 */
-	function removeFileFromField( e ) {
+	function removeImageFromField( event, target ) {
 
-		e.preventDefault();
+		event.preventDefault();
 
 		var parent, field, upload, remove, preview;
 
-		remove = this;
-		parent = this.parentNode;
-		field = parent.querySelector( '[type="hidden"]' );
-		upload = parent.querySelector( '#upload-img' );
+		remove = target;
+		parent = remove.parentNode;
+		field = parent.querySelector( '[data-pick="image-id"]' );
+		upload = parent.querySelector( '.upload-img' );
 		preview = parent.querySelector( '.image-upload-preview' );
 
 		field.value = '';
 		preview.style.backgroundImage = '';
-		preview.classList.add( 'bordered' );
+		preview.classList.add( 'bordered-img-preview' );
 		remove.classList.add( 'hide' );
 		upload.classList.remove( 'hide' );
 
-	}
+	} // removeImageFromField()
 
-	for( var i = 0; i < len; i++ ) {
+	/**
+	 * Checks if the nodes are empty and if not, sets event
+	 * listeners on each node.
+	 *
+	 * @param 		object 		nodes 		A list of nodes.
+	 */
+	function setEvents( nodes ) {
 
-		var upload, remove;
+		if ( ! nodes || 0 >= nodes.length ) { return; }
 
-		upload = fields[i].querySelector( '#upload-img' );
-		remove = fields[i].querySelector( '#remove-img' );
+		for ( var n = 0; n < nodes.length; n++ ) {
 
-		if ( ! upload && ! remove ) { continue; }
+			nodes[n].addEventListener( 'click', processEvent );
 
-		upload.addEventListener( 'click', openMediaLibraryChooser, false );
-		remove.addEventListener( 'click', removeFileFromField, false );
+		}
 
-	}
+	} // setEvents()
+
+	/**
+	 * Set the events for each node found.
+	 */
+	setEvents( repeaters );
+	setEvents( imageFields );
 
 })();

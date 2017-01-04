@@ -3,7 +3,7 @@
 	padding 	: 1em;
 	width 		: 100%;
 
-	@media only screen and (min-width: $bp__tablet) {
+	@include adminbar-up {
 		width: 27.5%;
 
 		.sidebar-content & {

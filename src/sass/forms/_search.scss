@@ -1,60 +1,55 @@
 .hidden-search-top {
 	background-color: $med;
-	display 		: block;
 	height 			: $size__hidden-search;
-	margin-top 		: -$size__hidden-search;
+	position 		: absolute;
+	top 			: 0;
+	transform 		: translateY( -$size__hidden-search );
 	transition 		: $trans__default;
 	width 			: 100%;
+	z-index 		: 999;
 
-	.wrap {
-		@include vertcenter();
+	@include adminbar();
+}
 
-		&:after {
-			clear 	: both;
-			content : "";
-			display : block;
-		}
+.hidden-search-form {
+	display 		: flex;
+	justify-content	: center;
+	margin 			: 0 auto;
+	position 		: relative;
+	width 			: 100%;
+}
+
+.hidden-search-field {
+	background-color: $light;
+	border-radius 	: 0;
+	color 			: $dark;
+	float 			: left;
+	font-size 		: 20px;
+	height 			: 38px;
+	padding 		: 0.5em;
+	width 			: calc( 100% - 80px );
+}
+
+.hidden-search-btn {
+	@include resetbutton();
+
+	transition 		: $trans__default;
+
+	&:hover {
+		background-color: $med;
 	}
+}
 
-	&.open {
-		margin-top: 0;
-	}
+.hidden-search-open {
+	margin-top: 0;
+}
 
-	.search-form {
-		margin 		: 0 auto;
-		position 	: relative;
-		text-align 	: center;
-		width 		: 100%;
-	}
+.hidden-search-wrap {
+	@include vertcenter();
+	@include clearafter();
+}
 
-	.search-field {
-		background-color: $light;
-		border-radius 	: 0;
-		color 			: $dark;
-		float 			: left;
-		font-size 		: 20px;
-		height 			: 38px;
-		padding 		: 0.5em;
-		width 			: calc( 100% - 80px );
-	}
-
-	.search-submit {
-		border-radius 	: 0;
-		box-shadow 		: none;
-		float 			: left;
-		height 			: 60px;
-		text-shadow 	: none;
-		transition 		: $trans__default;
-
-		&:hover {
-			background-color: $med;
-		}
-
-		.dashicons-search {
-			font-size 	: 30px;
-			height 		: 100%;
-			line-height : 1.5;
-			width 		: 100%;
-		}
-	}
+.hidden-search-icon {
+	height	: 30px;
+	width	: 30px;
 }

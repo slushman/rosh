@@ -9,8 +9,14 @@
 
 get_header();
 
-?><div id="primary" class="content-area full-width">
-	<main id="main" role="main"><?php
+?><div id="primary" class="content-area full-width"><?php
+
+	/**
+	 * The rosh_main_before action hook.
+	 */
+	do_action( 'rosh_main_before' );
+
+	?><main id="main" role="main"><?php
 
 	/**
 	 * The rosh_while_before action hook
@@ -43,7 +49,13 @@ get_header();
 	 */
 	do_action( 'rosh_while_after' );
 
-	?></main><!-- #main -->
-</div><!-- #primary --><?php
+	?></main><!-- #main --><?php
+
+	/**
+	 * The rosh_main_after action hook.
+	 */
+	do_action( 'rosh_main_after' );
+
+?></div><!-- #primary --><?php
 
 get_footer();

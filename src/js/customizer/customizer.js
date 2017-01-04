@@ -41,6 +41,29 @@
 		} );
 	} );
 
+	// Tablet Menu Style
+	wp.customize( 'tablet_menu', function( value ) {
+		value.bind( function( to ){
+
+			var tabletClass;
+
+			switch( to ) {
+
+				case 'tablet-slide-ontop-from-left': 	tabletClass = 'tablet-slide-ontop-from-left'; break;
+				case 'tablet-slide-ontop-from-right': 	tabletClass = 'tablet-slide-ontop-from-right'; break;
+				case 'tablet-slide-ontop-from-top': 	tabletClass = 'tablet-slide-ontop-from-top'; break;
+				case 'tablet-slide-ontop-from-bottom': 	tabletClass = 'tablet-slide-ontop-from-bottom'; break;
+				case 'tablet-push-from-left': 			tabletClass = 'tablet-push-from-left'; break;
+				case 'tablet-push-from-right': 			tabletClass = 'tablet-push-from-right'; break;
+				default: 								tabletClass = ''; break;
+
+			}
+
+			$('body').addClass( tabletClass );
+
+		});
+	} );
+
 
 
 /*

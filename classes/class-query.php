@@ -1,6 +1,10 @@
 <?php
 /**
  * A set of methods for fetching posts from the database.
+ *
+ * @since 			1.0.0
+ * @package 		Rosh
+ * @subpackage 		Rosh/classes
  */
 class Rosh_Query {
 
@@ -21,17 +25,17 @@ class Rosh_Query {
 
 		if ( empty( $args ) ) { return ''; }
 
-		$return = PLUGIN_NAME_SLUG . '_plugin_name';
+		$return = PARENT_THEME_SLUG . '_plugin_name';
 
 		if ( ! empty( $cache ) ) {
 
-			$return = PLUGIN_NAME_SLUG . $cache . '_plugin_name';
+			$return = PARENT_THEME_SLUG . $cache . '_plugin_name';
 
 		}
 
 		if ( ! empty( $args['taxonomyname'] ) ) {
 
-			$return = PLUGIN_NAME_SLUG . $cache . $args['taxonomyname'] . '_plugin_name';
+			$return = PARENT_THEME_SLUG . $cache . $args['taxonomyname'] . '_plugin_name';
 
 		}
 
@@ -56,21 +60,21 @@ class Rosh_Query {
 
 		$return 	= '';
 		$cache_name = $this->get_cache_name( $params, $cache );
-		$return 	= wp_cache_get( $cache_name, PLUGIN_NAME_SLUG . '_posts' );
+		$return 	= wp_cache_get( $cache_name, PARENT_THEME_SLUG . '_posts' );
 
 		if ( false === $return ) {
 
-			$args = apply_filters( PLUGIN_NAME_SLUG . '-query-args', $this->set_args( $params ) );
+			$args = apply_filters( PARENT_THEME_SLUG . '-query-args', $this->set_args( $params ) );
 			$query 	= new WP_Query( $args );
 
 			if ( is_wp_error( $query ) && empty( $query ) ) {
 
-				$options 	= get_option( PLUGIN_NAME_SLUG . '-options' );
+				$options 	= get_option( PARENT_THEME_SLUG . '-options' );
 				$return 	= $options['none-found-message'];
 
 			} else {
 
-				wp_cache_set( $cache_name, $query, PLUGIN_NAME_SLUG . '_posts', 5 * MINUTE_IN_SECONDS );
+				wp_cache_set( $cache_name, $query, PARENT_THEME_SLUG . '_posts', 5 * MINUTE_IN_SECONDS );
 
 				$return = $query->posts;
 

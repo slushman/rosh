@@ -9,16 +9,39 @@
 
 get_header();
 
-?><div id="primary" class="content-area">
-	<main id="main" role="main">
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'rosh' ); ?></h1>
-			</header><!-- .page-header -->
-			<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'rosh' ); ?></p><?php
+?><div id="primary" class="content-area"><?php
+
+	/**
+	 * The rosh_main_before action hook.
+	 */
+	do_action( 'rosh_main_before' );
+
+	?><main id="main" role="main"><?php
+
+	/**
+	 * The rosh_while_before action hook
+	 *
+	 * @hooked 		title_archive
+	 * @hooked 		title_single_post
+	 */
+	do_action( 'rosh_while_before' );
+
+		?><section class="error-404 not-found">
+			<header class="page-header"><?php
+
+				/**
+				 * The rosh_404_header action hook.
+				 *
+				 * @hooked 		title_404 		10
+				 */
+				do_action( 'rosh_404_header' );
+
+			?></header><!-- .page-header --><?php
 
 			/**
 			 * The rosh_404_content action hook
+			 *
+			 * @hooked 		four_04_message 		10
 			 */
 			do_action( 'rosh_404_before' );
 
@@ -42,8 +65,22 @@ get_header();
 			 */
 			do_action( 'rosh_404_after' );
 
-		?></section><!-- .error-404 -->
-	</main><!-- #main -->
-</div><!-- #primary --><?php
+		?></section><!-- .error-404 --><?php
+
+		/**
+		 * The rosh_while_after action hook
+		 */
+		do_action( 'rosh_while_after' );
+
+	?></main><!-- #main --><?php
+
+	/**
+	 * The rosh_main_after action hook.
+	 *
+	 * @hooked 		sidebar 		10
+	 */
+	do_action( 'rosh_main_after' );
+
+?></div><!-- #primary --><?php
 
 get_footer();

@@ -9,13 +9,10 @@
 .page-content,
 .entry-content,
 .entry-summary {
-	hyphens 	: auto;
 	margin 		: 1.5em 0 0;
-	word-wrap 	: break-word;
 }
 
 .page-links {
-	clear: both;
 	margin: 0 0 1.5em;
 }
 
@@ -23,20 +20,21 @@
 	overflow 	: auto;
 	width 		: 100%;
 
-	@include centerMax();
+	@include centermax();
 
 	margin-bottom: $size__default-bot-marg;
 }
 
 .content-area {
 	display 	: flex;
+	flex-wrap	: wrap;
 	overflow 	: auto;
 	padding 	: 1em;
 	width 		: 100%;
 }
 
 [role="main"] {
-	@media only screen and (min-width: $bp__tablet) {
+	@include adminbar-up {
 		.content-sidebar & {
 			margin 	: 0 2.5% 0 0;
 			width 	: 70%;
@@ -47,4 +45,8 @@
 			width 	: 70%;
 		}
 	}
+}
+
+.archive-entry-link {
+	color: $dark;
 }

@@ -15,7 +15,7 @@ h1 {
 	}
 }
 
-#loginform {
+[name="loginform"] {
 	background-color: $med;
 	padding-bottom 	: 26px;
 
@@ -62,7 +62,15 @@ h1 {
 	}
 }
 
-#nav,
+[href$="?action=lostpassword"] {
+	color: $dark;
+
+	&:hover {
+		color: $med;
+	}
+}
+
+
 #backtoblog {
 
 	a {
@@ -81,7 +89,7 @@ h1 {
 	}
 }
 
-#rememberme { // checkbox itself
+[name="rememberme"] { // checkbox itself
 	background-color: $med;
 	color 			: $light;
 
@@ -95,9 +103,4 @@ h1 {
 
 .login { // page body tag
 	background: $light;
-
-	#login { // div container for login form
-
-	}
-
 }

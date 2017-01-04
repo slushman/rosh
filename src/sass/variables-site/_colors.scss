@@ -13,6 +13,8 @@ $ltshadow	: rgba(0, 0, 0, 0.05);
 $medshadow	: rgba(255, 255, 255, 0.5);
 $darkshadow	: rgba(255, 255, 255, 0.8);
 
+$transdark 	: rgba( $dark, 0.8 );
+
 $errorred 	: #dc3232;
 
 
@@ -22,3 +24,5 @@ $color__outline 			: $med;
 $color__link				: royalblue;
 $color__link-visited		: purple;
 $color__link-hover			: midnightblue;
+
+$bg__tablet-menu: $med;

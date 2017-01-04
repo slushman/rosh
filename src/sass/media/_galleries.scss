@@ -11,11 +11,11 @@
 	margin 	: 0 percentage( $marg ) 1.5em;
 	width 	: percentage( ( 100 / 2 ) / 100 ) - ( percentage( $marg ) * 2 );
 
-	@media only screen and (min-width: $bp__sidemenu + 1) {
+	@include tablet-portrait-up {
 		width: percentage( ( 100 / 3 ) / 100 ) - ( percentage( $marg ) * 3 ) ;
 	}
 
-	@media only screen and (min-width: $bp__tablet) {
+	@include tablet-landscape-up {
 		margin-left: 0;
 		margin-right: 0;
 

@@ -6,10 +6,10 @@
  */
 ( function() {
 
-	var openSans = new FontFaceObserver( 'Open Sans' );
-
-	openSans.load().then(function () {
-		document.documentElement.className += " openSans-loaded";
-	});
+	// var openSans = new FontFaceObserver( 'Open Sans' );
+	//
+	// openSans.load().then(function () {
+	// 	document.documentElement.className += " openSans-loaded";
+	// });
 
 } )();

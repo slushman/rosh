@@ -2,6 +2,10 @@
 
 /**
  * Class for creating a shortcode.
+ *
+ * @since 			1.0.0
+ * @package 		Rosh
+ * @subpackage 		Rosh/classes
  */
 
 class Rosh_Shortcode_Listmenu {
@@ -10,6 +14,15 @@ class Rosh_Shortcode_Listmenu {
 	 * Constructor.
 	 */
 	public function __construct(){}
+
+	/**
+	 * Registers all the WordPress hooks and filters for this class.
+	 */
+	public function hooks() {
+
+		add_shortcode( 'listmenu', array( $this, 'shortcode_list_menu' ) );
+
+	} // hooks()
 
 	/**
 	 * Returns a WordPress menu for a shortcode.

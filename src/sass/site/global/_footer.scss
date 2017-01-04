@@ -1,11 +1,10 @@
-[role="contentinfo"] {
+.site-footer {
 	width 		: 100%;
 }
 
 .wrap-footer {
+	@include centermax( 1em );
 	overflow 	: auto;
-	padding 	: 1em;
-
 }
 
 .site-info {

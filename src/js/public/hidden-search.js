@@ -1,7 +1,7 @@
 /**
  * hidden-search.js
  *
- * Handles toggling the appearnace of a hidden search field
+ * Handles toggling the appearance of a hidden search field
  */
 ( function() {
 
@@ -18,30 +18,33 @@
 
 	search.setAttribute( 'aria-hidden', 'true' );
 
-	button.onclick = function( e ) {
+	/**
+	 * Shows the hidden search field.
+	 *
+	 * @param 		object 		event 		The event.
+	 * @return {[type]}       [description]
+	 */
+	function showSearch( event ) {
 
-		e.preventDefault();
+		event.preventDefault();
 
-		search.classList.toggle( 'open' );
+		search.classList.toggle( 'hidden-search-open' );
 
-		if ( -1 !== search.className.indexOf( 'open' ) ) {
-
-			search.setAttribute( 'aria-hidden', 'true' );
-
-		} else {
+		if ( search.classList.contains( 'hidden-search-open' ) ) {
 
 			search.setAttribute( 'aria-hidden', 'false' );
 
-		}
+		} else {
 
-		var affected = [ page, button ];
-
-		for	( index = 0; index < affected.length; index++ ) {
-
-			affected[index].classList.toggle( 'open' );
+			search.setAttribute( 'aria-hidden', 'true' );
 
 		}
 
-	};
+		page.classList.toggle( 'open' );
+		button.classList.toggle( 'open' );
+
+	} // showSearch()
+
+	button.addEventListener( 'click', showSearch );
 
 } )();

@@ -7,13 +7,88 @@
 
 .block {
 	background-color: green;
+	flex-grow 		: 1;
 	padding 		: 1em;
-
-	@include autowidthflex( &, 1 );
 }
 
 .flex-center {
 	align-items 	: center;
 	display 		: flex;
 	justify-content : center;
+}
+
+.rosh-cb-full-width {
+	display : block;
+	width 	: 100%;
+}
+
+@include tablet-portrait-up {
+	.rosh-cb-half {
+		display 		: inline-block;
+		width 			: 47%;
+		vertical-align 	: top;
+	}
+
+	.rosh-cb-first-half {
+		display 		: inline-block;
+		margin-right	: 5%;
+		width 			: 47%;
+		vertical-align 	: top;
+	}
+}
+
+@include tablet-landscape-up {
+	.rosh-cb-third {
+		display 		: inline-block;
+		margin-right 	: 4%;
+		width 			: 30%;
+		vertical-align 	: top;
+	}
+
+	.rosh-cb-two-thirds {
+		display 		: inline-block;
+		margin-right 	: 4%;
+		width 			: 65%;
+		vertical-align 	: top;
+	}
+
+	.rosh-cb-last-third {
+		display 		: inline-block;
+		margin-right 	: 0;
+		width 			: 30%;
+		vertical-align 	: top;
+	}
+	
+	.rosh-cb-last-quarter {
+		display 		: inline-block;
+		margin-right	: 0;
+		width 			: 22%;
+		vertical-align 	: top;
+	}
+
+	.rosh-cb-three-quarters {
+		display 		: inline-block;
+		margin-right 	: 3%;
+		width 			: 74%;
+		vertical-align 	: top;
+	}
+}
+
+@include laptop-up {
+	.rosh-cb-quarter {
+		display 		: inline-block;
+		margin-right 	: 3%;
+		width 			: 22%;
+		vertical-align 	: top;
+	}
+}
+
+.rosh-flex-around {
+	display 		: flex;
+	justify-content : space-around;
+}
+
+.rosh-flex-tween {
+	display 		: flex;
+	justify-content : space-between;
 }

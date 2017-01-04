@@ -1,5 +1,70 @@
 /**
  * Custom styling for the WordPress editor preview.
  */
- @import "variables-site/vars";
- @import "mixins/mixins";
+@import "variables-site/vars";
+@import "mixins/mixins";
+@import "modules/clearings";
+@import "modules/blocks";
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+
+.text-lowercase {
+	text-transform: lowercase;
+}
+
+.letterbox {
+	border-bottom 	: 3px solid #0054a6;
+	border-top 		: 3px solid #0054a6;
+	margin 			: 1.5em auto !important;
+}
+
+.line-middle {
+	display 	: table;
+	white-space : nowrap;
+
+	&:before,
+	&:after {
+		border-top 	: 0.25em solid #0097a5;
+		content 	: "";
+		display 	: table-cell;
+		position 	: relative;
+		transform 	: translateY(33%);
+	}
+
+	&:before {
+		right: 1.5%;
+	}
+
+	&:after {
+		left: 1.5%;
+	}
+}
+
+.lm-text-left {
+	&:after {
+		width: 100%;
+	}
+
+	&:before {
+		width: 0;
+	}
+}
+
+.lm-text-right {
+	&:before {
+		width: 100%;
+	}
+
+	&:after {
+		width: 0;
+	}
+}
+
+.lm-text-center {
+	&:after,
+	&:before {
+		width: 45%;
+	}
+}

@@ -1,22 +1,19 @@
-.nav-social {
+.social-menu-items {
+	@include resetlist();
+}
 
-	.menu-items {
-		@include listreset();
+.social-menu-item {
+	display 	: inline-block;
+	line-height : 1.5;
+	margin 		: 0 0.5em;
+	position 	: relative;
+	
+	svg {
+		height 	: $font__size-social;
+		width 	: $font__size-social;
 	}
+}
 
-	.menu-item {
-		display 	: inline-block;
-		line-height : 1.5;
-		margin 		: 0 0.5em;
-		position 	: relative;
-
-		svg {
-			height 	: $font__size-social;
-			width 	: $font__size-social;
-		}
-
-		a {
-			display: block;
-		}
-	}
+.social-menu-item-link {
+	display: block;
 }

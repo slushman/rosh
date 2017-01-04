@@ -2,6 +2,10 @@
 
 /**
  * Class for creating a shortcode.
+ *
+ * @since 			1.0.0
+ * @package 		Rosh
+ * @subpackage 		Rosh/classes
  */
 
 class Rosh_Shortcode_Search {
@@ -10,6 +14,15 @@ class Rosh_Shortcode_Search {
 	 * Constructor.
 	 */
 	public function __construct(){}
+
+	/**
+	 * Registers all the WordPress hooks and filters for this class.
+	 */
+	public function hooks() {
+
+		add_shortcode( 'search', array( $this, 'shortcode_search' ) );
+
+	} // hooks()
 
 	/**
 	 * Returns a WordPress menu for a shortcode.
