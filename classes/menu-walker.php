@@ -23,8 +23,6 @@ class Rosh_Walker extends Walker_Nav_Menu {
 		$indent 		= str_repeat( "\t", $depth );
 		$offsetlevel 	= $depth + 1; // offset for top-level menu depth.
 
-		//$output 		.= "\n$indent<div class=\"wrap-submenu $args->menu_id-wrap-submenu $args->menu_id-wrap-submenu-$depth closed\"><ul class=\"$args->menu_id-items $args->menu_id-items-$offsetlevel\">\n";
-
 		$output 		.= "\n$indent<ul class=\"$args->menu_id-items $args->menu_id-items-$offsetlevel $args->menu_id-items-closed\">\n";
 
 	} // start_lvl()
@@ -41,8 +39,6 @@ class Rosh_Walker extends Walker_Nav_Menu {
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
 
 		$indent = str_repeat( "\t", $depth);
-
-		//$output .= "$indent</ul></div>\n";
 
 		$output .= "$indent</ul>\n";
 

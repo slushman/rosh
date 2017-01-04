@@ -512,7 +512,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		$menu_args['menu_id']         	= 'social-menu';
 		$menu_args['menu_class']      	= 'social-menu-items social-menu-items-0';
 		$menu_args['depth']           	= 1;
-		$menu_args['walker']  			= new Rosh_Social_Walker();
+		$menu_args['walker']  			= new Rosh_Walker();
 
 		wp_nav_menu( $menu_args );
 

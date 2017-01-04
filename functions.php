@@ -32,9 +32,9 @@ require get_stylesheet_directory() . '/functions/imagekit.php';
 require get_stylesheet_directory() . '/functions/themekit.php';
 
 /**
- * Load Main Menu Walker.
+ * Load Menu Walker.
  */
-require get_stylesheet_directory() . '/classes/main-menu-walker.php';
+require get_stylesheet_directory() . '/classes/menu-walker.php';
 
 /**
  * Load Autoloader
