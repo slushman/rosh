@@ -292,6 +292,15 @@ class Rosh_Field {
 		$default['error'] 		= __( '', 'rosh' );
 		$default['label'] 		= __( '', 'rosh' );
 		$default['type']		= $this->props['type'];
+		
+		/**
+		 * Checkboxes default to being checked.
+		 */
+		if ( 'checkbox' === $this->props['type'] ) {
+
+			$default['checked'] = 1;
+
+		}
 
 		if ( 'editor' === $this->props['type'] ) {
 
@@ -570,7 +579,7 @@ class Rosh_Field {
 		if ( 'checkbox' === $this->type ) {
 
 			?><input <?php
-				checked( 1, $this->atts['value'], true );
+				checked( 1, $this->props['checked'], true );
 				echo $this->print_attributes( $this->atts );
 			?> /><?php
 
@@ -745,7 +754,7 @@ class Rosh_Field {
 		foreach ( $this->props as $key => $prop ) {
 
 			if ( ! array_key_exists( $key, $defaults ) ) { unset( $this->props[$key] ); }
-
+			if ( 'checked' === $key ) { continue; }	
 			if ( empty( $prop ) && 'type' !== $key ) { unset( $this->props[$key] ); }
 
 		}
