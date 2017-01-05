@@ -571,7 +571,7 @@ class Rosh_Field {
 
 			?><input <?php
 				checked( 1, $this->atts['value'], true );
-				echo $this->print_attributes( $atts );
+				echo $this->print_attributes( $this->atts );
 			?> /><?php
 
 		} elseif ( 'editor' === $this->type ) {
