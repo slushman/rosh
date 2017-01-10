@@ -1,7 +1,7 @@
 /**
  * Toggle Button.
  */
-.menu-primary-toggle {
+.menu-1-toggle {
 	@include resetbutton( $med, $med, $light );
 
 	color 			: $light;
@@ -27,7 +27,7 @@
 	}
 }
 
-.menu-primary-submenu-toggle {
+.menu-1-submenu-toggle {
 	@include resetbutton();
 
 	cursor 		: pointer;
@@ -39,7 +39,7 @@
 	}
 }
 
-.menu-primary-submenu-icon {
+.menu-1-submenu-icon {
 	display: none;
 
 	@include laptop-up {

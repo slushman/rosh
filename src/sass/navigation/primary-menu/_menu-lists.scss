@@ -1,7 +1,7 @@
 /**
  * Menus
  */
-.primary-menu-items { // all the ULs
+.menu-1-items { // all the ULs
 	@include resetlist();
 
 	@include laptop-up {
@@ -9,13 +9,13 @@
 	}
 }
 
-.primary-menu-items-closed {
+.menu-1-items-closed {
 	@include tablet-down {
 		display: none;
 	}
 }
 
-.primary-menu-items-0 { // the 1st-level menu
+.menu-1-items-0 { // the 1st-level menu
 	@include phone-down {
 		display: none;
 
@@ -38,7 +38,7 @@
 	}
 }
 
-.primary-menu-items-1 { // 2nd-level menu
+.menu-1-items-1 { // 2nd-level menu
 	background-color: $med;
 	display			: inherit;
 

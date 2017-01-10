@@ -47,7 +47,7 @@ class Rosh_Automattic {
 	 * Adds support for wp.com-specific theme functions.
 	 *
 	 * @hooked 		after_setup_theme
-	 * @global array $themecolors
+	 * @global 		array $themecolors
 	 */
 	function wpcom_setup() {
 

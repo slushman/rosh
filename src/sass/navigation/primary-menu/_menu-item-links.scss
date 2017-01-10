@@ -1,7 +1,7 @@
 /**
  * Menu Item Links.
  */
-.primary-menu-item-link {
+.menu-1-item-link {
 	align-items 	: center;
 	color 			: $dark;
 	display			: flex;
@@ -30,13 +30,13 @@
 
 }
 
-.primary-menu-item-link-1 { // 2nd-level menu item link, first submenu
+.menu-1-item-link-1 { // 2nd-level menu item link, first submenu
 	@include phone-down {
 		padding-left: 2em;
 	}
 }
 
-.primary-menu-item-link-2 { // 3rd-level menu item link, second submenu
+.menu-1-item-link-2 { // 3rd-level menu item link, second submenu
 	@include phone-down {
 		border-left : none;
 		padding-left: 3em;

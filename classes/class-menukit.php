@@ -559,7 +559,7 @@ class Rosh_Menukit {
 	} // get_text_position()
 
 	/**
-	 * Adds the "+" menu-primary-submenu-toggle trigger for mobile menus and the down caret for laptop menus.
+	 * Adds the "+" menu-1-submenu-toggle trigger for mobile menus and the down caret for laptop menus.
 	 *
 	 * @exits 		If $args is empty or an array.
 	 * @exits 		If not on the primary menu.
@@ -574,7 +574,7 @@ class Rosh_Menukit {
 	public function submenu_toggle( $title, $item, $args, $depth ) {
 
 		if ( empty( $args ) || is_array( $args ) ) { return $title; }
-		if ( 'primary' !== $args->theme_location ) { return $title; }
+		if ( 'menu-1' !== $args->theme_location ) { return $title; }
 		if ( ! in_array( 'menu-item-has-children', $item->classes ) ) { return $title; }
 
 		$output = '';
@@ -583,16 +583,16 @@ class Rosh_Menukit {
 		if ( 0 === $depth ) {
 
 			//$output .= '<span class="submenu-icon">' . igrowmacon_get_svg( 'caret-down' ) . '</span>';
-			$output .= '<span class="menu-primary-submenu-icon triangle-down"></span>';
+			$output .= '<span class="menu-1-submenu-icon triangle-down"></span>';
 
 		} else {
 
 			//$output .= '<span class="submenu-icon">' . igrowmacon_get_svg( 'caret-right' ) . '</span>';
-			$output .= '<span class="menu-primary-submenu-icon triangle-right"></span>';
+			$output .= '<span class="menu-1-submenu-icon triangle-right"></span>';
 
 		}
 
-		$output .= '<button class="menu-primary-submenu-toggle flex-center">+</button>';
+		$output .= '<button class="menu-1-submenu-toggle flex-center">+</button>';
 
 		return $output;
 

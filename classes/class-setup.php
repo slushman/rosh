@@ -216,7 +216,7 @@ class Rosh_Setup {
 	public function register_menus() {
 
 		register_nav_menus( array(
-			'primary' 		=> esc_html__( 'Primary', 'rosh' ),
+			'menu-1' 		=> esc_html__( 'Primary', 'rosh' ),
 			'social' 		=> esc_html__( 'Social', 'rosh' )
 		) );
 

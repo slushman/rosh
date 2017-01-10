@@ -1,7 +1,7 @@
 /**
  * Menu Items.
  */
-.primary-menu-item { // Every menu item
+.menu-1-item { // Every menu item
 	position: relative;
 
 	&:hover,
@@ -26,7 +26,7 @@
 
 
 
-.primary-menu-item-1 { // 2nd-level menu item, first submenu
+.menu-1-item-1 { // 2nd-level menu item, first submenu
 	display 	: block;
 	text-align 	: left;
 

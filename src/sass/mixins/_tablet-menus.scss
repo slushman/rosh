@@ -3,7 +3,7 @@
  */
 @mixin slide-ontop-from-left( $menu-width ) {
 	@include tablet-to-laptop {
-		.primary-menu-items-0 {
+		.menu-1-items-0 {
 			background-color: $dark;
 			bottom 			: 0;
 			display 		: block;
@@ -24,7 +24,7 @@
 			}
 		}
 
-		.menu-primary-toggle {
+		.menu-1-toggle {
 			position 		: absolute;
 			right 			: 0;
 			width 			: $menu-width;
@@ -38,7 +38,7 @@
  */
 @mixin slide-ontop-from-right( $menu-width ) {
 	@include tablet-to-laptop {
-		.primary-menu-items-0 {
+		.menu-1-items-0 {
 			background-color: $dark;
 			bottom 			: 0;
 			display 		: block;
@@ -59,7 +59,7 @@
 			}
 		}
 
-		.menu-primary-toggle {
+		.menu-1-toggle {
 			position 		: absolute;
 			left 			: 0;
 			width 			: $menu-width;
@@ -70,7 +70,7 @@
 
 @mixin push-from-left( $menu-width ) {
 	@include tablet-to-laptop {
-		.primary-menu-items-0 {
+		.menu-1-items-0 {
 			background-color: $dark;
 			bottom 			: 0;
 			height 			: 100%;
@@ -86,7 +86,7 @@
 			@include adminbar( 'padding-top' );
 		}
 
-		.menu-primary-toggle {
+		.menu-1-toggle {
 			position 		: absolute;
 			right 			: 0;
 			transition 		: transform 0.4s ease;
@@ -94,8 +94,8 @@
 			z-index 		: 9999;
 		}
 
-		&.nav-primary-open {
-			.menu-primary-toggle {
+		&.nav-1-open {
+			.menu-1-toggle {
 				transform: translateX(-300px);
 			}
 		}
@@ -107,7 +107,7 @@
  */
 @mixin push-from-right( $menu-width ) {
 	@include tablet-to-laptop {
-		.primary-menu-items-0 {
+		.menu-1-items-0 {
 			background-color: $dark;
 			bottom 			: 0;
 			height 			: 100%;
@@ -123,7 +123,7 @@
 			@include adminbar( 'padding-top' );
 		}
 
-		.menu-primary-toggle {
+		.menu-1-toggle {
 			position 		: absolute;
 			left 			: 0;
 			transition 		: transform 0.4s ease;
@@ -131,8 +131,8 @@
 			z-index 		: 9999;
 		}
 
-		&.nav-primary-open {
-			.menu-primary-toggle {
+		&.nav-1-open {
+			.menu-1-toggle {
 				transform: translateX(300px);
 			}
 		}

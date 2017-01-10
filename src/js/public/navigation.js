@@ -14,7 +14,7 @@
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
 
-		var button = container.querySelector( '.menu-primary-toggle' );
+		var button = container.querySelector( '.menu-1-toggle' );
 
 		button.style.display = 'none';
 
@@ -39,7 +39,7 @@
 		event.stopPropagation();
 		event.cancelBubble = true;
 
-		if ( target.matches( '.menu-primary-toggle' ) ) {
+		if ( target.matches( '.menu-1-toggle' ) ) {
 
 			toggleMenu( event, target );
 
@@ -57,7 +57,7 @@
 
 		}
 
-		if ( target.matches( '.menu-primary-submenu-toggle' ) ) {
+		if ( target.matches( '.menu-1-submenu-toggle' ) ) {
 
 			openSubmenu( event, target );
 
@@ -118,13 +118,13 @@
 
 		var menuItem 	= getParent( target, 'menu-item' );
 		//var subMenu 	= menuItem.querySelector( '.wrap-submenu' );
-		var subMenu 	= menuItem.querySelector( '.primary-menu-items' );
+		var subMenu 	= menuItem.querySelector( '.menu-1-items' );
 		if ( ! subMenu ) { return; }
 
-		subMenu.classList.toggle( 'primary-menu-items-closed' );
-		menuItem.classList.toggle( 'primary-menu-items-open' );
+		subMenu.classList.toggle( 'menu-1-items-closed' );
+		menuItem.classList.toggle( 'menu-1-items-open' );
 
-		if ( target.classList.contains( 'primary-menu-items-open' ) ) {
+		if ( target.classList.contains( 'menu-1-items-open' ) ) {
 
 			target.innerHTML = '-';
 
@@ -187,9 +187,9 @@
 	 */
 	function toggleMenu( event, target ) {
 
-		container.classList.toggle( 'nav-primary-open' );
+		container.classList.toggle( 'nav-1-open' );
 
-		if ( container.classList.contains( 'nav-primary-open' ) ) {
+		if ( container.classList.contains( 'nav-1-open' ) ) {
 
 			toggleAttribute( menu, 'aria-expanded', 'true' );
 			toggleAttribute( target, 'aria-expanded', 'true' );

@@ -2,7 +2,7 @@
  * Slide on top of content from bottom.
  */
 .tablet-slide-ontop-from-bottom {
-	.primary-menu-items-0 {
+	.menu-1-items-0 {
 		@include tablet-to-laptop {
 			background-color: $bg__tablet-menu;
 			bottom 			: 0;
@@ -22,7 +22,7 @@
 		}
 	}
 
-	.menu-primary-toggle {
+	.menu-1-toggle {
 		@include tablet-to-laptop {
 			position 		: absolute;
 			right 			: 0;

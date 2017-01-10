@@ -479,15 +479,15 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 	 */
 	public function menu_primary() {
 
-		?><nav id="site-navigation" class="nav-primary" role="navigation">
-			<button class="menu-primary-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'rosh' ); ?></button><?php
+		?><nav id="site-navigation" class="nav-1" role="navigation">
+			<button class="menu-1-toggle" aria-controls="menu-1" aria-expanded="false"><?php esc_html_e( 'Menu', 'rosh' ); ?></button><?php
 
-				$menu_args['menu_id'] 			= 'primary-menu';
+				$menu_args['menu_id'] 			= 'menu-1';
 				$menu_args['container'] 		= false;
-				$menu_args['container_class'] 	= 'menu-primary-wrap';
+				$menu_args['container_class'] 	= 'menu-1-wrap';
 				$menu_args['items_wrap'] 		= '<ul id="%1$s" class="%2$s"><button class="close-tablet-menu-btn"><span class="close-btn-text">Close Menu</span></button>%3$s</ul>';
-				$menu_args['menu_class']      	= 'primary-menu-items primary-menu-items-0';
-				$menu_args['theme_location'] 	= 'primary';
+				$menu_args['menu_class']      	= 'menu-1-items menu-1-items-0';
+				$menu_args['theme_location'] 	= 'menu-1';
 				$menu_args['walker']  			= new Rosh_Walker();
 
 				wp_nav_menu( $menu_args );
