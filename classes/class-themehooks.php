@@ -460,7 +460,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		
 		if ( ! is_singular() || ! pings_open() ) { return; }
 
-		?><link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"><?php
+		?><link rel="pingback" href="<?php esc_url( bloginfo( 'pingback_url' ) ); ?>"><?php
 
 	} // head_pingback()
 
