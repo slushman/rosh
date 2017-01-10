@@ -51,12 +51,6 @@
 
 		}
 
-		if ( target.matches( '.sub-menu' ) ) {
-
-			toggleAttribute( target, 'aria-haspopup', 'true' );
-
-		}
-
 		if ( target.matches( '.menu-1-submenu-toggle' ) ) {
 
 			openSubmenu( event, target );
