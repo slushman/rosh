@@ -19,7 +19,8 @@ class Rosh_Themehooks {
 	 */
 	public function hooks() {
 
-		add_action( 'rosh_head_content', 			array( $this, 'head_content' ), 10 );
+		add_action( 'wp_head', 						array( $this, 'head_content' ), 1 );
+		add_action( 'wp_head', 						array( $this, 'head_pingback' ), 2 );
 
 		add_action( 'rosh_header_top', 				array( $this, 'header_wrap_start' ), 10 );
 		add_action( 'rosh_header_top', 				array( $this, 'site_branding_begin' ), 15 );
@@ -435,8 +436,8 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 	/**
 	 * Adds default meta tags in the head.
 	 *
-	 * @hooked 		rosh_head_content 			10
-	 * @return 		mixed 						The default meta tags markup.
+	 * @hooked 		wp_head 			10
+	 * @return 		mixed 				The default meta tags markup.
 	 */
 	public function head_content() {
 
@@ -446,6 +447,22 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"><?php
 
 	} // head_content()
+	
+	/**
+	 * Adds pingback headers.
+	 *
+	 * @exits 		If not singular
+	 * @exits 		If pings are not open.
+	 * @hooked 		wp_head 			10
+	 * @return 		mixed 				The default meta tags markup.
+	 */
+	public function head_pingback() {
+		
+		if ( ! is_singular() || ! pings_open() ) { return; }
+
+		?><link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"><?php
+
+	} // head_pingback()
 
 	/**
 	 * The header wrap markup

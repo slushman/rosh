@@ -24,10 +24,11 @@ do_action( 'rosh_html_before' );
 		do_action( 'rosh_head_top' );
 
 		/**
-		 * The rosh_head_content action hook
+		 * The wp_head action hook function.
+		 *
+		 * @hooked 		head_content
+		 * @hooked 		head_pingback
 		 */
-		do_action( 'rosh_head_content' );
-
 		wp_head();
 
 		/**
