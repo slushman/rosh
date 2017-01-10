@@ -301,6 +301,11 @@ class Rosh_Setup {
 		 * Enable Yoast Breadcrumb support
 		 */
 		add_theme_support( 'yoast-seo-breadcrumbs' );
+		
+		/**
+		 * Add theme support for selective refresh for widgets.
+		 */
+		add_theme_support( 'customize-selective-refresh-widgets' );
 
 	} // theme_supports()
 
