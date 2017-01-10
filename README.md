@@ -42,7 +42,7 @@ No. Rosh started out as a fork of _s, but was converted to a framework to make i
 
 ### 1.0.3
 * Changes Tag Manager Customizer field to Tag Manager ID instead. Tag Manager code is hard-coded into the analytics_code() function.
-* 
+* Brings Rosh up to parity with current version of _s, as of 1/10/2017.
 
 ### 1.0.2
 * Moves default meta tags to function.
