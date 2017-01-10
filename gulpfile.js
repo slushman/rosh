@@ -30,9 +30,9 @@ var project = {
 		'domain': 'rosh',
 		'destFile': 'rosh.pot',
 		'package': 'Rosh',
-		'bugReport': 'http://www.dccmarketing.com/contact',
-		'translator': 'Chris Wilcoxson <chrisw@dccmarketing.com>',
-		'lastTranslator': 'DCC Marketing <web@dccmarketing.com>',
+		'bugReport': 'https://github.com/slushman/rosh/issues',
+		'translator': 'Chris Wilcoxson <chris@slushman.com>',
+		'lastTranslator': 'Chris Wilcoxson <chris@slushman.com>',
 		'path': './assets/languages',
 	},
 	'parker': {
