@@ -3,8 +3,8 @@
 * Contributors: slushman
 * Tags: featured-images, translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
 * Requires at least: 4.0
-* Tested up to: 4.6
-* Stable tag: 1.0.2
+* Tested up to: 4.7
+* Stable tag: 1.0.3
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,10 @@ No. Rosh started out as a fork of _s, but was converted to a framework to make i
 
 
 ## Changelog
+
+### 1.0.3
+* Changes Tag Manager Customizer field to Tag Manager ID instead. Tag Manager code is hard-coded into the analytics_code() function.
+* 
 
 ### 1.0.2
 * Moves default meta tags to function.
