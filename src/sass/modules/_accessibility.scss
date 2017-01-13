@@ -10,9 +10,9 @@
 	word-wrap	: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 
 	&:focus {
-		background-color 	: $light;
+		background-color 	: $gray0;
 		border-radius 		: 3px;
-		box-shadow 			: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+		box-shadow 			: 0 0 2px 2px rgba($gray9, 0.6);
 		clip 				: auto !important;
 		color 				: $tealblue;
 		display 			: block;

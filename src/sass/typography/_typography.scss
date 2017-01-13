@@ -4,10 +4,11 @@ button,
 input,
 select,
 textarea {
-	color: $dark;
-	font-family: $font__main;
+	color 		: $gray7;
+	font-family	: $font__main;
+	line-height	: $font__line-height-body;
+
 	@include font-size(1);
-	line-height: $font__line-height-body;
 
 	// .openSans-loaded & {
 	// 	font-family: $font__main-open-sans;

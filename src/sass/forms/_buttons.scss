@@ -3,25 +3,22 @@ button,
 [role="button"],
 [type="reset"],
 [type="submit"] {
-	background 			: $med;
-	border 				: 1px solid;
-	border-color 		: $med $med $med;
+	background 			: $gray1;
+	border 				: 1px solid $gray4;
 	border-radius		: 3px;
-	color 				: $transdark;
-	@include font-size(0.75);
 	line-height 		: 1;
 	padding 			: .6em 1em .4em;
+	
+	@include font-size(0.75);
 
 	&:hover {
-		background-color 	: lighten( $med, 10% );
-		border-color 		: $med $med $darkmed;
-		color 				: $light;
+		background-color 	: $gray3;
+		border-bottom-color	: $gray5;
 	}
 
 	&:focus,
 	&:active {
-		background-color 	: darken( $med, 10% );
-		border-color 		: $darkmed $med $med;
-		color 				: $light;
+		background-color 	: $gray3;
+		border-top-color 	: $gray5;
 	}
 }

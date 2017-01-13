@@ -5,7 +5,7 @@
  *
  * In command line, cd into the project directory and run the following two commands:
  * npm init
- * sudo npm install --save-dev gulp gulp-util gulp-load-plugins browser-sync fs path event-stream gulp-plumber critical
+ * sudo npm install --save-dev gulp gulp-util gulp-load-plugins browser-sync fs path event-stream gulp-plumber
  * sudo npm install --save-dev gulp-sourcemaps gulp-autoprefixer gulp-filter gulp-merge-media-queries gulp-cssnano gulp-sass gulp-concat gulp-uglify gulp-notify gulp-imagemin gulp-rename gulp-wp-pot gulp-sort gulp-parker gulp-svgmin gulp-size
  *
  * Implements:
@@ -34,9 +34,6 @@ var project = {
 		'translator': 'Chris Wilcoxson <chris@slushman.com>',
 		'lastTranslator': 'Chris Wilcoxson <chris@slushman.com>',
 		'path': './assets/languages',
-	},
-	'parker': {
-		title: 'Parker Test Results'
 	}
 };
 
@@ -52,27 +49,6 @@ var watch = {
 		'source': './src/svgs/**/*.svg',
 	}
 }
-
-var criticalSets = {
-	inline: false,
-	base: '',
-	src: '',
-	css: '',
-	dimensions: [{
-		width: 320,
-		height: 480
-	},{
-		width: 768,
-		height: 1024
-	},{
-		width: 1280,
-		height: 1024
-	}],
-	dest: 'assets/critical',
-	minify: true,
-	extract: false,
-	ignore: ['font-face']
-};
 
 /**
  * Browsers you care about for autoprefixing.
@@ -101,7 +77,6 @@ var reload 			= browserSync.reload; // For manual browser reload.
 var fs 				= require( 'fs' );
 var path 			= require( 'path' );
 var es 				= require( 'event-stream' );
-var critical 		= require( 'critical' );
 
 var onError = function(err) { console.log(err); }
 
@@ -143,12 +118,6 @@ gulp.task( 'styles', function () {
 			]
 		}) )
 		.pipe( plugins.notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) )
-});
-
-gulp.task( 'critical', function() {
-
-	critical.generate( criticalSets );
-
 });
 
 /**

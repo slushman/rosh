@@ -130,8 +130,8 @@ if ( ! function_exists( 'rosh_get_svg' ) ) :
 		if ( empty( $svg ) ) { return; }
 		
 		$return 	= '';
-		$file 		= apply_filters( 'worknet_change_svg', $svg );
-		$filecheck 	= worknet_check_for_svg_file( $file );
+		$file 		= apply_filters( 'rosh_change_svg', $svg );
+		$filecheck 	= rosh_check_for_svg_file( $file );
 		
 		if ( empty( $filecheck ) ) { return FALSE; }
 		

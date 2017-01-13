@@ -15,8 +15,8 @@
 }
 
 .letterbox {
-	border-bottom 	: 3px solid #0054a6;
-	border-top 		: 3px solid #0054a6;
+	border-bottom 	: 3px solid;
+	border-top 		: 3px solid;
 	margin 			: 1.5em auto !important;
 }
 
@@ -26,7 +26,7 @@
 
 	&:before,
 	&:after {
-		border-top 	: 0.25em solid #0097a5;
+		border-top 	: 0.25em solid;
 		content 	: "";
 		display 	: table-cell;
 		position 	: relative;

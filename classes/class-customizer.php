@@ -139,8 +139,8 @@ class Rosh_Customizer {
 			'tag_manager_id',
 			array(
 				'active_callback' 	=> '',
-				'description' 		=> esc_html__( 'Enter the Google Tag Manager container ID.', 'worknet' ),
-				'label'  			=> esc_html__( 'Google Tag Manager ID', 'worknet' ),
+				'description' 		=> esc_html__( 'Enter the Google Tag Manager container ID.', 'rosh' ),
+				'label'  			=> esc_html__( 'Google Tag Manager ID', 'rosh' ),
 				'priority' 			=> 10,
 				'section'  			=> 'title_tagline',
 				'settings' 			=> 'tag_manager_id',

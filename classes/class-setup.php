@@ -125,7 +125,7 @@ class Rosh_Setup {
 	 */
 	public function enqueue_login() {
 
-		wp_enqueue_style( 'rosh-login', get_stylesheet_directory_uri() . '/login.css', 10, 2 );
+		wp_enqueue_style( 'rosh-login', get_stylesheet_directory_uri() . '/login.css', 10, 1 );
 
 	} // enqueue_login()
 

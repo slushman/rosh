@@ -19,7 +19,7 @@
 
 	&.menu-item-has-children {
 		@include phone-down {
-			border-bottom 	: 3px solid $med;
+			border-bottom 	: 3px solid $gray5;
 		}
 	}
 }

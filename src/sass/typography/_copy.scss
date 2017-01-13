@@ -45,8 +45,8 @@ address {
 }
 
 pre {
-	background		: $med;
-	color 			: $light;
+	background		: $gray3;
+	color 			: $gray7;
 	font-family		: $font__pre;
 	@include font-size(0.9375);
 	line-height		: $font__line-height-pre;
@@ -67,14 +67,14 @@ var {
 
 abbr,
 acronym {
-	border-bottom	: 1px dotted $darkmed;
+	border-bottom	: 1px dotted $gray6;
 	cursor			: help;
 }
 
 mark,
 ins {
 	background		: $ltyellow;
-	color 			: $dark;
+	color 			: $gray8;
 	padding 		: 0 0.25em;
 	text-decoration	: none;
 }

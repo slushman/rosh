@@ -4,7 +4,7 @@
 @mixin slide-ontop-from-left( $menu-width ) {
 	@include tablet-to-laptop {
 		.menu-1-items-0 {
-			background-color: $dark;
+			background-color: $gray9;
 			bottom 			: 0;
 			display 		: block;
 			height 			: 100%;
@@ -39,7 +39,7 @@
 @mixin slide-ontop-from-right( $menu-width ) {
 	@include tablet-to-laptop {
 		.menu-1-items-0 {
-			background-color: $dark;
+			background-color: $gray9;
 			bottom 			: 0;
 			display 		: block;
 			height 			: 100%;
@@ -71,7 +71,7 @@
 @mixin push-from-left( $menu-width ) {
 	@include tablet-to-laptop {
 		.menu-1-items-0 {
-			background-color: $dark;
+			background-color: $gray9;
 			bottom 			: 0;
 			height 			: 100%;
 			left 			: 0;
@@ -108,7 +108,7 @@
 @mixin push-from-right( $menu-width ) {
 	@include tablet-to-laptop {
 		.menu-1-items-0 {
-			background-color: $dark;
+			background-color: $gray9;
 			bottom 			: 0;
 			height 			: 100%;
 			right 			: 0;

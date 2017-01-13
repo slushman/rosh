@@ -1,5 +1,5 @@
 .hidden-search-top {
-	background-color: $med;
+	background-color: $gray3;
 	height 			: $size__hidden-search;
 	position 		: absolute;
 	top 			: 0;
@@ -20,9 +20,7 @@
 }
 
 .hidden-search-field {
-	background-color: $light;
 	border-radius 	: 0;
-	color 			: $dark;
 	float 			: left;
 	font-size 		: 20px;
 	height 			: 38px;
@@ -36,7 +34,11 @@
 	transition 		: $trans__default;
 
 	&:hover {
-		background-color: $med;
+		background-color: $gray7;
+		
+		svg {
+			fill: $gray0;
+		}
 	}
 }
 
@@ -49,7 +51,9 @@
 	@include clearafter();
 }
 
-.hidden-search-icon {
-	height	: 30px;
-	width	: 30px;
+.search-icon svg {
+	fill 		: $gray7;
+	height		: 30px;
+	transition 	: $trans__default;
+	width		: 30px;
 }

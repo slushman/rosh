@@ -9,7 +9,7 @@
 	var container = document.querySelector( '#site-navigation' );
 	if ( ! container ) { return; }
 
-	var menu = container.querySelector( '#primary-menu' );
+	var menu = container.querySelector( '#menu-1' );
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {

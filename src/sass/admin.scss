@@ -5,6 +5,12 @@
 @import "variables-site/vars";
 @import "mixins/mixins";
 
+$admin-gray1 	: #fafafa;
+$admin-gray2 	: #ddd;
+$admin-gray3 	: #a0a5aa;
+$admin-maroon 	: #a00;
+
+
 .wp-admin {
 
 }
@@ -26,7 +32,7 @@
 }
 
 .bordered-img-preview {
-	border: 4px dashed $ltmed;
+	border: 4px dashed $admin-gray2;
 }
 
 .float-right {
@@ -41,15 +47,15 @@
 
 .field-error {
 	background-color: $errorred;
-	color 			: $light;
+	color 			: $gray0;
 	font-weight 	: 700;
 	padding 		: 0.5em;
 }
 
 .date-field-icon,
 .time-field-icon {
-	background-color: $ltgray;
-	border 			: 1px solid $ltmed;
+	background-color: $admin-gray1;
+	border 			: 1px solid $admin-gray2;
 	border-radius 	: 3px 0 0 3px;
 	box-sizing 		: border-box;
 	height 			: 25px;
@@ -80,7 +86,7 @@
 }
 
 .remove-repeater {
-	color			: #a00;
+	color			: $admin-maroon;
 	text-decoration : none;
 
 	&:hover {
@@ -90,17 +96,17 @@
 }
 
 .repeater-handle {
-	background-color: #fafafa;
+	background-color: $admin-gray1;
 	cursor 			: move;
 	overflow 		: auto;
 	position		: relative;
 	width 			: 100%;
-	border 			: 1px solid #ddd;
+	border 			: 1px solid $admin-gray2;
 	padding 		: 0.75em;
 }
 
 .repeater-content {
-	border 		: 1px solid #ddd;
+	border 		: 1px solid $admin-gray2;
 	border-top	: none;
 	padding 	: 0.75em;
 }
@@ -119,7 +125,7 @@
 }
 
 .repeater-toggle-arrow-open {
-	color 					: #a0a5aa;
+	color 					: $admin-gray3;
 	display 				: inline-block;
 	font-family 			: dashicons;
 	font-size 				: 20px;

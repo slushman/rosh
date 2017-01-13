@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	background: $light; /* Fallback for when there is no custom background color defined. */
+	background: $gray0; /* Fallback for when there is no custom background color defined. */
 
 	/**
 	 * Tablet menu - pushing out from left
@@ -35,7 +35,7 @@ blockquote, q {
 }
 
 hr {
-	background-color 	: $med;
+	background-color 	: $gray3;
 	border 				: 0;
 	height 				: 1px;
 	margin-bottom 		: 1.5em;

@@ -3,7 +3,7 @@
  */
 .menu-1-item-link {
 	align-items 	: center;
-	color 			: $dark;
+	color 			: $gray7;
 	display			: flex;
 	padding 		: 0.5em 1em;
 	text-decoration	: none;
@@ -11,21 +11,20 @@
 	white-space 	: nowrap;
 
 	@include laptop-down {
-
 		justify-content	: space-between;
 	}
 
 	@include tablet-portrait-up {
-		color: $dark;
+		color: $gray7;
 	}
 
 	@include laptop-up {
-		background-color: $med;
-		color 			: $darkdark;
+		background-color: $gray4;
+		color 			: $gray9;
 	}
 
 	&:focus {
-		outline-color: $med;
+		outline-color: $gray4;
 	}
 
 }
