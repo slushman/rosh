@@ -278,7 +278,27 @@ class Rosh_Utilities {
 		$tablet_menu = get_theme_mod( 'tablet_menu' );
 
 		if ( ! empty( $tablet_menu ) ) {
-
+			
+			if ( FALSE !== strpos( $tablet_menu, '-slide-' ) ) {
+				
+				$classes[] = 'tablet-slide';
+				
+				if ( FALSE !== strpos( $tablet_menu, '-left' ) || FALSE !== strpos( $tablet_menu, '-right' ) ) {
+					
+					$classes[] = 'tablet-slide-sides';
+					
+				} elseif ( FALSE !== strpos( $tablet_menu, '-bottom' ) || FALSE !== strpos( $tablet_menu, '-top' ) ) {
+					
+					$classes[] = 'tablet-slide-topbot';					
+					
+				}
+				
+			} elseif ( FALSE !== strpos( $tablet_menu, '-push' ) ) {
+				
+				$classes[] = 'tablet-push';
+				
+			}
+			
 			$classes[] = $tablet_menu;
 
 		}

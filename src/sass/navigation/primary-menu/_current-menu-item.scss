@@ -3,19 +3,19 @@
  */
 .current-menu-1-item {
 	@include tablet-portrait-up {
-		background-color: $gray5;
+		background-color: $oc-gray-5;
 	}
 }
 
 .current-menu-1-item-link {
-	color: $gray7;
+	color: $oc-gray-7;
 	
 	&:visited {
-		color: $gray7;
+		color: $oc-gray-7;
 	}
 	
 	&:hover {
-		color: $gray5;
+		color: $oc-gray-5;
 	}
 }
 
@@ -29,18 +29,18 @@
 // .current_page_ancestor {
 // 
 // 	@include tablet-portrait-up {
-// 		background-color: $gray5;
+// 		background-color: $oc-gray-5;
 // 	}
 // 
 // 	> a { // menu item link directly under the above current class menu items and below.
-// 		color: $gray7;
+// 		color: $oc-gray-7;
 // 	}
 // 
 // 	&:hover,
 // 	&.focus {
 // 
 // 		> a {
-// 			color: $gray7;
+// 			color: $oc-gray-7;
 // 		}
 // 	}
 // }

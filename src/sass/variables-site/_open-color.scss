@@ -14,19 +14,21 @@ $oc-black:         #000000;
 
 
 //  Gray
+// Hover: color should be two levels darker than the current bg color
+// Contrast: gray0,1,2,3,4 on gray7,8,9 
 //  ───────────────────────────────────
 
 $oc-gray-list: (
-  "0": #f8f9fa,
-  "1": #f1f3f5,
-  "2": #e9ecef,
-  "3": #dee2e6,
-  "4": #ced4da,
-  "5": #adb5bd,
-  "6": #868e96,
-  "7": #495057,
-  "8": #343a40,
-  "9": #212529
+  "0": #f8f9fa, // backgrounds
+  "1": #f1f3f5, // darker backgrounds, especially on areas using gray0 as the bg color
+  "2": #e9ecef, // disabled button borders
+  "3": #dee2e6, // hr tags
+  "4": #ced4da, // form and button borders
+  "5": #adb5bd, // disabled forms, buttons, links
+  "6": #868e96, // disabled text
+  "7": #495057, // body text, menu or button labels
+  "8": #343a40, // emphasized body text
+  "9": #212529 // 
 );
 
 $oc-gray-0: map-get($oc-gray-list, "0");

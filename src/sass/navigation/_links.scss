@@ -1,17 +1,17 @@
 a {
-	color: $color__link;
+	color: royalblue;
 
 	&:visited {
-		color: $color__link-visited;
+		color: purple;
 	}
 
 	&:active,
 	&:hover {
-		color: $color__link-hover;
+		color: midnightblue;
 	}
 
 	&:focus {
-		color 			: $color__link-hover;
-		outline-color 	: $color__outline;
+		color 			: midnightblue;
+		outline-color 	: $oc-gray-5;
 	}
 }

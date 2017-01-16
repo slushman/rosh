@@ -1,26 +1,3 @@
-$gray0: #f8f9fa; // backgrounds
-$gray1: #f1f3f5; // darker backgrounds, especially on areas using gray0 as the bg color
-$gray2: #e9ecef; // disabled button borders
-$gray3: #dee2e6; // hr tags
-$gray4: #ced4da; // form and button borders
-$gray5: #adb5bd; // disabled forms, buttons, links
-$gray6: #868e96; // disabled text
-$gray7: #495057; // body text, menu or button labels
-$gray8: #343a40; // emphasized body text
-$gray9: #212529; 
-
-// Hover: color should be two levels darker than the current bg color
-// Contrast: gray0,1,2,3,4 on gray7,8,9 
-
-$ltyellow 	: #fff9c0; // bg for inserted text
-$tealblue 	: #21759b; // text color for a11y focus
-$errorred 	: #dc3232;
-
-
-
-// Universal colors
-$color__outline 			: $gray5;
-$color__link				: royalblue;
-$color__link-visited		: purple;
-$color__link-hover			: midnightblue;
-$bg__tablet-menu 			: $gray5;
+// Colors
+$bg__tablet-menu 			: $oc-gray-5;
+$errorred 					: #dc3232; // This is a WP admin color. Do not change.

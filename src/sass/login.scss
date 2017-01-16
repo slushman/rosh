@@ -16,7 +16,7 @@ h1 {
 }
 
 [name="loginform"] {
-	background-color: $gray0;
+	background-color: $oc-gray-0;
 	padding-bottom 	: 26px;
 
 	p {
@@ -24,18 +24,18 @@ h1 {
 	}
 
 	label {
-		color: $gray7;
+		color: $oc-gray-7;
 	}
 }
 
 .input { // username and password fields
-	border-color 	: $gray4;
-	color 			: $gray7;
+	border-color 	: $oc-gray-4;
+	color 			: $oc-gray-7;
 
 	&:focus,
 	&:active {
-		border 		: 1px solid $gray5;
-		box-shadow 	: 0 0 5px $gray5;
+		border 		: 1px solid $oc-gray-5;
+		box-shadow 	: 0 0 5px $oc-gray-5;
 	}
 }
 
@@ -46,20 +46,20 @@ h1 {
 
 
 [href$="?action=lostpassword"] {
-	color: $gray7;
+	color: $oc-gray-7;
 
 	&:hover {
-		color: $gray4;
+		color: $oc-gray-4;
 	}
 }
 
 #backtoblog {
 
 	a {
-		color: $gray7;
+		color: $oc-gray-7;
 
 		&:hover {
-			color: $gray4;
+			color: $oc-gray-4;
 		}
 	}
 }
@@ -72,24 +72,24 @@ h1 {
 }
 
 [name="rememberme"] { // checkbox itself
-	background-color: $gray4;
-	color 			: $gray7;
+	background-color: $oc-gray-4;
+	color 			: $oc-gray-7;
 
 	&:checked {
 
 		&:before {
-			color: $gray4;
+			color: $oc-gray-4;
 		}
 	}
 }
 
 .login { // page body tag
-	background: $gray3;
+	background: $oc-gray-3;
 	
 	.button-primary { // submit button itself
-		@include resetbutton( $gray4, $gray7, $gray0 );
+		@include resetbutton( $oc-gray-4, $oc-gray-7, $oc-gray-0 );
 		
-		color 			: $gray7;
+		color 			: $oc-gray-7;
 		font-size 		: 1.25em;
 		font-weight 	: 700;
 		text-transform 	: uppercase;

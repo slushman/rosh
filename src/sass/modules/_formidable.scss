@@ -124,8 +124,8 @@
 
 .frm_submit {
 	input {
-		@include resetbutton( $gray0 );
-		border			: 1px solid $gray4;
+		@include resetbutton( $oc-gray-0 );
+		border			: 1px solid $oc-gray-4;
 		border-radius	: 3px;
 		cursor			: pointer;
 		padding			: 6px 10px;

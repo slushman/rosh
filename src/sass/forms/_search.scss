@@ -1,5 +1,5 @@
 .hidden-search-top {
-	background-color: $gray3;
+	background-color: $oc-gray-3;
 	height 			: $size__hidden-search;
 	position 		: absolute;
 	top 			: 0;
@@ -34,10 +34,10 @@
 	transition 		: $trans__default;
 
 	&:hover {
-		background-color: $gray7;
+		background-color: $oc-gray-7;
 		
 		svg {
-			fill: $gray0;
+			fill: $oc-gray-0;
 		}
 	}
 }
@@ -52,7 +52,7 @@
 }
 
 .search-icon svg {
-	fill 		: $gray7;
+	fill 		: $oc-gray-7;
 	height		: 30px;
 	transition 	: $trans__default;
 	width		: 30px;

@@ -1,12 +1,12 @@
 input,
 textarea {
-	border 				: 1px solid $gray4;
+	border 				: 1px solid $oc-gray-4;
 	border-radius 		: 3px;
 	padding 			: 3px;
 
 	&:focus {
-		border-color 	: $gray4;
-		outline-color 	: $gray5;
+		border-color 	: $oc-gray-4;
+		outline-color 	: $oc-gray-5;
 	}
 }
 
