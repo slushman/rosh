@@ -7,6 +7,14 @@
  */
 ( function( $ ) {
 	
+	/**
+	 * AlterClass function by Pete Boere.
+	 * 
+	 * @link https://gist.github.com/peteboere/1517285
+	 * @param 		string 		removals 		Classses to remove.
+	 * @param 		string 		additions 		Classes to add.
+	 * @return 		string 						Classes for an element.
+	 */
 	$.fn.alterClass = function ( removals, additions ) {
 		
 		var self = this;
