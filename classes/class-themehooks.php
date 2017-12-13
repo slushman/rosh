@@ -748,7 +748,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		if ( is_front_page() && ! is_home() ) { return; }
 		if ( is_page() ) { return; }
 
-		if ( is_single() ) {
+		if ( is_singular() ) {
 
 			the_title( '<h1 class="entry-title">', '</h1>' );
 
