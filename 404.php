@@ -16,7 +16,7 @@ get_header();
 	 */
 	do_action( 'rosh_main_before' );
 
-	?><main id="main" role="main"><?php
+	?><main id="main"><?php
 
 	/**
 	 * The rosh_while_before action hook

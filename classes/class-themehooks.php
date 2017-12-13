@@ -527,7 +527,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 	 */
 	public function menu_primary() {
 
-		?><nav id="site-navigation" class="nav-1" role="navigation">
+		?><nav id="site-navigation" class="nav-1">
 			<button class="menu-1-toggle" aria-controls="menu-1" aria-expanded="false"><?php esc_html_e( 'Menu', 'rosh' ); ?></button><?php
 
 				$menu_args['menu_id'] 			= 'menu-1';

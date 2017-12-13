@@ -33,7 +33,7 @@
 	width 		: 100%;
 }
 
-[role="main"] {
+main {
 	@include adminbar-up {
 		.content-sidebar & {
 			margin 	: 0 2.5% 0 0;

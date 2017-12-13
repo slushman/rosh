@@ -53,7 +53,7 @@ do_action( 'rosh_html_before' );
 		 */
 		do_action( 'rosh_header_before' );
 
-		?><header class="site-header" role="banner"><?php
+		?><header class="site-header"><?php
 
 			/**
 			 * The rosh_header_top action hook

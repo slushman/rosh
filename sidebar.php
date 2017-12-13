@@ -14,7 +14,7 @@ if ( ! is_active_sidebar( 'sidebar' ) ) { return; }
  */
 do_action( 'rosh_sidebars_before' );
 
-?><aside id="secondary" class="widget-area" role="complementary"><?php
+?><aside id="secondary" class="widget-area"><?php
 
 	/**
 	 * The rosh_sidebar_top action hook
