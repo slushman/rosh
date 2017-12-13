@@ -6,8 +6,8 @@
 	/**
 	 * Find each image uploader parent element.
 	 */
-	var repeaters = document.querySelectorAll( '.repeaters' );
-	var imageFields = document.querySelectorAll( '.image-upload-field' );
+	const repeaters = document.querySelectorAll( '.repeaters' );
+	const imageFields = document.querySelectorAll( '.image-upload-field' );
 
 	/**
 	 * Returns the event target.
@@ -36,13 +36,13 @@
 
 		event.preventDefault();
 
-		var fileFrame, json, parent, field, remove, upload, preview;
+		var fileFrame, json;
 
-		upload = target;
-		parent = upload.parentNode;
-		field = parent.querySelector( '[data-pick="image-id"]' );
-		remove = parent.querySelector( '.remove-img' );
-		preview = parent.querySelector( '.image-upload-preview' );
+		let upload = target;
+		let parent = upload.parentNode;
+		let field = parent.querySelector( '[data-pick="image-id"]' );
+		let remove = parent.querySelector( '.remove-img' );
+		let preview = parent.querySelector( '.image-upload-preview' );
 
 		if ( undefined !== fileFrame ) {
 
@@ -86,7 +86,7 @@
 	 */
 	function processEvent( event ) {
 
-		var target = getEventTarget( event );
+		let target = getEventTarget( event );
 
 		event.stopPropagation();
 		event.cancelBubble = true;
@@ -114,13 +114,11 @@
 
 		event.preventDefault();
 
-		var parent, field, upload, remove, preview;
-
-		remove = target;
-		parent = remove.parentNode;
-		field = parent.querySelector( '[data-pick="image-id"]' );
-		upload = parent.querySelector( '.upload-img' );
-		preview = parent.querySelector( '.image-upload-preview' );
+		let remove = target;
+		let parent = remove.parentNode;
+		let field = parent.querySelector( '[data-pick="image-id"]' );
+		let upload = parent.querySelector( '.upload-img' );
+		let preview = parent.querySelector( '.image-upload-preview' );
 
 		field.value = '';
 		preview.style.backgroundImage = '';
@@ -140,7 +138,7 @@
 
 		if ( ! nodes || 0 >= nodes.length ) { return; }
 
-		for ( var n = 0; n < nodes.length; n++ ) {
+		for ( let n = 0; n < nodes.length; n++ ) {
 
 			nodes[n].addEventListener( 'click', processEvent );
 

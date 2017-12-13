@@ -5,15 +5,13 @@
  */
 ( function() {
 
-	var index, search, page, button;
-
-	search = document.querySelector( '#hidden-search-top' );
+	const search = document.querySelector( '#hidden-search-top' );
 	if ( ! search ) { return; }
 
-	page = document.querySelector( '#page' );
+	const page = document.querySelector( '#page' );
 	if ( ! page ) { return; }
 
-	button = document.querySelector( '.btn-search' );
+	const button = document.querySelector( '.btn-search' );
 	if ( ! button ) { return; }
 
 	search.setAttribute( 'aria-hidden', 'true' );

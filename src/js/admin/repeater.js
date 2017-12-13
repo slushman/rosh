@@ -8,19 +8,19 @@
 (function( $ ) {
 	'use strict';
 
-	var allRepeaters = document.querySelectorAll( '.repeaters' );
+	const allRepeaters = document.querySelectorAll( '.repeaters' );
 	if ( ! allRepeaters ) { return; }
 
 	function addID( clone ) {
 
-		var id 			= generateID();
-		var inputs 		= clone.querySelectorAll( '[disabled="disabled"]' );
-		var hidden 		= clone.querySelector( '[id="_repeater_uid"]' );
+		let id 			= generateID();
+		let inputs 		= clone.querySelectorAll( '[disabled="disabled"]' );
+		let hidden 		= clone.querySelector( '[id="_repeater_uid"]' );
 		hidden.value 	= id;
 
 		resetAttribute( clone, 'id', id );
 
-		for ( var i = 0; i < inputs.length; i++ ) {
+		for ( let i = 0; i < inputs.length; i++ ) {
 
 			resetAttribute( inputs[i], 'name', id );
 			resetAttribute( inputs[i], 'id', id );
@@ -40,10 +40,10 @@
 	 */
 	function changeTitle( repeater, event, target ) {
 
-		var repeatedItem 	= getParent( target, 'repeater' );
-		var fieldval 		= target.value;
-		var title 			= repeatedItem.querySelector( '.title-repeater' );
-		var titleField 		= repeatedItem.querySelector( '[data-title="repeater-title"]' );
+		let repeatedItem 	= getParent( target, 'repeater' );
+		let fieldval 		= target.value;
+		let title 			= repeatedItem.querySelector( '.title-repeater' );
+		let titleField 		= repeatedItem.querySelector( '[data-title="repeater-title"]' );
 
 		if ( 0 < fieldval.length ) {
 
@@ -65,8 +65,8 @@
 
 		event.preventDefault();
 
-		var hidden = repeater.querySelector( '.hidden-repeater' );
-		var clone = hidden.cloneNode( true );
+		let hidden = repeater.querySelector( '.hidden-repeater' );
+		let clone = hidden.cloneNode( true );
 
 		clone.classList.remove( 'hidden' );
 		clone.classList.remove( 'hidden-repeater' );
@@ -85,9 +85,9 @@
 	 */
 	function collapseRepeater( repeater, event, target ) {
 
-		var repeatedItem = getParent( target, 'repeater' );
-		var content = repeatedItem.querySelector( '.repeater-content' );
-		var handle = repeatedItem.querySelector( '.repeater-handle' );
+		let repeatedItem = getParent( target, 'repeater' );
+		let content = repeatedItem.querySelector( '.repeater-content' );
+		let handle = repeatedItem.querySelector( '.repeater-handle' );
 
 		content.classList.toggle( 'hide' );
 		target.classList.toggle( 'repeater-toggle-arrow-closed' );
@@ -101,17 +101,17 @@
 	 */
 	function generateID() {
 
-		var d = new Date().getTime();
+		let d = new Date().getTime();
 
-		if( window.performance && typeof window.performance.now === "function" ) {
+		if ( window.performance && typeof window.performance.now === "function" ) {
 
 			d += performance.now(); //use high-precision timer if available
 
 		}
 
-		var uuid = 'xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+		let uuid = 'xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
 
-			var r = ( d + Math.random() * 16 ) % 16 | 0;
+			let r = ( d + Math.random() * 16 ) % 16 | 0;
 			d = Math.floor( d / 16 );
 
 			return ( c == 'x' ? r : ( r&0x3 | 0x8 ) ).toString( 16 );
@@ -148,7 +148,7 @@
 	 */
 	function getParent( el, className ) {
 
-		var parent = el.parentNode;
+		let parent = el.parentNode;
 
 		if ( '' !== parent.classList && parent.classList.contains( className ) ) {
 
@@ -168,7 +168,7 @@
 	 */
 	function processEvent( event ) {
 
-		var target = getEventTarget( event );
+		let target = getEventTarget( event );
 
 		event.stopPropagation();
 		event.cancelBubble = true;
@@ -206,9 +206,9 @@
 	 */
 	function removeDisabled( clone ) {
 
-		var fields = clone.querySelectorAll( '[disabled="disabled"]' );
+		let fields = clone.querySelectorAll( '[disabled="disabled"]' );
 
-		for ( var f = 0; f < fields.length; f++ ) {
+		for ( let f = 0; f < fields.length; f++ ) {
 
 			fields[f].removeAttribute( 'disabled' );
 
@@ -227,7 +227,7 @@
 
 		event.preventDefault();
 
-		var repeatedItem = getParent( target, 'repeater' );
+		let repeatedItem = getParent( target, 'repeater' );
 
 		if ( ! repeatedItem.classList.contains( 'first' ) ) {
 
@@ -246,10 +246,10 @@
 	 */
 	function resetAttribute( element, attribute, newValue ) {
 
-		var oldAtt = element.getAttribute( attribute );
+		let oldAtt = element.getAttribute( attribute );
 		if ( ! oldAtt ) { return; }
 
-		var newAtt = oldAtt.replace( 'hidden', newValue );
+		let newAtt = oldAtt.replace( 'hidden', newValue );
 
 		element.setAttribute( attribute, newAtt );
 
@@ -263,10 +263,10 @@
 	 */
 	function resetLabel( element, newValue ) {
 
-		var parent = getParent( element, 'wrap-field' );
+		let parent = getParent( element, 'wrap-field' );
 		if ( ! parent ) { return; }
 
-		var label = parent.querySelector( 'label' );
+		let label = parent.querySelector( 'label' );
 		if ( ! label ) { return; }
 
 		resetAttribute( label, 'for', newValue );
@@ -283,7 +283,7 @@
 
 		if ( ! repeaters || 0 >= repeaters.length ) { return; }
 
-		for ( var n = 0; n < repeaters.length; n++ ) {
+		for ( let n = 0; n < repeaters.length; n++ ) {
 
 			repeaters[n].addEventListener( 'click', processEvent );
 			repeaters[n].addEventListener( 'keyup', processEvent );

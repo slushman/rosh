@@ -8,13 +8,13 @@
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A custom WordPress theme framework, originally derived from _s, or underscores by Automattic, designed and coded by slushman.
+A custom WordPress theme framework, originally derived from `_s`, or underscores by Automattic, designed and coded by slushman.
 
 
 
 ## Description
 
-A custom WordPress theme framework, originally derived from _s, or underscores by Automattic, designed and coded by slushman.
+A custom WordPress theme framework, originally derived from `_s`, or underscores by Automattic, designed and coded by slushman.
 
 
 
@@ -32,9 +32,9 @@ A custom WordPress theme framework, originally derived from _s, or underscores b
 
 Rosh includes support from Infinite Scroll in Jetpack.
 
-### So, is this an _s theme then?
+### So, is this an `_s` theme then?
 
-No. Rosh started out as a fork of _s, but was converted to a framework to make it simpler to update previously-built projects. You will need to create and activate a child theme to use Rosh.
+No. Rosh started out as a fork of `_s`, but was converted to a framework to make it simpler to update previously-built projects. You will need to create and activate a child theme to use Rosh.
 
 
 
@@ -42,7 +42,7 @@ No. Rosh started out as a fork of _s, but was converted to a framework to make i
 
 ### 1.0.3
 * Changes Tag Manager Customizer field to Tag Manager ID instead. Tag Manager code is hard-coded into the analytics_code() function.
-* Brings Rosh up to parity with current version of _s, as of 1/10/2017.
+* Brings Rosh up to parity with current version of `_s`, as of 1/10/2017.
 
 ### 1.0.2
 * Moves default meta tags to function.

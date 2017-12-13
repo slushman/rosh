@@ -206,6 +206,17 @@ class Rosh_Field {
 
 	/**
 	 * Returns the default class attribute for the field type.
+	 *
+	 * checkbox
+	 * color
+	 * date
+	 * file-upload
+	 * image-upload
+	 * select
+	 * text
+	 * textarea
+	 * time
+	 * url
 	 */
 	protected function get_default_class_attribute() {
 
@@ -292,7 +303,7 @@ class Rosh_Field {
 		$default['error'] 		= __( '', 'rosh' );
 		$default['label'] 		= __( '', 'rosh' );
 		$default['type']		= $this->props['type'];
-		
+
 		/**
 		 * Checkboxes default to being checked.
 		 */
@@ -754,7 +765,7 @@ class Rosh_Field {
 		foreach ( $this->props as $key => $prop ) {
 
 			if ( ! array_key_exists( $key, $defaults ) ) { unset( $this->props[$key] ); }
-			if ( 'checked' === $key ) { continue; }	
+			if ( 'checked' === $key ) { continue; }
 			if ( empty( $prop ) && 'type' !== $key ) { unset( $this->props[$key] ); }
 
 		}

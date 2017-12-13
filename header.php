@@ -14,7 +14,7 @@
  */
 do_action( 'rosh_html_before' );
 
-?><!DOCTYPE html>
+?><!doctype html>
 <html <?php language_attributes(); ?>>
 	<head><?php
 

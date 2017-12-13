@@ -5,23 +5,21 @@
 
 	'use strict';
 
-	var buttons, len, box, checked, valid;
-
-	buttons = document.querySelectorAll( '.post-format' );
+	const buttons = document.querySelectorAll( '.post-format' );
 	if ( ! buttons ) { return; }
 
-	len = buttons.length;
+	const len = buttons.length;
 	if ( 0 >= len ) { return; }
 
-	box = document.querySelector( '#post_format_data' );
+	const box = document.querySelector( '#post_format_data' );
 	if ( ! box ) { return; }
 
 	/**
 	 * Hide the Post Format Metabox if the current
 	 * post format is not selected.
 	 */
-	checked = document.querySelector( '.post-format[checked]' );
-	valid = [ 'audio', 'image', 'link', 'video' ];
+	const checked = document.querySelector( '.post-format[checked]' );
+	const valid = [ 'audio', 'image', 'link', 'video' ];
 
 	if ( 0 > valid.indexOf( checked.value ) ) {
 
@@ -34,13 +32,13 @@
 	 */
 	function showFormat() {
 
-		var others = document.querySelectorAll( '.post-format-field:not( #post_format_' + this.value + ' )' );
-		var field = document.querySelector( '#post_format_' + this.value );
-		var otherslen = others.length;
+		let others = document.querySelectorAll( '.post-format-field:not( #post_format_' + this.value + ' )' );
+		let field = document.querySelector( '#post_format_' + this.value );
+		let otherslen = others.length;
 
 		if ( 0 < otherslen ) {
 
-			for ( var j = 0; j < otherslen; j++ ) {
+			for ( let j = 0; j < otherslen; j++ ) {
 
 				others[j].classList.add( 'hide' );
 
@@ -60,10 +58,10 @@
 
 	}
 
-	for ( var i = 0; i < len; i++ ) {
+	for ( let i = 0; i < len; i++ ) {
 
-		var button = buttons[i];
-		var field = document.querySelector( '#post_format_' + button.value );
+		let button = buttons[i];
+		let field = document.querySelector( '#post_format_' + button.value );
 
 		button.addEventListener( 'click', showFormat );
 

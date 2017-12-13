@@ -6,15 +6,15 @@
  */
 ( function() {
 
-	var container = document.querySelector( '#site-navigation' );
+	const container = document.querySelector( '#site-navigation' );
 	if ( ! container ) { return; }
 
-	var menu = container.querySelector( '#menu-1' );
+	const menu = container.querySelector( '#menu-1' );
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
 
-		var button = container.querySelector( '.menu-1-toggle' );
+		const button = container.querySelector( '.menu-1-toggle' );
 
 		button.style.display = 'none';
 
@@ -34,7 +34,7 @@
 	 */
 	function clickEvent( event ) {
 
-		var target = getEventTarget( event );
+		let target = getEventTarget( event );
 
 		event.stopPropagation();
 		event.cancelBubble = true;
@@ -85,7 +85,7 @@
 	 */
 	function getParent( el, className ) {
 
-		var parent = el.parentNode;
+		let parent = el.parentNode;
 
 		if ( '' !== parent.classList && parent.classList.contains( className ) ) {
 
@@ -110,9 +110,9 @@
 
 		event.preventDefault();
 
-		var menuItem 	= getParent( target, 'menu-item' );
-		//var subMenu 	= menuItem.querySelector( '.wrap-submenu' );
-		var subMenu 	= menuItem.querySelector( '.menu-1-items' );
+		let menuItem 	= getParent( target, 'menu-item' );
+		//let subMenu 	= menuItem.querySelector( '.wrap-submenu' );
+		let subMenu 	= menuItem.querySelector( '.menu-1-items' );
 		if ( ! subMenu ) { return; }
 
 		subMenu.classList.toggle( 'menu-1-items-closed' );
@@ -139,7 +139,7 @@
 	 */
 	function toggleAttribute( element, attribute, newValue ) {
 
-		var value = element.getAttribute( attribute );
+		let value = element.getAttribute( attribute );
 
 		if ( newValue === value ) { return; }
 
@@ -154,7 +154,7 @@
 	 */
 	function toggleFocus( event ) {
 
-		var target = getEventTarget( event );
+		let target = getEventTarget( event );
 
 		event.stopPropagation();
 		event.cancelBubble = true;
@@ -195,7 +195,7 @@
 
 		}
 
-		var body = document.querySelector( 'body' );
+		let body = document.querySelector( 'body' );
 
 		body.classList.toggle( 'tablet-menu-open' );
 
@@ -209,7 +209,7 @@
 	 */
 	function touchStart( event ) {
 
-		var target = getEventTarget( event );
+		let target = getEventTarget( event );
 
 		if ( ! target.matches( '.menu-item-has-children > a' ) && ! target.matches( '.page_item_has_children > a' ) ) { return; }
 
@@ -218,9 +218,9 @@
 
 		event.preventDefault();
 
-		var menuItem = target.parentNode;
+		let menuItem = target.parentNode;
 
-		for ( var i = 0; i < menuItem.parentNode.children.length; ++i ) {
+		for ( let i = 0; i < menuItem.parentNode.children.length; ++i ) {
 
 			if ( menuItem === menuItem.parentNode.children[i] ) { continue; }
 
