@@ -61,4 +61,4 @@
 	 */
 	do_action( 'rosh_entry_bottom' );
 
-?></article><!-- #post-## -->
+?></article><!-- #post-<?php the_ID(); ?> -->
