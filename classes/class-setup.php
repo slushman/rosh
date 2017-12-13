@@ -135,7 +135,7 @@ class Rosh_Setup {
 	 * @hooked 		wp_enqueue_scripts
 	 */
 	public function enqueue_public() {
-		
+
 		wp_scripts()->add_data( 'jquery', 'group', 1 );
 		wp_scripts()->add_data( 'jquery-core', 'group', 1 );
 		wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
@@ -147,11 +147,11 @@ class Rosh_Setup {
 		wp_enqueue_script( 'rosh-libs', get_stylesheet_directory_uri() . '/assets/js/lib.min.js', array(), PARENT_THEME_VERSION, true );
 
 		wp_enqueue_script( 'rosh-public', get_stylesheet_directory_uri() . '/assets/js/public.min.js', array( 'jquery', 'rosh-libs' ), PARENT_THEME_VERSION, true );
-		
+
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		
+
 			wp_enqueue_script( 'comment-reply' );
-		
+
 		}
 
 		// wp_enqueue_style( 'rosh-fonts', $this->fonts_url(), array(), null );
@@ -295,13 +295,18 @@ class Rosh_Setup {
 		 * @param  	bool 	flex-height 	True if the theme has additional space for the logo vertically.
 		 * @param 	bool 	flex-width 		True if the theme has additional space for the logo horizontally.
 		 */
-		add_theme_support( 'custom-logo' );
+		add_theme_support( 'custom-logo', array(
+			'height' 		=> 250
+			'width' 		=> 250,
+			'flex-width' 	=> true,
+			'flex-height' 	=> true,
+		) );
 
 		/**
 		 * Enable Yoast Breadcrumb support
 		 */
 		add_theme_support( 'yoast-seo-breadcrumbs' );
-		
+
 		/**
 		 * Add theme support for selective refresh for widgets.
 		 */
