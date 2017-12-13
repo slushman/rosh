@@ -259,7 +259,21 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 
 		?><span class="comments-link"><?php
 
-		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'rosh' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) ); // translators: %s: post title
+		comments_popup_link(
+			sprintf(
+				wp_kses(
+
+					/* Translators: %s: post title. */
+					__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'rosh' ),
+					array(
+						'span' => array(
+							'class' => array()
+						)
+					)
+				),
+				get_the_title()
+			)
+		);
 
 		?></span><?php
 

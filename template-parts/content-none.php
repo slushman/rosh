@@ -30,7 +30,17 @@
 			?><p><?php
 
 				/* Translators: 1: link to WP admin new post page. */
-				printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'rosh' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) );
+				printf(
+					wp_kses(
+						__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'rosh' ),
+						array(
+							'a' => array(
+								'href' => array()
+							)
+						)
+					),
+					esc_url( admin_url( 'post-new.php' ) )
+				);
 
 			?></p><?php
 
