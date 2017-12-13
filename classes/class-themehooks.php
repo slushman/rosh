@@ -294,7 +294,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		if ( 'post' !== get_post_type() ) { return; }
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'rosh' ) );
+		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'rosh' ) );
 
 		if ( empty( $tags_list ) ) { return; }
 
@@ -447,7 +447,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"><?php
 
 	} // head_content()
-	
+
 	/**
 	 * Adds pingback headers.
 	 *
@@ -457,7 +457,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 	 * @return 		mixed 				The default meta tags markup.
 	 */
 	public function head_pingback() {
-		
+
 		if ( ! is_singular() || ! pings_open() ) { return; }
 
 		?><link rel="pingback" href="<?php esc_url( bloginfo( 'pingback_url' ) ); ?>"><?php
