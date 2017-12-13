@@ -1,4 +1,4 @@
-# Copyright (C) 2017 Rosh
+# Copyright (C) 2018 Rosh
 # This file is distributed under the same license as the Rosh package.
 msgid ""
 msgstr ""
