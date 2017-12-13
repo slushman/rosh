@@ -6,30 +6,30 @@
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */
 ( function( $ ) {
-	
+
 	/**
 	 * AlterClass function by Pete Boere.
-	 * 
+	 *
 	 * @link https://gist.github.com/peteboere/1517285
 	 * @param 		string 		removals 		Classses to remove.
 	 * @param 		string 		additions 		Classes to add.
 	 * @return 		string 						Classes for an element.
 	 */
 	$.fn.alterClass = function ( removals, additions ) {
-		
+
 		var self = this;
-		
+
 		if ( removals.indexOf( '*' ) === -1 ) {
 			// Use native jQuery methods if there is no wildcard matching
 			self.removeClass( removals );
 			return !additions ? self : self.addClass( additions );
 		}
 
-		var patt = new RegExp( '\\s' + 
+		var patt = new RegExp( '\\s' +
 				removals.
 					replace( /\*/g, '[A-Za-z0-9-_]+' ).
 					split( ' ' ).
-					join( '\\s|\\s' ) + 
+					join( '\\s|\\s' ) +
 				'\\s', 'g' );
 
 		self.each( function ( i, it ) {
@@ -60,16 +60,16 @@
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {
 			if ( 'blank' === to ) {
-				$( '.site-title, a .site-description' ).css( {
+				$( '.site-title, .site-description' ).css( {
 					'clip': 'rect(1px, 1px, 1px, 1px)',
 					'position': 'absolute'
 				} );
 			} else {
-				$( '.site-title a, .site-description' ).css( {
+				$( '.site-title, .site-description' ).css( {
 					'clip': 'auto',
 					'position': 'relative'
 				} );
-				$( '.site-title a, .site-description' ).css( {
+				$( '.site-title, .site-description' ).css( {
 					'color': to,
 				} );
 			}
@@ -78,9 +78,9 @@
 
 	// Tablet Menu Style
 	wp.customize( 'tablet_menu', function( value ) {
-		
+
 		value.bind( function( to ){
-			
+
 			$('body').alterClass( 'tablet-*' );
 
 			var tabletClass;
@@ -96,7 +96,7 @@
 				default: 								tabletClass = ''; break;
 
 			}
-			
+
 			console.log( tabletClass );
 
 			$('body').addClass( tabletClass );
