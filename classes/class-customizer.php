@@ -25,6 +25,7 @@ class Rosh_Customizer {
 		add_action( 'customize_register', 	array( $this, 'register_panels' ) );
 		add_action( 'customize_register', 	array( $this, 'register_sections' ) );
 		add_action( 'customize_register', 	array( $this, 'register_fields' ) );
+		add_action( 'customize_register', 	array( $this, 'selective_refresh' ) );
 		add_action( 'wp_head', 				array( $this, 'header_output' ) );
 		add_action( 'customize_register', 	array( $this, 'load_customize_controls' ), 0 );
 
@@ -81,7 +82,7 @@ class Rosh_Customizer {
 				'title'  			=> esc_html__( 'Tablet Menu Style', 'rosh' ),
 			)
 		);
-		
+
 		// Images Section
 		$wp_customize->add_section( 'images',
 			array(
@@ -182,11 +183,11 @@ class Rosh_Customizer {
 			)
 		);
 		$wp_customize->get_setting( 'tablet_menu' )->transport = 'postMessage';
-		
-		
-		
+
+
+
 		// Images Fields
-		
+
 		// Default Featured Image Field
 		$wp_customize->add_setting(
 			'default_featured_image' ,
@@ -240,7 +241,7 @@ class Rosh_Customizer {
 
 		$return = '';
 		$mod 	= get_theme_mod( $mod_name );
-		
+
 		if ( empty( $mod ) ) { return; }
 
 		$return = sprintf('%s { %s:%s; }',
@@ -636,6 +637,50 @@ class Rosh_Customizer {
 	} // load_customize_controls()
 
 	/**
+	 * Render the site title for the selective refresh partial.
+	 *
+	 * @since 		1.0.4
+	 */
+	public function refresh_partial_blogname() {
+
+		bloginfo( 'name' );
+
+	} // refresh_partial_blogname()
+
+	/**
+	 * Render the site description for the selective refresh partial.
+	 *
+	 * @since 		1.0.4
+	 */
+	public function refresh_partial_blogdescription() {
+
+		bloginfo( 'description' );
+
+	} // refresh_partial_blogdescription()
+
+	/**
+	 * Registers selective refresh for site title and description.
+	 *
+	 * @hooked 		customize_register
+	 * @since 		1.0.4
+	 * @param 		WP_Customize_Manager 		$wp_customize 		Theme Customizer object.
+	 */
+	public function selective_refresh( $wp_customize ) {
+
+		if ( ! isset( $wp_customize->selective_refresh ) ) { return; }
+
+		$wp_customize->selective_refresh->add_partial( 'blogname', array(
+			'selector'        => '.site-title a',
+			'render_callback' => [ $this, 'refresh_partial_blogname' ],
+		) );
+		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
+			'selector'        => '.site-description',
+			'render_callback' => [ $this, 'refresh_partial_blogdescription' ],
+		) );
+
+	} // selective_refresh()
+
+	/**
 	 * Returns an array of the Australian states and Territories.
 	 * The optional parameters allows for returning just one state.
 	 *
@@ -790,12 +835,12 @@ class Rosh_Customizer {
 
 /**
  * Sanitizes the input for the Google Analytics code field.
- * 
+ *
  * @param 		mixed 		$input 		The field input.
  * @return 		mixed 					The sanitized input.
  */
 function rosh_sanitize_analytics_code( $input ) {
-	
+
 	return stripslashes( wp_filter_post_kses( $input ) );
-	
+
 } // rosh_sanitize_analytics_code()
