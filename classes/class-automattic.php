@@ -16,8 +16,12 @@ class Rosh_Automattic {
 
 	/**
 	 * Registers all the WordPress hooks and filters for this class.
+	 *
+	 * @exits 		If Jetpack Version constant is not found.
 	 */
 	public function hooks () {
+
+		if ( ! defined( 'JETPACK_VERSION' ) ) { return; }
 
 		add_action( 'after_setup_theme', array( $this, 'jetpack_setup' ) );
 		add_action( 'after_setup_theme', array( $this, 'wpcom_setup' ) );
