@@ -1,7 +1,7 @@
 # Rosh
 
 * Contributors: slushman
-* Tags: featured-images, translation-ready, custom-background, theme-options, custom-menu, threaded-comments
+* Tags: featured-images, translation-ready, custom-background, theme-options, custom-menu, threaded-comments, custom-logo
 * Requires at least: 4.0
 * Tested up to: 4.9.1
 * Stable tag: 1.0.4
