@@ -291,7 +291,23 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		if ( is_page() ) { return; }
 		if ( 'post' !== get_post_type() ) { return; }
 
-		edit_post_link( esc_html__( 'Edit', 'rosh' ), '<span class="edit-link">', '</span>' );
+		edit_post_link(
+			sprintf(
+				/* Translators: %s: Name of current post. Only visible to screen readers. */
+				wp_kses(
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'rosh' ),
+					array(
+						'span' => array(
+							'class' => array()
+						)
+					)
+				),
+				get_the_title()
+			),
+			'<span class="edit-link">',
+			'</span>'
+		);
+		esc_html__( 'Edit', 'rosh' ), '<span class="edit-link">', '</span>' );
 
 	} // entry_edit_link()
 
