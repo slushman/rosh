@@ -31,4 +31,4 @@
 
 	window.addEventListener( 'hashchange', hashChange );
 
-})();
+} )();
