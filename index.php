@@ -35,23 +35,18 @@ get_header();
 			 * The rosh_entry_before action hook
 			 */
 			do_action( 'rosh_entry_before' );
-			
+
 			if ( is_search() ) {
-				
+
 				$part = 'search';
-				
-			} elseif ( has_post_format( get_theme_support( 'post-formats' )[0] ) ) {
-				
-				$part = get_post_format();
-				
+
 			} else {
-				
+
 				$part = 'excerpt';
-				
+
 			}
 
 			/*
-			 * Include the Post-Format-specific template for the content.
 			 * If you want to override this in a child theme, then include a file
 			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 			 */

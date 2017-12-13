@@ -33,7 +33,7 @@ get_header();
 		 */
 		do_action( 'rosh_entry_before' );
 
-		get_template_part( 'template-parts/content', get_post_format() );
+		get_template_part( 'template-parts/content', get_post_type() );
 
 		/**
 		 * The rosh_entry_after action hook

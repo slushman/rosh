@@ -268,23 +268,6 @@ class Rosh_Setup {
 			'caption',
 		) );
 
-		/*
-		 * Enable support for Post Formats.
-		 *
-		 * @see 		https://developer.wordpress.org/themes/functionality/post-formats/
-		 */
-		add_theme_support( 'post-formats', array(
-			'aside',
-			'audio',
-			'chat',
-			'gallery',
-			'image',
-			'link',
-			'quote',
-			'status',
-			'video',
-		) );
-
 		/**
 		 * Set up the WordPress core custom logo feature.
 		 *

@@ -95,7 +95,7 @@ function rosh_infinite_scroll_render() {
 
 		} else {
 
-			get_template_part( 'template-parts/content', get_post_format() );
+			get_template_part( 'template-parts/content', get_post_type() );
 
 		}
 
