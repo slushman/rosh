@@ -9,61 +9,22 @@
 
 /**
  * Returns a camel cased word.
- * 
+ *
  * @param 		string 		$word 			The word to convert.
  * @param 		string 		$separator 		The separato between words.
  * @return 		string 						camelCased word.
  */
 function rosh_camelcase( $word, $separator ) {
-	
+
 	if ( ! strpos( $word, $separator ) ) { return $word; }
-	
+
 	$alluppers 	= ucwords( $word, $separator );
 	$lowerfirst = lcfirst( $alluppers );
 	$replaced 	= str_replace( $separator, '', $lowerfirst );
 
 	return $replaced;
-	
+
 } // rosh_camelcase()
-
-if ( ! function_exists( 'rosh_categorized_blog' ) ) :
-	/**
-	 * Returns true if a blog has more than 1 category.
-	 *
-	 * Create an array of all the categories that are attached to posts.
-	 * We only need to know if there is more than one category.
-	 * Count the number of categories that are attached to the posts.
-	 *
-	 * @return 		bool 			TRUE if blog has more than one category, otherwise FALSE.
-	 */
-	function rosh_categorized_blog() {
-
-		$cats_count = get_transient( 'rosh_categories' );
-
-		if ( false === ( $cats_count ) ) {
-
-			$all_the_cats = get_categories( array(
-				'fields'     => 'ids',
-				'hide_empty' => 1,
-				'number'     => 2,
-			) );
-
-			$cats_count = count( $all_the_cats );
-
-			set_transient( 'rosh_categories', $cats_count );
-
-		}
-
-		if ( $cats_count > 1 ) {
-
-			return true;
-
-		}
-
-		return false;
-
-	} // rosh_categorized_blog()
-endif;
 
 if ( ! function_exists( 'rosh_get_attachment_by_name' ) ) :
 	/**

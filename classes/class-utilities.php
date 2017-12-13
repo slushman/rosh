@@ -36,8 +36,6 @@ class Rosh_Utilities {
 		add_filter( 'upload_mimes', 					array( $this, 'custom_upload_mimes' ) );
 		add_filter( 'manage_page_posts_columns', 		array( $this, 'page_template_column_head' ), 10 );
 		add_action( 'manage_page_posts_custom_column', 	array( $this, 'page_template_column_content' ), 10, 2 );
-		add_action( 'edit_category', 					array( $this, 'category_transient_flusher' ) );
-		add_action( 'save_post', 						array( $this, 'category_transient_flusher' ) );
 		add_filter( 'wpseo_metabox_prio', 				function() { return 'low'; } );
 
 	} // hooks()
@@ -99,22 +97,6 @@ class Rosh_Utilities {
 		</style><!-- Background Images --><?php
 
 	} // background_images()
-
-	/**
-	 * Flush out the transients used in rosh_categorized_blog.
-	 *
-	 * @exits 		Doing Autosave.
-	 * @hooked 		edit_category
-	 * @hooked 		save_post
-	 */
-	public function category_transient_flusher() {
-
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) { return; }
-
-		// Like, beat it. Dig?
-		delete_transient( 'rosh_categories' );
-
-	} // category_transient_flusher()
 
 	/**
 	 * Adds support for additional MIME types to WordPress
@@ -261,13 +243,6 @@ class Rosh_Utilities {
 
 		}
 
-		// Adds a class of group-blog to blogs with more than 1 published author.
-		if ( is_multi_author() ) {
-
-			$classes[] = 'group-blog';
-
-		}
-
 		// Adds a class of hfeed to non-singular pages.
 		if ( ! is_singular() ) {
 
@@ -278,27 +253,27 @@ class Rosh_Utilities {
 		$tablet_menu = get_theme_mod( 'tablet_menu' );
 
 		if ( ! empty( $tablet_menu ) ) {
-			
+
 			if ( FALSE !== strpos( $tablet_menu, '-slide-' ) ) {
-				
+
 				$classes[] = 'tablet-slide';
-				
+
 				if ( FALSE !== strpos( $tablet_menu, '-left' ) || FALSE !== strpos( $tablet_menu, '-right' ) ) {
-					
+
 					$classes[] = 'tablet-slide-sides';
-					
+
 				} elseif ( FALSE !== strpos( $tablet_menu, '-bottom' ) || FALSE !== strpos( $tablet_menu, '-top' ) ) {
-					
-					$classes[] = 'tablet-slide-topbot';					
-					
+
+					$classes[] = 'tablet-slide-topbot';
+
 				}
-				
+
 			} elseif ( FALSE !== strpos( $tablet_menu, '-push' ) ) {
-				
+
 				$classes[] = 'tablet-push';
-				
+
 			}
-			
+
 			$classes[] = $tablet_menu;
 
 		}

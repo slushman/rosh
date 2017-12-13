@@ -29,6 +29,7 @@ class Rosh_Automattic {
 	 *
 	 * @see: https://jetpack.com/support/infinite-scroll/
 	 * @see: https://jetpack.com/support/responsive-videos/
+	 * @see: https://jetpack.com/support/content-options/
 	 * @hooked 		after_setup_theme
 	 */
 	function jetpack_setup() {
@@ -40,6 +41,18 @@ class Rosh_Automattic {
 		) );
 
 		add_theme_support( 'jetpack-responsive-videos' );
+
+		// Add theme support for Content Options.
+		add_theme_support( 'jetpack-content-options', array(
+			'post-details' => array(
+				'stylesheet' 	=> 'rosh-style',
+				'date'			=> '.posted-on',
+				'categories'	=> '.cat-links',
+				'tags'			=> '.tags-links',
+				'author'		=> '.byline',
+				'comment'		=> '.comments-link',
+			)
+		) );
 
 	} // jetpack_setup()
 

@@ -232,7 +232,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'rosh' ) );
-		if ( $categories_list && rosh_categorized_blog() ) {
+		if ( $categories_list ) {
 
 			/* Translators: 1: list of categories. */
 			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'rosh' ) . '</span>', $categories_list );  // WPCS: XSS OK.
@@ -401,7 +401,6 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 	public function four_04_categories() {
 
 		if ( ! is_404() ) { return; }
-		if ( ! rosh_categorized_blog() ) { return; }
 
 		?><div class="widget widget_categories">
 			<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'rosh' ); ?></h2>
