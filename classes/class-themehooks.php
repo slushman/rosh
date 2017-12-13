@@ -293,13 +293,13 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 
 		edit_post_link(
 			sprintf(
-				/* Translators: %s: Name of current post. Only visible to screen readers. */
 				wp_kses(
+					/* Translators: %s: Name of current post. Only visible to screen readers. */
 					__( 'Edit <span class="screen-reader-text">%s</span>', 'rosh' ),
 					array(
 						'span' => array(
-							'class' => array()
-						)
+							'class' => array(),
+						),
 					)
 				),
 				get_the_title()
