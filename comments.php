@@ -30,13 +30,30 @@ do_action( 'rosh_comments_before' );
 
 		?><h2 class="comments-title"><?php
 
-			printf( // WPCS: XSS OK.
-				esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'rosh' ) ),
-				number_format_i18n( get_comments_number() ),
-				'<span>' . get_the_title() . '</span>'
-			);
+			$comment_count = get_comments_number();
 
-		?></h2><?php
+			if ( 1 === $comment_count ) {
+
+				printf(
+					/* Translators: 1: title. */
+					esc_html_e( 'One thought on &ldquo;%1$s&rdquo;', 'rosh' ),
+					'<span>' . get_the_title() . '</span>'
+				);
+
+			} else {
+
+				printf( // WPCS: XSS OK.
+					/* Translators: 1: comment count number, 2: title. */
+					esc_html(
+						_nx( '%1$s thought on &ldquo;%1$s&rdquo;', '%1$s thoughts on &ldquo;%1$s&rdquo;', $comment_count, 'comments title', 'rosh' )
+					),
+					number_format_i18n( $comment_count ),
+					'<span>' . get_the_title() . '</span>'
+				);
+
+			}
+
+		?></h2><!-- .comments-title --><?php
 
 		if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through?
 
