@@ -234,6 +234,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		$categories_list = get_the_category_list( esc_html__( ', ', 'rosh' ) );
 		if ( $categories_list && rosh_categorized_blog() ) {
 
+			/* Translators: 1: list of categories. */
 			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'rosh' ) . '</span>', $categories_list );  // WPCS: XSS OK.
 
 		}
@@ -298,6 +299,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 
 		if ( empty( $tags_list ) ) { return; }
 
+		/* Translators: 1: list of tags. */
 		printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'rosh' ) . '</span>', $tags_list );  // WPCS: XSS OK.
 
 	} // entry_tags_links()
@@ -563,11 +565,13 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 			);
 
 			$posted_on = sprintf(
+				/* Translators: %s: post date. */
 				esc_html_x( 'Posted on %s', 'post date', 'rosh' ),
 				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 			);
 
 			$byline = sprintf(
+				/* Translators: %s: post author. */
 				esc_html_x( 'by %s', 'post author', 'rosh' ),
 				'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 			);
@@ -758,6 +762,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		?><header class="page-header">
 			<h1 class="page-title"><?php
 
+				/* Translators: %s: search query. */
 				printf( esc_html__( 'Search Results for: %s', 'rosh' ), '<span>' . get_search_query() . '</span>' );
 
 			?></h1>
