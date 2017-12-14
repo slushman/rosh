@@ -65,6 +65,7 @@ $classes[] = 'Soliloquy';
 $classes[] = 'Themehooks';
 $classes[] = 'Users';
 $classes[] = 'Utilities';
+$classes[] = 'WooCommerce';
 
 foreach ( $classes as $class ) {
 

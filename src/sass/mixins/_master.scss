@@ -22,3 +22,7 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+// Column width with margin
+@mixin column-width ( $numberColumns: 3 ) {
+	width: percentage( ( 100 / $numberColumns ) / 100 ) - ( ( $size__col-margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
