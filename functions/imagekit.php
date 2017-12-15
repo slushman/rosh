@@ -9,42 +9,42 @@
 
 /**
  * Returns a path if the file exists, FALSE if not.
- * 
+ *
  * @param 		string 		$file 		The file name to check for.
  * @return 		mixed 					File path or FALSE
  */
 function rosh_check_for_svg_file( $file ) {
-	
+
 	if ( empty( $file ) ) { return FALSE; }
-	
+
 	$return 	= FALSE;
 	$paths[] 	= '/assets/svgs/dashicons';
 	$paths[] 	= '/assets/svgs/fontawesome';
 	$paths[] 	= '/assets/svgs/theme';
-	
+
 	/**
 	 * The rosh_svg_paths filter.
 	 */
 	$paths = apply_filters( 'rosh_svg_paths', $paths );
-	
+
 	if ( empty( $paths ) ) { return FALSE; }
-	
+
 	foreach ( $paths as $path ) {
-		
+
 		$svgfile 		= $file . '.svg';
 		$fullpath 		= get_stylesheet_directory() . $path;
 		$pathtocheck 	= trailingslashit( $fullpath ) . $svgfile;
 		$check			= file_exists( $pathtocheck );
-		
+
 		if ( ! $check ) { continue; }
-		
+
 		$uri 	= get_stylesheet_directory_uri() . $path;
 		$return = trailingslashit( $uri ) . $svgfile;
-		
+
 	} // foreach
-	
+
 	return $return;
-	
+
 } // rosh_check_for_svg_file()
 
 if ( ! function_exists( 'rosh_get_customizer_image_info' ) ) :
@@ -128,19 +128,18 @@ if ( ! function_exists( 'rosh_get_svg' ) ) :
 	function rosh_get_svg( $svg ) {
 
 		if ( empty( $svg ) ) { return; }
-		
+
 		$return 	= '';
-		$file 		= apply_filters( 'rosh_change_svg', $svg );
-		$filecheck 	= rosh_check_for_svg_file( $file );
-		
+		$filecheck 	= rosh_check_for_svg_file( $svg );
+
 		if ( empty( $filecheck ) ) { return FALSE; }
-		
+
 		$get = wp_remote_get( $filecheck );
-		
+
 		if ( is_wp_error( $get ) ) { return FALSE; }
-		
+
 		$return = wp_remote_retrieve_body( $get );
-		
+
 		return $return;
 
 	} // rosh_get_svg()

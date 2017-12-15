@@ -25,15 +25,6 @@ body {
 	}
 }
 
-blockquote, q {
-	quotes: "" "";
-
-	&:before,
-	&:after {
-		content: "";
-	}
-}
-
 hr {
 	background-color 	: $oc-gray-3;
 	border 				: 0;

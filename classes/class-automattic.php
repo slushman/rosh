@@ -55,7 +55,12 @@ class Rosh_Automattic {
 				'tags'			=> '.tags-links',
 				'author'		=> '.byline',
 				'comment'		=> '.comments-link',
-			)
+			),
+			'featured-images' => array(
+				'archive' 	=> true,
+				'post' 		=> true,
+				'page' 		=> true,
+			),
 		) );
 
 	} // jetpack_setup()
