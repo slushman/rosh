@@ -162,7 +162,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 					$args['delimiter'] 		= '&nbsp;>&nbsp;';
 					$args['home'] 			= esc_html_x( 'Home', 'breadcrumb', 'rosh' );
 					$args['wrap_after'] 	= '</span></span></nav>';
-					$args['wrap_before'] 	= '<nav class="woocommerce-breadcrumb" ' . ( is_single() ? 'itemprop="breadcrumb"' : '' ) . '><span xmlns:v="http://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb">';
+					$args['wrap_before'] 	= '<nav class="woocommerce-breadcrumb" ' . ( is_single() ? 'itemprop="breadcrumb"' : '' ) . '><span xmlns:v="https://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb">';
 
 					woocommerce_breadcrumb( $args );
 
@@ -474,7 +474,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 
 		?><meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="profile" href="http://gmpg.org/xfn/11">
+		<link rel="profile" href="https://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"><?php
 
 	} // head_content()

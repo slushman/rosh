@@ -210,7 +210,7 @@ if ( ! function_exists( 'rosh_get_video_thumb' ) ) :
 
 			}
 
-			$return = "http://img.youtube.com/vi/" . $video_id[2] . "/0.jpg";
+			$return = "https://img.youtube.com/vi/" . $video_id[2] . "/0.jpg";
 
 		} elseif ( preg_match( '~vimeo~', $embed_code ) ) {
 
@@ -300,7 +300,7 @@ if ( ! function_exists( 'rosh_get_vimeo_thumb' ) ) :
 	 */
 	function rosh_get_vimeo_thumb( $videoid ) {
 
-		$url 			= "http://vimeo.com/api/v2/video/" . $videoid . ".php";
+		$url 			= "https://vimeo.com/api/v2/video/" . $videoid . ".php";
 		$cache_id 		= 'vimeocache::' . md5( $url );
 		$cache_lifetime = 300;
 		$cached 		= get_option( $cache_id, -1 );

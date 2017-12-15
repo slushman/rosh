@@ -326,7 +326,7 @@ class Rosh_Sanitize {
 	 * @exits 		If $phone is empty.
 	 * @access 		private
 	 * @since		0.1
-	 * @link		http://jrtashjian.com/2009/03/code-snippet-validate-a-phone-number/
+	 * @link		https://jrtashjian.com/2009/03/code-snippet-validate-a-phone-number/
 	 * @param 		string 			$phone				A phone number string
 	 * @return		string|bool		$phone|FALSE		Returns the valid phone number, FALSE if not
 	 */

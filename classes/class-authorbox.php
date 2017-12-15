@@ -235,7 +235,7 @@ class Rosh_Authorbox {
 	 */
 	public function wrap_begin() {
 
-		?><div class="wrap-authorbox" itemscope itemtype="http://schema.org/Person"><?php
+		?><div class="wrap-authorbox" itemscope itemtype="https://schema.org/Person"><?php
 
 	} // wrap_begin()
 

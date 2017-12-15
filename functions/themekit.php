@@ -398,7 +398,7 @@ if ( ! function_exists( 'rosh_make_map_link' ) ) :
 		$return = '';
 
 		$query_args['q'] 	= urlencode( $address );
-		$return 			= add_query_arg( $query_args, 'http://www.google.com/maps/' );
+		$return 			= add_query_arg( $query_args, 'https://www.google.com/maps/' );
 
 		return $return;
 

@@ -210,7 +210,7 @@ class Rosh_Metabox {
 	 * 		Sanitize the value.
 	 * Return the results.
 	 *
-	 * @link 		http://www.stillat.com/blog/2013/10/29/passing-data-to-php-anonymous-functions/
+	 * @link 		https://stillat.com/blog/2013/10/29/passing-data-to-php-anonymous-functions/
 	 *
 	 * @exits 		If $meta is empty.
 	 * @exits 		If $posted is empty.

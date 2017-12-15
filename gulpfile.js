@@ -157,7 +157,7 @@ gulp.task( 'scripts', function() {
 /**
  * Live Reloads, CSS injections, Localhost tunneling.
  *
- * @link http://www.browsersync.io/docs/options/
+ * @link	https://browsersync.io/docs/options/
  */
 gulp.task( 'browser-sync', function() {
 	browserSync.init({

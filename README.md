@@ -6,7 +6,7 @@
 * Tested up to: 4.9.1
 * Stable tag: 1.0.4
 * License: GPLv2 or later
-* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* License URI: LICENSE
 
 A custom WordPress theme framework, originally derived from `_s`, or underscores by Automattic, designed and coded by slushman.
 
@@ -41,7 +41,7 @@ No. Rosh started out as a fork of `_s`, but was converted to a framework to make
 ## Changelog
 
 ### 1.0.4
-* Brings Rosh up to parity with current versio of `_s`, as of 12/13/2017
+* Brings Rosh up to parity with current version of `_s`, as of 12/15/2017
 
 ### 1.0.3
 * Changes Tag Manager Customizer field to Tag Manager ID instead. Tag Manager code is hard-coded into the analytics_code() function.
@@ -65,5 +65,5 @@ No. Rosh started out as a fork of `_s`, but was converted to a framework to make
 
 ## Resources
 
-* Based on Underscores http://underscores.me, (C) 2012-2015 Automattic, Inc., [GPL2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css http://nicolas.github.io/normalize.css/, (c) 2012-2015 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
+* Based on Underscores https://underscores.me, (C) 2012-2018 Automattic, Inc., [GPL2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* normalize.css https://necolas.github.io/normalize.css/, (c) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
