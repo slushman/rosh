@@ -87,7 +87,15 @@ class WooCommerce {
 			?></span> <span class="count"><?php
 
 				/* Translators: number of items in the mini cart */
-				echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'rosh' ), WC()->cart->get_cart_contents_count() ) );
+				echo wp_kses_data(
+					sprintf(
+						_n( '%d item',
+							'%d items',
+							WC()->cart->get_cart_contents_count(),
+						'rosh' ),
+						WC()->cart->get_cart_contents_count()
+					)
+				);
 
 			?></span>
 		</a><?php

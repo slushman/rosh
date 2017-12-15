@@ -35,7 +35,7 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) { return NULL; }
 
 			 foreach ( $this->cats as $cat ) {
 
-				 printf('<option value="%s" %s>%s</option>', $cat->term_id, selected($this->value(), $cat->term_id, false), $cat->name);
+				 printf( '<option value="%s" %s>%s</option>', $cat->term_id, selected( $this->value(), $cat->term_id, false ), $cat->name );
 
 			 } // foreach
 

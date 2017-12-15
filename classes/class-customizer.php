@@ -244,7 +244,7 @@ class Rosh_Customizer {
 
 		if ( empty( $mod ) ) { return; }
 
-		$return = sprintf('%s { %s:%s; }',
+		$return = sprintf( '%s { %s:%s; }',
 			$selector,
 			$style,
 			$prefix . $mod . $postfix

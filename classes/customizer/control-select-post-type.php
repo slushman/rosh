@@ -11,23 +11,23 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) { return NULL; }
  */
 class Select_Post_Type_Custom_Control extends WP_Customize_Control {
 
-     private $postTypes = false;
+	 private $postTypes = false;
 
-     public function __construct( $manager, $id, $args = array(), $options = array() ) {
+	 public function __construct( $manager, $id, $args = array(), $options = array() ) {
 
-         $postargs = wp_parse_args($options, array('public' => true));
-         $this->postTypes = get_post_types($postargs, 'object');
+		 $postargs = wp_parse_args($options, array('public' => true));
+		 $this->postTypes = get_post_types($postargs, 'object');
 
-         parent::__construct( $manager, $id, $args );
+		 parent::__construct( $manager, $id, $args );
 
-     } // __construct()
+	 } // __construct()
 
-     /**
-     * Render the content on the theme customizer page
-     */
-     public function render_content() {
+	 /**
+	 * Render the content on the theme customizer page
+	 */
+	 public function render_content() {
 
-         if( empty( $this->postTypes ) ) { return false; }
+		 if( empty( $this->postTypes ) ) { return false; }
 
 		 ?><label>
 			 <span class="customize-post-type-dropdown"><?php echo esc_html( $this->label ); ?></span>
@@ -35,13 +35,13 @@ class Select_Post_Type_Custom_Control extends WP_Customize_Control {
 
 			 foreach ( $this->postTypes as $k => $post_type ) {
 
-				 printf('<option value="%s" %s>%s</option>', $k, selected($this->value(), $k, false), $post_type->labels->name);
+				 printf( '<option value="%s" %s>%s</option>', $k, selected( $this->value(), $k, false ), $post_type->labels->name );
 
 			 }
 
 			 ?></select>
 		 </label><?php
 
-     } // render_content()
+	 } // render_content()
 
  } // class

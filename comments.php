@@ -36,7 +36,7 @@ do_action( 'rosh_comments_before' );
 
 				printf(
 					/* Translators: 1: title. */
-					esc_html_e( 'One thought on &ldquo;%1$s&rdquo;', 'rosh' ),
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'rosh' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 

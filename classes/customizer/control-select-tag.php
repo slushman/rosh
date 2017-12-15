@@ -34,10 +34,10 @@ class Tags_Dropdown_Custom_Control extends WP_Customize_Control {
 
 			 foreach ( $this->tags as $tag ) {
 
-				 printf('<option value="%s" %s>%s</option>',
+				 printf( '<option value="%s" %s>%s</option>',
 					 $tag->term_id,
-					selected($this->value(), $tag->term_id, false),
-					$tag->name);
+					selected( $this->value(), $tag->term_id, false ),
+					$tag->name );
 				 }
 
 			?></select>
