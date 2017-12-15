@@ -62,7 +62,7 @@ class Rosh_Setup {
 
 		wp_enqueue_style( 'wp-color-picker' );
 
-		wp_enqueue_style( 'rosh-admin', get_stylesheet_directory_uri() . '/admin.css' );
+		wp_enqueue_style( 'rosh-admin', get_theme_file_uri( '/admin.css' );
 
 		wp_enqueue_style( 'datepicker', '//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css', array(), PARENT_THEME_VERSION, 'all' );
 
@@ -72,7 +72,7 @@ class Rosh_Setup {
 
 		wp_enqueue_media();
 
-		wp_enqueue_script( 'rosh-admin', get_stylesheet_directory_uri() . '/assets/js/admin.min.js', array( 'jquery', 'media-upload', 'jquery-ui-datepicker', 'wp-color-picker', 'timepicker', 'jquery-ui-slider' ), PARENT_THEME_VERSION, true );
+		wp_enqueue_script( 'rosh-admin', get_theme_file_uri( '/assets/js/admin.min.js' ), array( 'jquery', 'media-upload', 'jquery-ui-datepicker', 'wp-color-picker', 'timepicker', 'jquery-ui-slider' ), PARENT_THEME_VERSION, true );
 
 		wp_enqueue_script( 'timepicker', '//cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-slider' ), PARENT_THEME_VERSION, true );
 
@@ -92,7 +92,7 @@ class Rosh_Setup {
 	 */
 	public function enqueue_customizer_controls() {
 
-		wp_enqueue_script( 'rosh-customizer-controls', get_stylesheet_directory_uri() . '/assets/js/customizer-controls.min.js', array( 'jquery', 'customize-controls' ), PARENT_THEME_VERSION, true );
+		wp_enqueue_script( 'rosh-customizer-controls', get_theme_file_uri( '/assets/js/customizer-controls.min.js', array( 'jquery', 'customize-controls' ), PARENT_THEME_VERSION, true );
 
 	} // enqueue_customizer_controls()
 
@@ -103,7 +103,7 @@ class Rosh_Setup {
 	 */
 	public function enqueue_customizer_scripts() {
 
-		wp_enqueue_script( 'rosh-customizer', get_stylesheet_directory_uri() . '/assets/js/customizer.min.js', array( 'jquery', 'customize-preview' ), PARENT_THEME_VERSION, true );
+		wp_enqueue_script( 'rosh-customizer', get_theme_file_uri( '/assets/js/customizer.min.js' ), array( 'jquery', 'customize-preview' ), PARENT_THEME_VERSION, true );
 
 	} // enqueue_customizer_scripts()
 
@@ -114,7 +114,7 @@ class Rosh_Setup {
 	 */
 	public function enqueue_customizer_styles() {
 
-		wp_enqueue_style( 'rosh-customizer-style', get_stylesheet_directory_uri() . '/customizer.css', 10, 2 );
+		wp_enqueue_style( 'rosh-customizer-style', get_theme_file_uri( 'customizer.css' ), 10, 2 );
 
 	} // enqueue_customizer_styles()
 
@@ -125,7 +125,7 @@ class Rosh_Setup {
 	 */
 	public function enqueue_login() {
 
-		wp_enqueue_style( 'rosh-login', get_stylesheet_directory_uri() . '/login.css', 10, 1 );
+		wp_enqueue_style( 'rosh-login', get_theme_file_uri( 'login.css' ), 10, 1 );
 
 	} // enqueue_login()
 
@@ -144,9 +144,9 @@ class Rosh_Setup {
 
 		//wp_enqueue_script( 'enquire', '//cdnjs.cloudflare.com/ajax/libs/enquire.js/2.1.2/enquire.min.js', array(), PARENT_THEME_VERSION, true );
 
-		wp_enqueue_script( 'rosh-libs', get_stylesheet_directory_uri() . '/assets/js/lib.min.js', array(), PARENT_THEME_VERSION, true );
+		wp_enqueue_script( 'rosh-libs', get_theme_file_uri( '/assets/js/lib.min.js', array(), PARENT_THEME_VERSION, true );
 
-		wp_enqueue_script( 'rosh-public', get_stylesheet_directory_uri() . '/assets/js/public.min.js', array( 'jquery', 'rosh-libs' ), PARENT_THEME_VERSION, true );
+		wp_enqueue_script( 'rosh-public', get_theme_file_uri( '/assets/js/public.min.js', array( 'jquery', 'rosh-libs' ), PARENT_THEME_VERSION, true );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 

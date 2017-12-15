@@ -121,7 +121,7 @@ class WooCommerce {
 	 */
 	public function enqueue_scripts() {
 
-		wp_enqueue_style( 'rosh-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
+		wp_enqueue_style( 'rosh-woocommerce-style', get_theme_file_uri( '/woocommerce.css' );
 
 		$font_path = WC()->plugin_url() . '/assets/fonts/';
 		$inline_font = '@font-face {
