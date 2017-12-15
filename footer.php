@@ -26,7 +26,7 @@
 		 */
 		do_action( 'rosh_footer_before' );
 
-		?><footer class="site-footer" id="colophon"><?php
+		?><footer class="site-footer" id="colophon" role="contentinfo"><?php
 
 			/**
 			 * The rosh_footer_top action hook
