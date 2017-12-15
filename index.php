@@ -2,7 +2,7 @@
 /**
  * The main template file.
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Rosh
  */

@@ -12,7 +12,7 @@
  * @package  Rosh
  * @author   slushman
  * @license  GPL-2.0+
- * @link     https://codex.wordpress.org/Functions_File_Explained
+ * @link     https://developer.wordpress.org/themes/basics/theme-functions/
  */
 
 /**

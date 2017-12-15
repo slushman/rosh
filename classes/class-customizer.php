@@ -5,7 +5,7 @@
  *
  * Contains methods for customizing the theme customization screen.
  *
- * @link 			https://codex.wordpress.org/Theme_Customization_API
+ * @link 			https://developer.wordpress.org/themes/customize-api/
  * @since 			1.0.0
  * @package 		Rosh
  * @subpackage 		Rosh/classes
