@@ -1,0 +1,53 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin 		: 1.5em 0 0;
+}
+
+.page-links {
+	margin: 0 0 1.5em;
+}
+
+.site-content {
+	overflow 	: auto;
+	width 		: 100%;
+
+	@include centermax();
+
+	margin-bottom: $size__default-bot-marg;
+}
+
+main {
+	grid-area	: main;
+	overflow	: hidden;
+}
+
+.content-sidebar {
+	grid-template-areas		:
+		"header header"
+		"main sidebar"
+		"footer footer";
+	grid-template-columns	: auto (-$size__site-sidebar);
+	display					: grid;
+}
+
+.sidebar-content {
+	grid-template-areas		:
+		"header header"
+		"sidebar main"
+		"footer footer";
+	grid-template-columns	: (-$size__site-sidebar) auto;
+	display					: grid;
+}
+
+.archive-entry-link {
+	color: $oc-gray-9;
+}

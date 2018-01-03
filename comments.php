@@ -22,64 +22,58 @@ if ( post_password_required() ) { return; }
  */
 do_action( 'rosh_comments_before' );
 
-?><div id="comments" class="comments-area"><?php
+if ( have_comments() ) :
 
-	// You can start editing here -- including this comment!
+	?><h2 class="comments-title"><?php
 
-	if ( have_comments() ) :
+		$comment_count = get_comments_number();
 
-		?><h2 class="comments-title"><?php
+		if ( 1 === $comment_count ) {
 
-			$comment_count = get_comments_number();
+			printf(
+				/* Translators: 1: title. */
+				esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'rosh' ),
+				'<span>' . get_the_title() . '</span>'
+			);
 
-			if ( 1 === $comment_count ) {
+		} else {
 
-				printf(
-					/* Translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'rosh' ),
-					'<span>' . get_the_title() . '</span>'
-				);
+			printf( // WPCS: XSS OK.
+				/* Translators: 1: comment count number, 2: title. */
+				esc_html(
+					_nx( '%1$s thought on &ldquo;%1$s&rdquo;', '%1$s thoughts on &ldquo;%1$s&rdquo;', $comment_count, 'comments title', 'rosh' )
+				),
+				number_format_i18n( $comment_count ),
+				'<span>' . get_the_title() . '</span>'
+			);
 
-			} else {
+		}
 
-				printf( // WPCS: XSS OK.
-					/* Translators: 1: comment count number, 2: title. */
-					esc_html(
-						_nx( '%1$s thought on &ldquo;%1$s&rdquo;', '%1$s thoughts on &ldquo;%1$s&rdquo;', $comment_count, 'comments title', 'rosh' )
-					),
-					number_format_i18n( $comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
+	?></h2><!-- .comments-title --><?php
 
-			}
+	the_comments_navigation();
 
-		?></h2><!-- .comments-title --><?php
+	?><ol class="comment-list"><?php
 
-		the_comments_navigation();
+		wp_list_comments( array(
+			'style'      => 'ol',
+			'short_ping' => true,
+		) );
 
-		?><ol class="comment-list"><?php
+	?></ol><!-- .comment-list --><?php
 
-			wp_list_comments( array(
-				'style'      => 'ol',
-				'short_ping' => true,
-			) );
+	the_comments_navigation();
 
-		?></ol><!-- .comment-list --><?php
+endif; // Check for have_comments().
 
-		the_comments_navigation();
+// If comments are closed and there are comments, let's leave a little note, shall we?
+if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 
-	endif; // Check for have_comments().
+	?><p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'rosh' ); ?></p><?php
 
-	// If comments are closed and there are comments, let's leave a little note, shall we?
-	if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+endif;
 
-		?><p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'rosh' ); ?></p><?php
-
-	endif;
-
-	comment_form();
-
-?></div><!-- #comments --><?php
+comment_form();
 
 /**
  * The rosh_comments_after action hook

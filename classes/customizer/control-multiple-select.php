@@ -28,7 +28,7 @@ class Control_Select_Multiple extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		wp_enqueue_script( 'customize-controls', get_stylesheet_directory_uri() . '/customizer-multi-select.min.js', array( 'jquery', 'wp-util' ) );
+		wp_enqueue_script( 'customize-controls', get_template_directory_uri() . '/customizer-multi-select.min.js', array( 'jquery', 'wp-util' ) );
 
 	} // enqueue()
 

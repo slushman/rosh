@@ -1,0 +1,62 @@
+.text-uppercase {
+	text-transform: uppercase;
+}
+
+.text-lowercase {
+	text-transform: lowercase;
+}
+
+.letterbox {
+	border-bottom 	: 3px solid;
+	border-top 		: 3px solid;
+	margin 			: 1.5em auto !important;
+}
+
+.line-middle {
+	display 	: table;
+	white-space : nowrap;
+
+	&:before,
+	&:after {
+		border-top 	: 0.25em solid;
+		content 	: "";
+		display 	: table-cell;
+		position 	: relative;
+		transform 	: translateY(33%);
+	}
+
+	&:before {
+		right: 1.5%;
+	}
+
+	&:after {
+		left: 1.5%;
+	}
+}
+
+.lm-text-left {
+	&:after {
+		width: 100%;
+	}
+
+	&:before {
+		width: 0;
+	}
+}
+
+.lm-text-right {
+	&:before {
+		width: 100%;
+	}
+
+	&:after {
+		width: 0;
+	}
+}
+
+.lm-text-center {
+	&:after,
+	&:before {
+		width: 45%;
+	}
+}

@@ -29,7 +29,7 @@ class Customize_Control_Checkbox_Multiple extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		wp_enqueue_script( 'customize-controls', trailingslashit( get_stylesheet_directory_uri() ) . 'customizer-multi-checkbox.min.js', array( 'jquery' ) );
+		wp_enqueue_script( 'customize-controls', trailingslashit( get_template_directory_uri() ) . 'customizer-multi-checkbox.min.js', array( 'jquery' ) );
 
 	} // enqueue()
 

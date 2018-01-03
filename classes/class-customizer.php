@@ -630,7 +630,7 @@ class Rosh_Customizer {
 
 		foreach ( $files as $file ) {
 
-			require_once( trailingslashit( get_stylesheet_directory() ) . 'classes/customizer/' . $file );
+			require_once( trailingslashit( get_template_directory() ) . 'classes/customizer/' . $file );
 
 		}
 

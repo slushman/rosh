@@ -21,14 +21,9 @@ class Rosh_Autoloader {
 		$class_name = str_replace( 'Rosh_', '', $class_name );
 		$lower 		= strtolower( $class_name );
 		$file      	= 'class-' . str_replace( '_', '-', $lower ) . '.php';
-		$base_path 	= trailingslashit( get_stylesheet_directory() );
+		$base_path 	= trailingslashit( get_template_directory() );
 		$paths[] 	= $base_path . $file;
 		$paths[] 	= $base_path . 'classes/' . $file;
-
-		/**
-		 * rosh_autoloader_paths filter
-		 */
-		$paths = apply_filters( 'rosh_autoloader_paths', $paths );
 
 		foreach ( $paths as $path ) :
 

@@ -19,27 +19,27 @@
  * Set the constants used throughout.
  */
 define( 'PARENT_THEME_SLUG', 'rosh' );
-define( 'PARENT_THEME_VERSION', '1.0.2' );
+define( 'PARENT_THEME_VERSION', '1.0.4' );
 
 /**
  * Load Imagekit.
  */
-require get_stylesheet_directory() . '/functions/imagekit.php';
+require get_template_directory() . '/functions/imagekit.php';
 
 /**
  * Load Themekit.
  */
-require get_stylesheet_directory() . '/functions/themekit.php';
+require get_template_directory() . '/functions/themekit.php';
 
 /**
  * Load Menu Walker.
  */
-require get_stylesheet_directory() . '/classes/menu-walker.php';
+require get_template_directory() . '/classes/menu-walker.php';
 
 /**
  * Load Autoloader
  */
-require get_stylesheet_directory() . '/classes/class-autoloader.php';
+require get_template_directory() . '/classes/class-autoloader.php';
 
 
 /**

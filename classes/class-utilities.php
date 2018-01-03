@@ -278,6 +278,22 @@ class Rosh_Utilities {
 
 		}
 
+		if ( is_page() ) {
+
+			if ( is_page_template( 'templates/page_content-sidebar.php' ) ) {
+
+				$classes[] = 'content-sidebar';
+
+			}
+
+			if ( is_page_template( 'templates/page_sidebar-content.php' ) ) {
+
+				$classes[] = 'sidebar-content';
+
+			}
+
+		}
+
 		return $classes;
 
 	} // page_body_classes()

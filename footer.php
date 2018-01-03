@@ -9,17 +9,10 @@
  * @package Rosh
  */
 
-			/**
-			 * The rosh_content_bottom action hook
-			 */
-			do_action( 'rosh_content_bottom' );
-
-		?></div><!-- #content --><?php
-
 		/**
-		 * The rosh_content_after action hook
+		 * The rosh_content_bottom action hook
 		 */
-		do_action( 'rosh_content_after' );
+		do_action( 'rosh_content_bottom' );
 
 		/**
 		 * The rosh_footer_before action hook

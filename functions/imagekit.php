@@ -32,13 +32,13 @@ function rosh_check_for_svg_file( $file ) {
 	foreach ( $paths as $path ) {
 
 		$svgfile 		= $file . '.svg';
-		$fullpath 		= get_stylesheet_directory() . $path;
+		$fullpath 		= get_template_directory() . $path;
 		$pathtocheck 	= trailingslashit( $fullpath ) . $svgfile;
 		$check			= file_exists( $pathtocheck );
 
 		if ( ! $check ) { continue; }
 
-		$uri 	= get_stylesheet_directory_uri() . $path;
+		$uri 	= get_template_directory_uri() . $path;
 		$return = trailingslashit( $uri ) . $svgfile;
 
 	} // foreach

@@ -62,7 +62,7 @@ class Rosh_Setup {
 
 		wp_enqueue_style( 'wp-color-picker' );
 
-		wp_enqueue_style( 'rosh-admin', get_theme_file_uri( '/admin.css' );
+		wp_enqueue_style( 'rosh-admin', get_theme_file_uri( '/admin.css' ) );
 
 		wp_enqueue_style( 'datepicker', '//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css', array(), PARENT_THEME_VERSION, 'all' );
 
@@ -92,7 +92,7 @@ class Rosh_Setup {
 	 */
 	public function enqueue_customizer_controls() {
 
-		wp_enqueue_script( 'rosh-customizer-controls', get_theme_file_uri( '/assets/js/customizer-controls.min.js', array( 'jquery', 'customize-controls' ), PARENT_THEME_VERSION, true );
+		wp_enqueue_script( 'rosh-customizer-controls', get_theme_file_uri( '/assets/js/customizer-controls.min.js' ), array( 'jquery', 'customize-controls' ), PARENT_THEME_VERSION, true );
 
 	} // enqueue_customizer_controls()
 
@@ -144,9 +144,9 @@ class Rosh_Setup {
 
 		//wp_enqueue_script( 'enquire', '//cdnjs.cloudflare.com/ajax/libs/enquire.js/2.1.2/enquire.min.js', array(), PARENT_THEME_VERSION, true );
 
-		wp_enqueue_script( 'rosh-libs', get_theme_file_uri( '/assets/js/lib.min.js', array(), PARENT_THEME_VERSION, true );
+		wp_enqueue_script( 'rosh-libs', get_theme_file_uri( '/assets/js/lib.min.js' ), array(), PARENT_THEME_VERSION, true );
 
-		wp_enqueue_script( 'rosh-public', get_theme_file_uri( '/assets/js/public.min.js', array( 'jquery', 'rosh-libs' ), PARENT_THEME_VERSION, true );
+		wp_enqueue_script( 'rosh-public', get_theme_file_uri( '/assets/js/public.min.js' ), array( 'jquery', 'rosh-libs' ), PARENT_THEME_VERSION, true );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
@@ -230,7 +230,7 @@ class Rosh_Setup {
 	 */
 	public function text_domain() {
 
-		load_theme_textdomain( 'rosh', get_stylesheet_directory() . '/languages' );
+		load_theme_textdomain( 'rosh', get_template_directory() . '/languages' );
 
 	} // text_domain()
 
@@ -279,7 +279,7 @@ class Rosh_Setup {
 		 * @param 	bool 	flex-width 		True if the theme has additional space for the logo horizontally.
 		 */
 		add_theme_support( 'custom-logo', array(
-			'height' 		=> 250
+			'height' 		=> 250,
 			'width' 		=> 250,
 			'flex-width' 	=> true,
 			'flex-height' 	=> true,

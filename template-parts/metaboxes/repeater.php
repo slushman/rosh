@@ -33,5 +33,5 @@ if ( ! empty( $this->meta[$setatts['id']] ) ) {
 
 }
 
-include( get_stylesheet_directory() . '/template-parts/fields/repeater.php' );
+include( get_template_directory() . '/template-parts/fields/repeater.php' );
 unset( $setatts );

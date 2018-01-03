@@ -2,8 +2,8 @@
  * Custom styling for the login form page
  */
 
-@import "variables-site/vars";
-@import "mixins/mixins";
+@import "tools/vars";
+@import "tools/mixins";
 
 h1 {
 
@@ -85,10 +85,10 @@ h1 {
 
 .login { // page body tag
 	background: $oc-gray-3;
-	
+
 	.button-primary { // submit button itself
 		@include resetbutton( $oc-gray-4, $oc-gray-7, $oc-gray-0 );
-		
+
 		color 			: $oc-gray-7;
 		font-size 		: 1.25em;
 		font-weight 	: 700;

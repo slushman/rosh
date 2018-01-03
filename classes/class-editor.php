@@ -146,7 +146,6 @@ class Rosh_Editor {
 		//
 		// $custom[2]['items'][6]['title'] 		= __( 'Content Block', 'rosh' );
 		// $custom[2]['items'][6]['inline'] 		= 'div';
-		// $custom[2]['items'][6]['classes'] 		= 'clear';
 
 
 

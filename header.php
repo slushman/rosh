@@ -88,15 +88,8 @@ do_action( 'rosh_html_before' );
 		do_action( 'rosh_header_after' );
 
 		/**
-		 * The rosh_content_before action hook
+		 * The rosh_content_top action hook
+		 *
+		 * @hooked 		breadcrumbs
 		 */
-		do_action( 'rosh_content_before' );
-
-		?><div id="content" class="site-content"><?php
-
-			/**
-			 * The rosh_content_top action hook
-			 *
-			 * @hooked 		breadcrumbs
-			 */
-			do_action( 'rosh_content_top' );
+		do_action( 'rosh_content_top' );

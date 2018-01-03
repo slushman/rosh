@@ -29,64 +29,73 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/.
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-Variables
-Mixins & Extensions
-Normalize
-Typography
+Tools
 Elements
-Forms
-Navigation
-Content
-Modules
-Media
---------------------------------------------------------------*/
-@import "variables-site/vars";
-@import "mixins/mixins";
+Components
+Layout
+Utilities
+Plugins
 
 /*--------------------------------------------------------------
-## Reset
+## Tools
 --------------------------------------------------------------*/
-@import "normalize";
-
-/*--------------------------------------------------------------
-## Typography
---------------------------------------------------------------*/
-@import "typography/typography";
-@import "typography/headings";
-@import "typography/copy";
+@import "tools/vars";
+@import "tools/mixins";
+@import "tools/normalize";
 
 /*--------------------------------------------------------------
 ## Elements
 --------------------------------------------------------------*/
+@import "elements/typography";
+@import "elements/headings";
+@import "elements/copy";
 @import "elements/elements";
 @import "elements/lists";
 @import "elements/tables";
+@import "elements/fields";
+@import "elements/buttons";
+@import "elements/links";
+@import "elements/media";
 
 /*--------------------------------------------------------------
-## Forms
+## Components
 --------------------------------------------------------------*/
-@import "forms/fields";
-@import "forms/buttons";
-@import "forms/search";
+@import "components/authorbox";
+@import "components/blocks";
+@import "components/breadcrumbs";
+@import "components/captions";
+@import "components/galleries";
+@import "components/media";
+@import "components/posts-navigation";
+@import "components/primary-menu";
+@import "components/search";
+@import "components/social";
 
 /*--------------------------------------------------------------
-## Navigation
+## Layout
 --------------------------------------------------------------*/
-@import "navigation/menus";
+@import "layout/asides";
+@import "layout/comments";
+@import "layout/entry-meta";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/home";
+@import "layout/posts-and-pages";
+@import "layout/widgets";
 
 /*--------------------------------------------------------------
-## Content
+## Utilities
 --------------------------------------------------------------*/
-@import "site/site";
+@import "utilities/accessibility";
+@import "utilities/alignments";
+@import "utilities/coin";
+@import "utilities/links-files";
+@import "utilities/shapes";
+@import "utilities/text";
 
 /*--------------------------------------------------------------
-## Modules
+## Plugins
 --------------------------------------------------------------*/
-@import "modules/modules";
-
-/*--------------------------------------------------------------
-## Media
---------------------------------------------------------------*/
-@import "media/captions";
-@import "media/galleries";
-@import "media/media";
+@import "plugins/formidable";
+@import "plugins/infinite-scroll";
+@import "plugins/woocommerce";

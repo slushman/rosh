@@ -8,7 +8,7 @@
  * @package _s
  */
 
-class WooCommerce {
+class Rosh_WooCommerce {
 
 	/**
 	 * Class constructor.
@@ -129,7 +129,7 @@ class WooCommerce {
 	 */
 	public function enqueue_scripts() {
 
-		wp_enqueue_style( 'rosh-woocommerce-style', get_theme_file_uri( '/woocommerce.css' );
+		wp_enqueue_style( 'rosh-woocommerce-style', get_theme_file_uri( '/woocommerce.css' ) );
 
 		$font_path = WC()->plugin_url() . '/assets/fonts/';
 		$inline_font = '@font-face {
@@ -288,8 +288,7 @@ class WooCommerce {
 	 */
 	public function wrapper_after() {
 
-			?></main><!-- #main -->
-		</div><!-- #primary --><?php
+			?></main><!-- #main --><?php
 
 	} // wrapper_after()
 
@@ -303,8 +302,7 @@ class WooCommerce {
 	 */
 	public function wrapper_before() {
 
-		?><div id="primary" class="content-area">
-			<main id="main" class="site-main" role="main"><?php
+		?><main id="main" class="site-main" role="main"><?php
 
 	} // wrapper_before()
 

@@ -307,7 +307,6 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 			'<span class="edit-link">',
 			'</span>'
 		);
-		esc_html__( 'Edit', 'rosh' ), '<span class="edit-link">', '</span>' );
 
 	} // entry_edit_link()
 

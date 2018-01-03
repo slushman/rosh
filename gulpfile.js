@@ -25,7 +25,7 @@
  */
 
 var project = {
-	'url': 'rosh.dev',
+	'url': 'rosh.test',
 	'i18n': {
 		'domain': 'rosh',
 		'destFile': 'rosh.pot',

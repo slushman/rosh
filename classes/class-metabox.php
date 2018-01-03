@@ -149,7 +149,7 @@ class Rosh_Metabox {
 		if ( ! is_admin() ) { return FALSE; }
 		if ( ! $this->check_conditions( $post_obj ) ) { return FALSE; }
 
-		include( get_stylesheet_directory() . '/template-parts/metaboxes/' . $params['args']['file'] . '.php' );
+		include( get_template_directory() . '/template-parts/metaboxes/' . $params['args']['file'] . '.php' );
 
 	} // metabox()
 
